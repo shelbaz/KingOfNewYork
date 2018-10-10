@@ -11,7 +11,6 @@
 
 #endif /* Map_hpp */
 
-#pragma once
 #include <iostream>
 #include <vector>
 #include <string>

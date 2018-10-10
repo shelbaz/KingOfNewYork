@@ -11,7 +11,6 @@
 
 #endif /* Zone_hpp */
 
-#pragma once
 #include <iostream>
 #include <vector>
 #include <string>
@@ -25,8 +24,10 @@ class Zone
 
 {
 public:
-    
+
     Zone ();
+    Zone (const string& zoneName);
+    Zone (const string& zoneName, Player* p);
     ~Zone ();
     void setZoneName (const string& name);
     string getZoneName();
