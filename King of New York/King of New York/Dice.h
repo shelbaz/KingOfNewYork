@@ -22,6 +22,7 @@ public:
     void resetDiceValuesMap();
     void resetDiceRolls();
     void diceHistoricalValues();
+    int getNumbOfRollsRemaining();
     DiceOptions randomDiceOption();
 
 

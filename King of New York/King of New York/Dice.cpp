@@ -67,6 +67,10 @@ int Dice::getPlayerNumber() {
     return playerNumber;
 }
 
+int Dice::getNumbOfRollsRemaining() {
+    return numberOfRolls;
+}
+
 void Dice::resetDiceValuesMap() {
     DiceValues[DiceOptions::Heal] = 0;
     DiceValues[DiceOptions::Attack] = 0;
