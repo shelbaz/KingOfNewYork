@@ -7,6 +7,7 @@
 #include <ctime>
 #include <vector>
 #include <iostream>
+#include <string>
 using namespace std;
 
 
@@ -20,7 +21,6 @@ Dice::Dice(int playerVal) {
     vector< map < DiceOptions, int> > historyOfRolls;
 
     vector< map < DiceOptions, int> > ::iterator it;
-    map<DiceOptions, int>::iterator mapIt;
 
 }
 
@@ -34,14 +34,19 @@ void Dice::resetDiceRolls() {
 
 }
 
-void Dice::rollDice(int amtOfDice) {
+void Dice::rollDice(int amtOfDice=6) {
 
     if(this->numberOfRolls == 0)
     {
         return;
     }
 
-DiceOptions value;
+    if(this->numberOfRolls == 3)
+    {
+        amtOfDice=6;
+    }
+
+    DiceOptions value;
     for(int i=0; i<amtOfDice; i++)
     {
         value = randomDiceOption();
@@ -77,11 +82,15 @@ void Dice::diceHistoricalValues()
     cout << "Dice container values for player "<< this->playerNumber  << endl;
     cout << "-----------------------------------------------------------------" << endl;
     for (it = historyOfRolls.begin(); it != historyOfRolls.end(); ++it) {
+        cout << "Dice Roll # "<< it - historyOfRolls.begin() +1 << endl;
+        cout << "-----------------------------------------------------------------" << endl;
+
         for (map<DiceOptions, int>::iterator mapIt(it->begin()); mapIt != it->end(); ++mapIt) {
 
-            // output here
-            std::cout << mapIt->first << ", " << mapIt->second << std::endl;
+            std::cout << DiceNames[mapIt->first] << ", " << mapIt->second << std::endl;
         }
+        cout << "-----------------------------------------------------------------" << endl;
+
     }
 
 

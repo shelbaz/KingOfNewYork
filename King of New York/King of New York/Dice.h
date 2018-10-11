@@ -12,6 +12,7 @@ using namespace std;
 class Dice {
 
     enum DiceOptions{Energy, Attack, Destruction, Heal, Celebrity, Ouch, NumOfOptions};
+    const char * DiceNames[6] = { "Energy", "Attack", "Destruction", "Heal", "Celebrity", "Ouch" };
 
 public:
     Dice(int playerVal);
@@ -27,7 +28,6 @@ public:
 
 private:
     int playerNumber;
-    int amtOfDice;
     int numberOfRolls;
     map<DiceOptions, int> DiceValues = {{Energy, 0}, {Attack, 0}, {Destruction, 0}, {Heal, 0} , {Celebrity, 0} , {Ouch, 0}};
     map<DiceOptions, int>::iterator mapIt;
