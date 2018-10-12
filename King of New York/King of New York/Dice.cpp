@@ -18,6 +18,7 @@ Dice::Dice(int playerVal) {
     numberOfRolls = 3;
 
     map<DiceOptions, int> DiceValues;
+    int totalDiceValues[6] = { };
     vector< map < DiceOptions, int> > historyOfRolls;
 
     vector< map < DiceOptions, int> > ::iterator it;
@@ -58,10 +59,33 @@ void Dice::rollDice(int amtOfDice=6) {
 
 }
 
+void Dice::rollDice(bool testing) {
+
+    if(!testing)
+    {return;}
+
+    int numbOfDice;
+    cout << "How many dice do you want to roll? \n";
+    cin >> numbOfDice;
+    this->rollDice(numbOfDice, true);
+
+    DiceOptions value;
+    for(int i=0; i<numbOfDice; i++)
+    {
+        value = randomDiceOption();
+        this->totalDiceValues[value]++;
+    }
+    for(int i=0; i<6; i++) {
+        cout << this->totalDiceValues[i] << endl;
+    }
+}
+
 void Dice::storeDiceResult(map<DiceOptions, int> tempDiceValues) {
     historyOfRolls.push_back(tempDiceValues);
 
 }
+
+
 
 int Dice::getPlayerNumber() {
     return playerNumber;

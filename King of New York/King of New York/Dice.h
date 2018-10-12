@@ -21,11 +21,15 @@ private:
     map<DiceOptions, int>::iterator mapIt;
     vector< map < DiceOptions, int> > historyOfRolls;
     vector< map < DiceOptions, int> > ::iterator it;
+    int totalDiceValues[6];
+
 
 
 public:
     Dice(int playerVal);
+
     void rollDice(int amtOfDice);
+    void rollDice(bool testing);
     void storeDiceResult(map<DiceOptions, int> tempDiceValues);
     int getPlayerNumber();
     void resetDiceValuesMap();
