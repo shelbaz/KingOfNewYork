@@ -71,7 +71,7 @@ CMAKE_BINARY_DIR = "/Users/shayan/Xcode Projects/KingOfNewYork/cmake-build-debug
 CMakeFiles/KingOfNewYork.dir/all:
 	$(MAKE) -f CMakeFiles/KingOfNewYork.dir/build.make CMakeFiles/KingOfNewYork.dir/depend
 	$(MAKE) -f CMakeFiles/KingOfNewYork.dir/build.make CMakeFiles/KingOfNewYork.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="/Users/shayan/Xcode Projects/KingOfNewYork/cmake-build-debug/CMakeFiles" --progress-num=1,2,3,4 "Built target KingOfNewYork"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="/Users/shayan/Xcode Projects/KingOfNewYork/cmake-build-debug/CMakeFiles" --progress-num=1,2,3,4,5,6 "Built target KingOfNewYork"
 .PHONY : CMakeFiles/KingOfNewYork.dir/all
 
 # Include target in all.
@@ -81,7 +81,7 @@ all: CMakeFiles/KingOfNewYork.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/KingOfNewYork.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start "/Users/shayan/Xcode Projects/KingOfNewYork/cmake-build-debug/CMakeFiles" 4
+	$(CMAKE_COMMAND) -E cmake_progress_start "/Users/shayan/Xcode Projects/KingOfNewYork/cmake-build-debug/CMakeFiles" 6
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/KingOfNewYork.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start "/Users/shayan/Xcode Projects/KingOfNewYork/cmake-build-debug/CMakeFiles" 0
 .PHONY : CMakeFiles/KingOfNewYork.dir/rule

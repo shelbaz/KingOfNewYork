@@ -4,9 +4,9 @@
 //
 
 #include <assert.h>
-#include "Region.hpp"
-#include "Zone.hpp"
-#include "Map.hpp"
+#include "Region.h"
+#include "Zone.h"
+#include "Map.h"
 
 using namespace std;
 

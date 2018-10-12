@@ -123,6 +123,33 @@ KingOfNewYork/fast:
 	$(MAKE) -f CMakeFiles/KingOfNewYork.dir/build.make CMakeFiles/KingOfNewYork.dir/build
 .PHONY : KingOfNewYork/fast
 
+King_of_New_York/King_of_New_York/KingOfNewYork.o: King_of_New_York/King_of_New_York/KingOfNewYork.cpp.o
+
+.PHONY : King_of_New_York/King_of_New_York/KingOfNewYork.o
+
+# target to build an object file
+King_of_New_York/King_of_New_York/KingOfNewYork.cpp.o:
+	$(MAKE) -f CMakeFiles/KingOfNewYork.dir/build.make CMakeFiles/KingOfNewYork.dir/King_of_New_York/King_of_New_York/KingOfNewYork.cpp.o
+.PHONY : King_of_New_York/King_of_New_York/KingOfNewYork.cpp.o
+
+King_of_New_York/King_of_New_York/KingOfNewYork.i: King_of_New_York/King_of_New_York/KingOfNewYork.cpp.i
+
+.PHONY : King_of_New_York/King_of_New_York/KingOfNewYork.i
+
+# target to preprocess a source file
+King_of_New_York/King_of_New_York/KingOfNewYork.cpp.i:
+	$(MAKE) -f CMakeFiles/KingOfNewYork.dir/build.make CMakeFiles/KingOfNewYork.dir/King_of_New_York/King_of_New_York/KingOfNewYork.cpp.i
+.PHONY : King_of_New_York/King_of_New_York/KingOfNewYork.cpp.i
+
+King_of_New_York/King_of_New_York/KingOfNewYork.s: King_of_New_York/King_of_New_York/KingOfNewYork.cpp.s
+
+.PHONY : King_of_New_York/King_of_New_York/KingOfNewYork.s
+
+# target to generate assembly for a file
+King_of_New_York/King_of_New_York/KingOfNewYork.cpp.s:
+	$(MAKE) -f CMakeFiles/KingOfNewYork.dir/build.make CMakeFiles/KingOfNewYork.dir/King_of_New_York/King_of_New_York/KingOfNewYork.cpp.s
+.PHONY : King_of_New_York/King_of_New_York/KingOfNewYork.cpp.s
+
 King_of_New_York/King_of_New_York/Map.o: King_of_New_York/King_of_New_York/Map.cpp.o
 
 .PHONY : King_of_New_York/King_of_New_York/Map.o
@@ -149,6 +176,33 @@ King_of_New_York/King_of_New_York/Map.s: King_of_New_York/King_of_New_York/Map.c
 King_of_New_York/King_of_New_York/Map.cpp.s:
 	$(MAKE) -f CMakeFiles/KingOfNewYork.dir/build.make CMakeFiles/KingOfNewYork.dir/King_of_New_York/King_of_New_York/Map.cpp.s
 .PHONY : King_of_New_York/King_of_New_York/Map.cpp.s
+
+King_of_New_York/King_of_New_York/MapLoader.o: King_of_New_York/King_of_New_York/MapLoader.cpp.o
+
+.PHONY : King_of_New_York/King_of_New_York/MapLoader.o
+
+# target to build an object file
+King_of_New_York/King_of_New_York/MapLoader.cpp.o:
+	$(MAKE) -f CMakeFiles/KingOfNewYork.dir/build.make CMakeFiles/KingOfNewYork.dir/King_of_New_York/King_of_New_York/MapLoader.cpp.o
+.PHONY : King_of_New_York/King_of_New_York/MapLoader.cpp.o
+
+King_of_New_York/King_of_New_York/MapLoader.i: King_of_New_York/King_of_New_York/MapLoader.cpp.i
+
+.PHONY : King_of_New_York/King_of_New_York/MapLoader.i
+
+# target to preprocess a source file
+King_of_New_York/King_of_New_York/MapLoader.cpp.i:
+	$(MAKE) -f CMakeFiles/KingOfNewYork.dir/build.make CMakeFiles/KingOfNewYork.dir/King_of_New_York/King_of_New_York/MapLoader.cpp.i
+.PHONY : King_of_New_York/King_of_New_York/MapLoader.cpp.i
+
+King_of_New_York/King_of_New_York/MapLoader.s: King_of_New_York/King_of_New_York/MapLoader.cpp.s
+
+.PHONY : King_of_New_York/King_of_New_York/MapLoader.s
+
+# target to generate assembly for a file
+King_of_New_York/King_of_New_York/MapLoader.cpp.s:
+	$(MAKE) -f CMakeFiles/KingOfNewYork.dir/build.make CMakeFiles/KingOfNewYork.dir/King_of_New_York/King_of_New_York/MapLoader.cpp.s
+.PHONY : King_of_New_York/King_of_New_York/MapLoader.cpp.s
 
 King_of_New_York/King_of_New_York/Region.o: King_of_New_York/King_of_New_York/Region.cpp.o
 
@@ -213,9 +267,15 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
 	@echo "... KingOfNewYork"
+	@echo "... King_of_New_York/King_of_New_York/KingOfNewYork.o"
+	@echo "... King_of_New_York/King_of_New_York/KingOfNewYork.i"
+	@echo "... King_of_New_York/King_of_New_York/KingOfNewYork.s"
 	@echo "... King_of_New_York/King_of_New_York/Map.o"
 	@echo "... King_of_New_York/King_of_New_York/Map.i"
 	@echo "... King_of_New_York/King_of_New_York/Map.s"
+	@echo "... King_of_New_York/King_of_New_York/MapLoader.o"
+	@echo "... King_of_New_York/King_of_New_York/MapLoader.i"
+	@echo "... King_of_New_York/King_of_New_York/MapLoader.s"
 	@echo "... King_of_New_York/King_of_New_York/Region.o"
 	@echo "... King_of_New_York/King_of_New_York/Region.i"
 	@echo "... King_of_New_York/King_of_New_York/Region.s"

@@ -96,11 +96,39 @@ CMakeFiles/KingOfNewYork.dir/King_of_New_York/King_of_New_York/Zone.cpp.s: cmake
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/KingOfNewYork.dir/King_of_New_York/King_of_New_York/Zone.cpp.s"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/Users/shayan/Xcode Projects/KingOfNewYork/King of New York/King of New York/Zone.cpp" -o CMakeFiles/KingOfNewYork.dir/King_of_New_York/King_of_New_York/Zone.cpp.s
 
+CMakeFiles/KingOfNewYork.dir/King_of_New_York/King_of_New_York/MapLoader.cpp.o: CMakeFiles/KingOfNewYork.dir/flags.make
+CMakeFiles/KingOfNewYork.dir/King_of_New_York/King_of_New_York/MapLoader.cpp.o: ../King\ of\ New\ York/King\ of\ New\ York/MapLoader.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/Users/shayan/Xcode Projects/KingOfNewYork/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/KingOfNewYork.dir/King_of_New_York/King_of_New_York/MapLoader.cpp.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/KingOfNewYork.dir/King_of_New_York/King_of_New_York/MapLoader.cpp.o -c "/Users/shayan/Xcode Projects/KingOfNewYork/King of New York/King of New York/MapLoader.cpp"
+
+CMakeFiles/KingOfNewYork.dir/King_of_New_York/King_of_New_York/MapLoader.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/KingOfNewYork.dir/King_of_New_York/King_of_New_York/MapLoader.cpp.i"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/Users/shayan/Xcode Projects/KingOfNewYork/King of New York/King of New York/MapLoader.cpp" > CMakeFiles/KingOfNewYork.dir/King_of_New_York/King_of_New_York/MapLoader.cpp.i
+
+CMakeFiles/KingOfNewYork.dir/King_of_New_York/King_of_New_York/MapLoader.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/KingOfNewYork.dir/King_of_New_York/King_of_New_York/MapLoader.cpp.s"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/Users/shayan/Xcode Projects/KingOfNewYork/King of New York/King of New York/MapLoader.cpp" -o CMakeFiles/KingOfNewYork.dir/King_of_New_York/King_of_New_York/MapLoader.cpp.s
+
+CMakeFiles/KingOfNewYork.dir/King_of_New_York/King_of_New_York/KingOfNewYork.cpp.o: CMakeFiles/KingOfNewYork.dir/flags.make
+CMakeFiles/KingOfNewYork.dir/King_of_New_York/King_of_New_York/KingOfNewYork.cpp.o: ../King\ of\ New\ York/King\ of\ New\ York/KingOfNewYork.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/Users/shayan/Xcode Projects/KingOfNewYork/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/KingOfNewYork.dir/King_of_New_York/King_of_New_York/KingOfNewYork.cpp.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/KingOfNewYork.dir/King_of_New_York/King_of_New_York/KingOfNewYork.cpp.o -c "/Users/shayan/Xcode Projects/KingOfNewYork/King of New York/King of New York/KingOfNewYork.cpp"
+
+CMakeFiles/KingOfNewYork.dir/King_of_New_York/King_of_New_York/KingOfNewYork.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/KingOfNewYork.dir/King_of_New_York/King_of_New_York/KingOfNewYork.cpp.i"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/Users/shayan/Xcode Projects/KingOfNewYork/King of New York/King of New York/KingOfNewYork.cpp" > CMakeFiles/KingOfNewYork.dir/King_of_New_York/King_of_New_York/KingOfNewYork.cpp.i
+
+CMakeFiles/KingOfNewYork.dir/King_of_New_York/King_of_New_York/KingOfNewYork.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/KingOfNewYork.dir/King_of_New_York/King_of_New_York/KingOfNewYork.cpp.s"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/Users/shayan/Xcode Projects/KingOfNewYork/King of New York/King of New York/KingOfNewYork.cpp" -o CMakeFiles/KingOfNewYork.dir/King_of_New_York/King_of_New_York/KingOfNewYork.cpp.s
+
 # Object files for target KingOfNewYork
 KingOfNewYork_OBJECTS = \
 "CMakeFiles/KingOfNewYork.dir/King_of_New_York/King_of_New_York/Map.cpp.o" \
 "CMakeFiles/KingOfNewYork.dir/King_of_New_York/King_of_New_York/Region.cpp.o" \
-"CMakeFiles/KingOfNewYork.dir/King_of_New_York/King_of_New_York/Zone.cpp.o"
+"CMakeFiles/KingOfNewYork.dir/King_of_New_York/King_of_New_York/Zone.cpp.o" \
+"CMakeFiles/KingOfNewYork.dir/King_of_New_York/King_of_New_York/MapLoader.cpp.o" \
+"CMakeFiles/KingOfNewYork.dir/King_of_New_York/King_of_New_York/KingOfNewYork.cpp.o"
 
 # External object files for target KingOfNewYork
 KingOfNewYork_EXTERNAL_OBJECTS =
@@ -108,9 +136,11 @@ KingOfNewYork_EXTERNAL_OBJECTS =
 KingOfNewYork: CMakeFiles/KingOfNewYork.dir/King_of_New_York/King_of_New_York/Map.cpp.o
 KingOfNewYork: CMakeFiles/KingOfNewYork.dir/King_of_New_York/King_of_New_York/Region.cpp.o
 KingOfNewYork: CMakeFiles/KingOfNewYork.dir/King_of_New_York/King_of_New_York/Zone.cpp.o
+KingOfNewYork: CMakeFiles/KingOfNewYork.dir/King_of_New_York/King_of_New_York/MapLoader.cpp.o
+KingOfNewYork: CMakeFiles/KingOfNewYork.dir/King_of_New_York/King_of_New_York/KingOfNewYork.cpp.o
 KingOfNewYork: CMakeFiles/KingOfNewYork.dir/build.make
 KingOfNewYork: CMakeFiles/KingOfNewYork.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir="/Users/shayan/Xcode Projects/KingOfNewYork/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_4) "Linking CXX executable KingOfNewYork"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir="/Users/shayan/Xcode Projects/KingOfNewYork/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_6) "Linking CXX executable KingOfNewYork"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/KingOfNewYork.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

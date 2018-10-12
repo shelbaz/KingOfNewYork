@@ -80,22 +80,31 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="/Users/shayan/Xcode Projects/KingOfNewYork/King of New York/King of New York/KingOfNewYork.cpp">
+			<Option target="KingOfNewYork"/>
+		</Unit>
 		<Unit filename="/Users/shayan/Xcode Projects/KingOfNewYork/King of New York/King of New York/Map.cpp">
 			<Option target="KingOfNewYork"/>
 		</Unit>
-		<Unit filename="/Users/shayan/Xcode Projects/KingOfNewYork/King of New York/King of New York/Map.hpp">
+		<Unit filename="/Users/shayan/Xcode Projects/KingOfNewYork/King of New York/King of New York/Map.h">
+			<Option target="KingOfNewYork"/>
+		</Unit>
+		<Unit filename="/Users/shayan/Xcode Projects/KingOfNewYork/King of New York/King of New York/MapLoader.cpp">
+			<Option target="KingOfNewYork"/>
+		</Unit>
+		<Unit filename="/Users/shayan/Xcode Projects/KingOfNewYork/King of New York/King of New York/MapLoader.h">
 			<Option target="KingOfNewYork"/>
 		</Unit>
 		<Unit filename="/Users/shayan/Xcode Projects/KingOfNewYork/King of New York/King of New York/Region.cpp">
 			<Option target="KingOfNewYork"/>
 		</Unit>
-		<Unit filename="/Users/shayan/Xcode Projects/KingOfNewYork/King of New York/King of New York/Region.hpp">
+		<Unit filename="/Users/shayan/Xcode Projects/KingOfNewYork/King of New York/King of New York/Region.h">
 			<Option target="KingOfNewYork"/>
 		</Unit>
 		<Unit filename="/Users/shayan/Xcode Projects/KingOfNewYork/King of New York/King of New York/Zone.cpp">
 			<Option target="KingOfNewYork"/>
 		</Unit>
-		<Unit filename="/Users/shayan/Xcode Projects/KingOfNewYork/King of New York/King of New York/Zone.hpp">
+		<Unit filename="/Users/shayan/Xcode Projects/KingOfNewYork/King of New York/King of New York/Zone.h">
 			<Option target="KingOfNewYork"/>
 		</Unit>
 		<Unit filename="/Users/shayan/Xcode Projects/KingOfNewYork/CMakeLists.txt">

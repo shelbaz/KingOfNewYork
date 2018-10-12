@@ -4,7 +4,9 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
+  "/Users/shayan/Xcode Projects/KingOfNewYork/King of New York/King of New York/KingOfNewYork.cpp" "/Users/shayan/Xcode Projects/KingOfNewYork/cmake-build-debug/CMakeFiles/KingOfNewYork.dir/King_of_New_York/King_of_New_York/KingOfNewYork.cpp.o"
   "/Users/shayan/Xcode Projects/KingOfNewYork/King of New York/King of New York/Map.cpp" "/Users/shayan/Xcode Projects/KingOfNewYork/cmake-build-debug/CMakeFiles/KingOfNewYork.dir/King_of_New_York/King_of_New_York/Map.cpp.o"
+  "/Users/shayan/Xcode Projects/KingOfNewYork/King of New York/King of New York/MapLoader.cpp" "/Users/shayan/Xcode Projects/KingOfNewYork/cmake-build-debug/CMakeFiles/KingOfNewYork.dir/King_of_New_York/King_of_New_York/MapLoader.cpp.o"
   "/Users/shayan/Xcode Projects/KingOfNewYork/King of New York/King of New York/Region.cpp" "/Users/shayan/Xcode Projects/KingOfNewYork/cmake-build-debug/CMakeFiles/KingOfNewYork.dir/King_of_New_York/King_of_New_York/Region.cpp.o"
   "/Users/shayan/Xcode Projects/KingOfNewYork/King of New York/King of New York/Zone.cpp" "/Users/shayan/Xcode Projects/KingOfNewYork/cmake-build-debug/CMakeFiles/KingOfNewYork.dir/King_of_New_York/King_of_New_York/Zone.cpp.o"
   )

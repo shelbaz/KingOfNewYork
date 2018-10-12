@@ -3,9 +3,8 @@
 //  King of New York
 //
 
-
-#include "Map.hpp"
-#include "Region.hpp"
+#include "Map.h"
+#include "Region.h"
 #include <algorithm>
 #include <iostream>
 

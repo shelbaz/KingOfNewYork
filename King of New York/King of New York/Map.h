@@ -1,20 +1,14 @@
 //
-//  Map.hpp
+//  Map.h
 //  King of New York
 //
 
-
-#ifndef Map_hpp
-#define Map_hpp
-
-#include <stdio.h>
-
-#endif /* Map_hpp */
+#pragma once
 
 #include <iostream>
 #include <vector>
 #include <string>
-#include "Zone.hpp"
+#include "Zone.h"
 class Region;
 
 class Map

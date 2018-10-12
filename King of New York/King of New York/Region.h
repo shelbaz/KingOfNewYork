@@ -1,19 +1,15 @@
 //
-//  Region.hpp
+//  Region.h
 //  King of New York
 //
 
-
-#ifndef Region_hpp
-#define Region_hpp
-
-#include <stdio.h>
-
-#endif /* Region_hpp */
+#pragma once
 
 #include <iostream>
 #include <vector>
 #include <string>
+
+using namespace std;
 
 class Zone;
 class Map;
@@ -32,9 +28,12 @@ public:
     bool containsZone(Zone* zone);
     void setMap (Map*map);
     std::vector <Zone*> getZone() const;
+    void addNeighbour(Region* &region);
+    vector<Region*> getNeighbours ();
+    vector<Region*> neighbours;
     
 private:
-    
+
     std::string regionName;
     std::vector<Zone*> regionZones;
     Map* map;

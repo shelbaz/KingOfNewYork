@@ -1,0 +1,62 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/Users/shayan/Xcode Projects/KingOfNewYork/King of New York/King of New York/KingOfNewYork.cpp
+iostream
+-
+string
+-
+Region.h
+/Users/shayan/Xcode Projects/KingOfNewYork/King of New York/King of New York/Region.h
+Map.h
+/Users/shayan/Xcode Projects/KingOfNewYork/King of New York/King of New York/Map.h
+MapLoader.h
+/Users/shayan/Xcode Projects/KingOfNewYork/King of New York/King of New York/MapLoader.h
+
+/Users/shayan/Xcode Projects/KingOfNewYork/King of New York/King of New York/Map.h
+iostream
+-
+vector
+-
+string
+-
+Zone.h
+/Users/shayan/Xcode Projects/KingOfNewYork/King of New York/King of New York/Zone.h
+
+/Users/shayan/Xcode Projects/KingOfNewYork/King of New York/King of New York/MapLoader.cpp
+MapLoader.h
+/Users/shayan/Xcode Projects/KingOfNewYork/King of New York/King of New York/MapLoader.h
+string
+-
+iostream
+-
+
+/Users/shayan/Xcode Projects/KingOfNewYork/King of New York/King of New York/MapLoader.h
+Map.h
+/Users/shayan/Xcode Projects/KingOfNewYork/King of New York/King of New York/Map.h
+Region.h
+/Users/shayan/Xcode Projects/KingOfNewYork/King of New York/King of New York/Region.h
+fstream
+-
+
+/Users/shayan/Xcode Projects/KingOfNewYork/King of New York/King of New York/Region.h
+iostream
+-
+vector
+-
+string
+-
+
+/Users/shayan/Xcode Projects/KingOfNewYork/King of New York/King of New York/Zone.h
+iostream
+-
+vector
+-
+string
+-
+

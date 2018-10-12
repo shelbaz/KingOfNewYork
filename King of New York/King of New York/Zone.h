@@ -1,15 +1,9 @@
 //
-//  Zone.hpp
+//  Zone.h
 //  King of New York
 //
 
-
-#ifndef Zone_hpp
-#define Zone_hpp
-
-#include <stdio.h>
-
-#endif /* Zone_hpp */
+#pragma once
 
 #include <iostream>
 #include <vector>
@@ -25,26 +19,28 @@ class Zone
 {
 public:
 
-    Zone ();
+    Zone();
+    Zone(const string &zoneName1, string p, const int& i);
+    Zone(string zoneName);
     Zone (const string& zoneName);
-    Zone (const string& zoneName, Player* p);
+    //Zone (const string& zoneName, Player* p);
     ~Zone ();
     void setZoneName (const string& name);
     string getZoneName();
-    void addNeighbour (Zone* zone);
-    vector<Zone*> getNeighbours;
-    Zone* getNeighbour (const int& index);
-    bool isNeighbourOf (Zone* zone);
-    // void setOwner (Player* player); //Used once a player is defined & implemented
+    void setOwner (string player);
     // Player* getOwner(); //Used once a player is defined & implemented
     bool belongsToRegion();
     Region* getRegion() const;
     void setRegion (Region* region);
-    
+    vector<Zone*> neighbour;
+
 private:
-    
+
+    string player; //change to player once shawn adds his stuff
+    string owner; //change to player once shawn adds his stuff
     string zoneName;
-    vector<Zone*> neighbours;
    // Player* owner; //Used once a player is defined & implemented
     Region* region;
 };
+
+

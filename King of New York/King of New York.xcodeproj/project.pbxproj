@@ -7,8 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E47502662170290A006A164A /* KingOfNewYork.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E47502652170290A006A164A /* KingOfNewYork.cpp */; };
 		E4A05A5A216583250026D61A /* Map.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E4A05A58216583250026D61A /* Map.cpp */; };
 		E4A05A5D216589BB0026D61A /* Region.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E4A05A5B216589BB0026D61A /* Region.cpp */; };
+		E4C6A9642170295500930462 /* MapLoader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E4C6A9622170295500930462 /* MapLoader.cpp */; };
 		E4D1FED6216D8AB500DFE2A0 /* Zone.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E4D1FED4216D8AB500DFE2A0 /* Zone.cpp */; };
 /* End PBXBuildFile section */
 
@@ -25,11 +27,14 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		E47502652170290A006A164A /* KingOfNewYork.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = KingOfNewYork.cpp; sourceTree = "<group>"; };
 		E4A05A4B216582E10026D61A /* King of New York */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "King of New York"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E4A05A58216583250026D61A /* Map.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Map.cpp; sourceTree = "<group>"; };
 		E4A05A59216583250026D61A /* Map.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Map.hpp; sourceTree = "<group>"; };
 		E4A05A5B216589BB0026D61A /* Region.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Region.cpp; sourceTree = "<group>"; };
 		E4A05A5C216589BB0026D61A /* Region.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Region.hpp; sourceTree = "<group>"; };
+		E4C6A9622170295500930462 /* MapLoader.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = MapLoader.cpp; sourceTree = "<group>"; };
+		E4C6A9632170295500930462 /* MapLoader.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = MapLoader.hpp; sourceTree = "<group>"; };
 		E4D1FED4216D8AB500DFE2A0 /* Zone.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Zone.cpp; sourceTree = "<group>"; };
 		E4D1FED5216D8AB500DFE2A0 /* Zone.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Zone.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -70,6 +75,9 @@
 				E4D1FED5216D8AB500DFE2A0 /* Zone.hpp */,
 				E4A05A5B216589BB0026D61A /* Region.cpp */,
 				E4A05A5C216589BB0026D61A /* Region.hpp */,
+				E47502652170290A006A164A /* KingOfNewYork.cpp */,
+				E4C6A9622170295500930462 /* MapLoader.cpp */,
+				E4C6A9632170295500930462 /* MapLoader.hpp */,
 			);
 			path = "King of New York";
 			sourceTree = "<group>";
@@ -132,7 +140,9 @@
 			files = (
 				E4D1FED6216D8AB500DFE2A0 /* Zone.cpp in Sources */,
 				E4A05A5A216583250026D61A /* Map.cpp in Sources */,
+				E4C6A9642170295500930462 /* MapLoader.cpp in Sources */,
 				E4A05A5D216589BB0026D61A /* Region.cpp in Sources */,
+				E47502662170290A006A164A /* KingOfNewYork.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

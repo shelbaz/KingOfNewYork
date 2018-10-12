@@ -1,0 +1,20 @@
+Region: Manhattan
+Zone: lower1 midtown1 upper1
+Zone: lower2 midtown2 upper2
+Zone: lower3 midtown3 upper3
+Zone: lower4 midtown4 upper4
+Zone: lower5 midtown5 upper5
+Zone: lower5 midtown6 upper6
+Region: Bronx
+Region: Queens
+Region: Brooklyn
+Region: StatenIsland
+
+input<< string //reads region:
+input<< string // Manhattan
+input<< string // lower1
+
+if (string == "Region")
+input <<string;
+new region (string); //This is name of region
+
