@@ -21,9 +21,9 @@ private:
     Dice dice;
     MonsterCards monsterCard;
     vector <Cards> cards;
-    vector <GameTokens, int> gameTokens;
+//    vector <GameTokens, int> gameTokens;
     BoardFigures boardFigure;
-    vector <BuildingUnitTiles, int> buildingUnitTiles;
+//    vector <BuildingUnitTiles, int> buildingUnitTiles;
     int victoryPoints;
     int lifePoints;
     int energyCubes;

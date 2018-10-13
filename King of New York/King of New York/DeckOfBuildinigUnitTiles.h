@@ -14,6 +14,7 @@ private:
     DeckOfBuildingUnitTiles();
 
 public:
+
     static shared_ptr<DeckOfBuildingUnitTiles> getInstance();
 
     DeckOfBuildingUnitTiles(DeckOfBuildingUnitTiles const&) = delete;

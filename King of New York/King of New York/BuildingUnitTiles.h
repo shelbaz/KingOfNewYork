@@ -18,7 +18,6 @@ private:
 
 public:
     BuildingUnitTiles();
-    ~BuildingUnitTiles();
 
     void setBuildingUnitTiles(int durability, int reward, string name);
     friend ostream& operator<<(ostream& os, const BuildingUnitTiles& tiles);

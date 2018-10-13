@@ -19,8 +19,8 @@ DeckOfCards::DeckOfCards() {
     deck.reserve(64 + 2); // 64 regular + 2 special cards
     for(int i=0; i< 66; i++) {
         Cards card;
-        vector<CardEffects, int> effect;
-        card.setCard(to_string(i), "some description" ,effect, 1);
+//        vector<CardEffects, int> effect;
+//        card.setCard(to_string(i), "some description" ,effect, 1);
         deck.push_back(card);
     }
 
@@ -44,7 +44,7 @@ unsigned int DeckOfCards::getSize() {
 
 void DeckOfCards::currentState() {
     for(int i=0; i<deck.size(); i++){
-        cout << deck[i] << endl;
+//        cout << deck[i] << endl;
     }
 
 }

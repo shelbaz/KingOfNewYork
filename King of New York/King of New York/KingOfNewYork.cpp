@@ -83,7 +83,7 @@ void loadDriver (){
     MapLoader ml;
 
     //Load Valid Map
-    Map newYork = ml.loadMap("/Users/shayan/Xcode Projects/KingOfNewYork/King of New York/King of New York/GoodMap.txt");
+    Map newYork = ml.loadMap("../King of New York/King of New York/GoodMap.txt");
 
 
 }

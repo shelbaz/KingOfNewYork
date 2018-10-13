@@ -17,7 +17,7 @@ cout << 'test' << endl;
     cout << "Loading file " <<readMapText<<" as map ..."<< endl;
     int regQuantity;
     readMap >> regQuantity;
-    cout << "Number of regions: " << regQuantity << endl;
+    cout << "Total number of regions on the map: " << regQuantity << endl;
     for (int i = 0; i < regQuantity; i++) {
         string name;
         readMap >> name;
