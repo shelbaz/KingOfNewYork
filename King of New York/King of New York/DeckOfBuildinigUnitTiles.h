@@ -7,7 +7,7 @@
 #import <vector>
 #import "BuildingUnitTiles.h"
 
-class DeckOfBuildingUnitTiles {
+class DeckOfBuildingUnitTiles: public GamePieces {
 
 private:
     vector<BuildingUnitTiles> deck;
@@ -19,4 +19,9 @@ public:
     DeckOfBuildingUnitTiles(DeckOfBuildingUnitTiles const&) = delete;
     DeckOfBuildingUnitTiles& operator=(DeckOfBuildingUnitTiles const&) = delete;
 
+    void shuffle() override;
+    BuildingUnitTiles draw();
+    int getSize();
+    void currentState();
 };
+

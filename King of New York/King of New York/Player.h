@@ -9,6 +9,7 @@
 #include "GameTokens.h"
 #include "BoardFigures.h"
 #include "BuildingUnitTiles.h"
+#include "DeckOfCards.h"
 
 
 using namespace std;
@@ -34,7 +35,7 @@ public:
 
     Player(MonsterCards m, Dice d);
 
-    int getPlayerID();
+    int getPlayerID() const;
     void rollDice(int numbOfDice);
     void resolveDice();
     void move();
@@ -43,12 +44,14 @@ public:
     int getNumberOfCards();
 
     void addCard(Cards card);
-    int getLifePoints();
-    int getVictoryPoints();
-    int getEnergyCubes();
+    int getLifePoints() const;
+    int getVictoryPoints() const;
+    int getEnergyCubes() const;
     void addLifePoints(unsigned int pts);
     void addVictoryPoints(unsigned int pts);
     void removeLifePoints(int pts);
     void removeVictoryPoints(int pts);
+
+    friend ostream & operator<<(ostream & os, const Player& player);
 
 };

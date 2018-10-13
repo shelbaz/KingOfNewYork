@@ -4,6 +4,7 @@
 
 #pragma once
 
+#import "GamePieces.h"
 #import <string>
 using namespace std;
 
@@ -20,6 +21,11 @@ public:
     ~BuildingUnitTiles();
 
     void setBuildingUnitTiles(int durability, int reward, string name);
+    friend ostream& operator<<(ostream& os, const BuildingUnitTiles& tiles);
 
+    int getDurability() const;
 
+    int getReward() const;
+
+    const string &getName() const;
 };

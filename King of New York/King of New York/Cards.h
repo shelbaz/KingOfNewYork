@@ -27,9 +27,13 @@ public:
     ~Cards();
     void setCard(string name, string description, vector <CardEffects, int> playerEffect, int energyCost);
     friend ostream& operator<<(ostream& os, const Cards& card);
-    int getEnergyCost();
-    string getDescription();
-    string getName();
+    int getEnergyCost() const;
+
+    const string &getName() const;
+
+    const string &getDescription() const;
+
+    const vector<CardEffects, int> &getEffect() const;
 
 
 };

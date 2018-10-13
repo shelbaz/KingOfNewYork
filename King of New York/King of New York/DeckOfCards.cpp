@@ -37,7 +37,7 @@ Cards DeckOfCards::draw() {
     return pickedCard;
 }
 
-int DeckOfCards::getSize() {
+unsigned int DeckOfCards::getSize() {
     return deck.size();
 }
 

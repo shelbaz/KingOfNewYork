@@ -5,14 +5,12 @@
 #pragma once
 
 #include "GamePieces.h"
+#include "MonsterCards.h"
 
-class BoardFigures: public GamePieces {
+class BoardFigures: public MonsterCards {
 
 private:
 
 public:
-
-    void shuffle();
-
 
 };

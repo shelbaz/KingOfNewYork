@@ -4,6 +4,18 @@
 
 #include "GameTokens.h"
 
-const char * GameTokens::getName() {
-    return ;
+const char* GameTokens::getName() const {
+    return tokenTypeName[token];
+}
+
+GameTokens::GameTokens() {
+
+}
+
+GameTokens::~GameTokens() {
+
+}
+
+GameTokens::GameTokens(TokenTypes name): GameTokens() {
+    token = name;
 }

@@ -5,7 +5,7 @@
 #include "Player.h"
 #include <iostream>
 
-int Player::getPlayerID() {
+int Player::getPlayerID() const {
     return playerID;
 }
 
@@ -61,15 +61,15 @@ int Player::getNumberOfCards() {
     return cards.size();
 }
 
-int Player::getLifePoints() {
+int Player::getLifePoints() const {
     return lifePoints;
 }
 
-int Player::getVictoryPoints() {
+int Player::getVictoryPoints() const {
     return victoryPoints;
 }
 
-int Player::getEnergyCubes() {
+int Player::getEnergyCubes() const {
     return energyCubes;
 }
 
@@ -90,4 +90,17 @@ void Player::removeLifePoints(int pts) {
 
 void Player::removeVictoryPoints(int pts) {
     victoryPoints -= pts;
+}
+
+ostream & operator<<(ostream & os, const Player& player){
+
+    os << "----------------------------------------" << endl;
+    os << "ID :" << player.getPlayerID() << endl;
+    os << "***************" << endl;
+    os << "Victory Points :" << player.getVictoryPoints() << endl;
+    os << "Life Points :" << player.getLifePoints() << endl;
+    os << "Energy Cubes :" << player.getEnergyCubes() << endl;
+    os << "----------------------------------------" << endl;
+    return os;
+
 }

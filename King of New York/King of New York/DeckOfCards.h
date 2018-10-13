@@ -27,7 +27,7 @@ public:
     DeckOfCards& operator=(DeckOfCards const&) = delete;
 
     void shuffle();
-    int getSize();
+    unsigned int getSize();
     void currentState();
     Cards draw();
 
