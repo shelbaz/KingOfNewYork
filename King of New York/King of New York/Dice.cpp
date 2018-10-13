@@ -11,17 +11,20 @@
 using namespace std;
 
 
-Dice::Dice(int playerVal) {
+Dice::Dice() {
     srand((unsigned)time(0));
-
-    playerNumber = playerVal;
     numberOfRolls = 3;
 
     map<DiceOptions, int> DiceValues;
-    int totalDiceValues[6] = { };
     vector< map < DiceOptions, int> > historyOfRolls;
 
     vector< map < DiceOptions, int> > ::iterator it;
+}
+
+
+Dice::Dice(int playerVal): Dice() {
+
+    playerNumber = playerVal;
 
 }
 
@@ -35,20 +38,10 @@ void Dice::resetDiceRolls() {
 
 }
 
-void Dice::rollDice(int amtOfDice=6) {
-
-    if(this->numberOfRolls == 0)
-    {
-        return;
-    }
-
-    if(this->numberOfRolls == 3)
-    {
-        amtOfDice=6;
-    }
+void Dice::rollDice(){
 
     DiceOptions value;
-    for(int i=0; i<amtOfDice; i++)
+    for(int i=0; i<6; i++)
     {
         value = randomDiceOption();
         this->DiceValues[value] ++;
@@ -56,6 +49,29 @@ void Dice::rollDice(int amtOfDice=6) {
     storeDiceResult(DiceValues);
     resetDiceValuesMap();
     this->numberOfRolls--;
+}
+
+void Dice::rollDice(int amtOfDice) {
+
+    if(this->numberOfRolls == 0 || amtOfDice>6) {
+        cout << "No rolls left or invalid number of dice" << endl;
+        return;
+    }
+
+    else if(this->numberOfRolls == 3) {
+        rollDice();
+    }
+    else{
+        DiceOptions value;
+        for(int i=0; i<amtOfDice; i++)
+        {
+            value = randomDiceOption();
+            this->DiceValues[value] ++;
+        }
+        storeDiceResult(DiceValues);
+        resetDiceValuesMap();
+        this->numberOfRolls--;
+    }
 
 }
 
@@ -67,7 +83,7 @@ void Dice::rollDice(bool testing) {
     int numbOfDice;
     cout << "How many dice do you want to roll? \n";
     cin >> numbOfDice;
-    this->rollDice(numbOfDice, true);
+    this->rollDice(true);
 
     DiceOptions value;
     for(int i=0; i<numbOfDice; i++)

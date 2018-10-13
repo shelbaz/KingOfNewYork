@@ -5,24 +5,50 @@
 #pragma once
 #include "Dice.h"
 #include "MonsterCards.h"
-#include "GeneralCards.h"
+#include "Cards.h"
+#include "GameTokens.h"
+#include "BoardFigures.h"
+#include "BuildingUnitTiles.h"
+
 
 using namespace std;
 
 class Player {
 
 private:
+    int playerID=0;
     Dice dice;
-    MonsterCards monsterCards;
-    GeneralCards cards;
-    int playerID;
+    MonsterCards monsterCard;
+    vector <Cards> cards;
+    vector <GameTokens, int> gameTokens;
+    BoardFigures boardFigure;
+    vector <BuildingUnitTiles, int> buildingUnitTiles;
+    int victoryPoints;
+    int lifePoints;
+    int energyCubes;
 
 public:
 
+    Player();
+    ~Player();
+
+    Player(MonsterCards m, Dice d);
+
     int getPlayerID();
-    void rollDice();
+    void rollDice(int numbOfDice);
     void resolveDice();
     void move();
-    void buyCards();
+    void buyCards(Cards card);
+    void attack();
+    int getNumberOfCards();
+
+    void addCard(Cards card);
+    int getLifePoints();
+    int getVictoryPoints();
+    int getEnergyCubes();
+    void addLifePoints(unsigned int pts);
+    void addVictoryPoints(unsigned int pts);
+    void removeLifePoints(int pts);
+    void removeVictoryPoints(int pts);
 
 };

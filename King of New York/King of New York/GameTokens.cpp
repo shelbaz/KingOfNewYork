@@ -3,3 +3,7 @@
 //
 
 #include "GameTokens.h"
+
+const char * GameTokens::getName() {
+    return ;
+}

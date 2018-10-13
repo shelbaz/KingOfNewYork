@@ -4,11 +4,11 @@
 
 #pragma once
 
-class GamePieces{
+#include <string>
 
-private:
+class GamePieces{
 
 
 public:
-
+    virtual void shuffle() = 0;
 };
