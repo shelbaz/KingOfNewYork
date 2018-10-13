@@ -15,14 +15,6 @@ Region::Region(string name) : regionName(name), map(NULL) {
 
 Region::~Region(){
 
-    for (vector<Zone*>::iterator it = regionZones.begin(); it != regionZones.end(); it++) {
-
-        delete *it;
-        *it = NULL;
-    }
-
-    regionZones.clear();
-
 }
 
 string Region::getName() const {
@@ -35,28 +27,23 @@ void Region::setName(string name){
     regionName = name;
 }
 
-void Region::addZone(Zone *newZone) {
-
-    assert(newZone != NULL);
-
-    if (!containsZone(newZone) && !newZone->belongsToRegion()) {
-
-        regionZones.push_back(newZone);
-        newZone->setRegion(this);
-    }
-}
-
 int Region::getZoneCount() const {
 
     return regionZones.size();
 }
 
-bool Region::containsZone(Zone *zone) {
-
-    vector<Zone*>::iterator it = find(regionZones.begin(), regionZones.end(), zone);
-
-    return it != regionZones.end();
+string Region::getRegionName() const{
+    return regionName;
 }
+
+void Region::addNeighbour(Region *&region) {
+    neighbours.push_back(region);
+}
+
+void Region::addZone(Zone *newZone) {
+    regionZones.push_back(newZone);
+}
+
 
 void Region::setMap(Map *newMap) {
 

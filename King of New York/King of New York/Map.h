@@ -9,7 +9,10 @@
 #include <vector>
 #include <string>
 #include "Zone.h"
+
 class Region;
+
+using namespace std;
 
 class Map
 {
@@ -17,14 +20,17 @@ class Map
 public:
 
     Map();
+    Map(vector<Region*> newRegions);
     ~Map();
     void addRegionToMap (Region* newRegion);
     void removeRegionFromMap (Region* region);
     int getRegionCount () const;
-    std::vector<Region*> getMapRegion () const;
-    std::vector<Zone*> getAllZones () const;
+    vector<Region*> getMapRegion () const;
+    vector<Zone*> getAllZones () const;
+    void displayRegionList();
+    vector<Region*> regions;
     
 private:
     
-    std::vector<Region*> mapRegions;
+    vector<Region*> mapRegions;
 };

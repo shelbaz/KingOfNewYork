@@ -20,14 +20,12 @@ class Zone
 public:
 
     Zone();
-    Zone(const string &zoneName1, string p, const int& i);
     Zone(string zoneName);
-    Zone (const string& zoneName);
-    //Zone (const string& zoneName, Player* p);
     ~Zone ();
     void setZoneName (const string& name);
     string getZoneName();
     void setOwner (string player);
+    string getOwner (string player);
     // Player* getOwner(); //Used once a player is defined & implemented
     bool belongsToRegion();
     Region* getRegion() const;

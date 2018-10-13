@@ -9,16 +9,12 @@ Zone::Zone(){
     zoneName ="";
 }
 
-Zone::Zone(const string &zoneName1) {
-    zoneName=zoneName1;
+Zone::~Zone(){
 
 }
 
-Zone::Zone(const string &zoneName1, string p, const int& i) {
-
-    zoneName = zoneName1;
-    owner = p;
-
+Zone::Zone(string zoneName){
+    this->zoneName =zoneName;
 }
 
 void Zone::setZoneName(const string &zoneName1) {
@@ -28,8 +24,8 @@ void Zone::setZoneName(const string &zoneName1) {
 
 string Zone::getZoneName() {
     return zoneName;
-}
 
+}
 
 void Zone::setOwner(string player) {
 

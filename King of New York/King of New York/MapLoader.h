@@ -11,13 +11,14 @@
 
 class MapLoader {
 
-    private:
-
-    vector<Region*> regionPointers;
 
     public:
 
-    Map loadMap(string mapFileLocation);
+    Map loadMap(string readMapText);
     MapLoader();
     ~MapLoader();
+
+    private:
+
+    vector<Region*> regions;
 };

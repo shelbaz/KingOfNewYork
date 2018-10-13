@@ -14,27 +14,31 @@ using namespace std;
 class Zone;
 class Map;
 
+using namespace std;
+
 class Region
 {
 public:
 
-    Region(std::string regionName);
+    Region();
+    Region(string regionName);
     ~Region();
 
     std::string getName() const;
     void setName (std::string regionName);
     void addZone (Zone* newZone);
     int getZoneCount() const;
-    bool containsZone(Zone* zone);
+    //bool containsZone(Zone* zone);
     void setMap (Map*map);
-    std::vector <Zone*> getZone() const;
+    vector <Zone*> getZone() const;
     void addNeighbour(Region* &region);
     vector<Region*> getNeighbours ();
     vector<Region*> neighbours;
+    string getRegionName() const;
     
 private:
 
-    std::string regionName;
-    std::vector<Zone*> regionZones;
+    string regionName;
+    vector<Zone*> regionZones;
     Map* map;
 };

@@ -14,6 +14,13 @@ Map::Map() {
     
 }
 
+Map::Map(vector<Region*> newRegions) {
+    for (int i=0; i < newRegions.size();i++){
+        mapRegions.push_back(newRegions[i]);
+    }
+
+}
+
 Map::~Map() {
     
     for (vector<Region*>::iterator it = mapRegions.begin(); it != mapRegions.end(); it++) {
@@ -31,6 +38,12 @@ void Map::addRegionToMap(Region *newRegion) {
         
         mapRegions.push_back(newRegion);
         newRegion->setMap(this);
+    }
+}
+
+void Map::displayRegionList() {
+    for (auto &region : regions) {
+        cout << "Region name: " << (*region).getRegionName();
     }
 }
 
