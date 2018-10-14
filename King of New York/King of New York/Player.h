@@ -20,10 +20,10 @@ private:
     int playerID=0;
     Dice dice;
     MonsterCards monsterCard;
-    vector <Cards> cards;
-//    vector <GameTokens, int> gameTokens;
     BoardFigures boardFigure;
-//    vector <BuildingUnitTiles, int> buildingUnitTiles;
+    vector <Cards> cards;
+    vector <GameTokens> gameTokens;
+    vector <BuildingUnitTiles> buildingUnitTiles;
     int victoryPoints;
     int lifePoints;
     int energyCubes;
@@ -33,7 +33,7 @@ public:
     Player();
     ~Player();
 
-    Player(MonsterCards m, Dice d);
+    Player(Dice d);
 
     int getPlayerID() const;
     void rollDice(int numbOfDice);

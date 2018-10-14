@@ -10,9 +10,9 @@
 DeckOfBuildingUnitTiles::DeckOfBuildingUnitTiles() {
     deck.reserve(45);
     for(int i=0; i< 45; i++) {
-        BuildingUnitTiles unitTiles;
-        unitTiles.setBuildingUnitTiles(i, i, to_string(i));
-        deck.push_back(unitTiles);
+        BuildingUnitTiles unitTile;
+        unitTile.setBuildingUnitTiles(i, i, to_string(i));
+        deck.push_back(unitTile);
     }
 }
 

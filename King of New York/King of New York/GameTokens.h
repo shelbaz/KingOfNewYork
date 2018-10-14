@@ -4,6 +4,7 @@
 
 #pragma once
 #include <string>
+#include <vector>
 
 using namespace std;
 
@@ -11,17 +12,46 @@ class GameTokens {
 
     // 46 Tokens:  (13 Web, 13 Jinx, 5 Souvenir, 15 Carapace)
 
-    enum TokenTypes{Web=0, Jinx, Souvenir, Carapace};
-    const char * tokenTypeName[4] = { "Web", "Jinx", "Souvenir", "Carapace" };
+    string tokenTypeName[4] = { "Web", "Jinx", "Souvenir", "Carapace" };
+
+public:
+    enum TokenTypes{Web=0, Jinx, Souvenir, Carapace, EnumEnd};
+    GameTokens();
+    GameTokens(TokenTypes name);
+    void setGameTokens(TokenTypes name);
+    void setIndex(int index);
+    int getIndex();
+    ~GameTokens() = default;
+    string getName();
+    friend ostream& operator<<(ostream& os, GameTokens& card);
+    friend bool operator== (const GameTokens& p1, const GameTokens& p2) {
+        return true;
+    }
+
 
 private:
     TokenTypes token;
+    int index=0;
+};
+
+class DeckOfGameTokens {
+
+private:
+    DeckOfGameTokens();
+    vector<GameTokens> gameTokens;
+    vector<GameTokens>::iterator it;
 
 public:
-    GameTokens();
-    GameTokens(TokenTypes name);
-    ~GameTokens();
-    const char * getName() const;
+
+    static shared_ptr<DeckOfGameTokens> getInstance();
+
+    DeckOfGameTokens(DeckOfGameTokens const&) = delete;
+    DeckOfGameTokens& operator=(DeckOfGameTokens const&) = delete;
+
+    int getCardIndex(GameTokens card);
+    void currentState();
+    GameTokens draw();
+    GameTokens draw(GameTokens token);
 
 };
 

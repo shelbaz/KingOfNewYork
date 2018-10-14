@@ -33,4 +33,7 @@ add_executable(KingOfNewYork
         "King of New York/King of New York/Zone.h"
         "King of New York/King of New York/MapLoader.cpp"
         "King of New York/King of New York/MapLoader.h"
-        "King of New York/King of New York/KingOfNewYork.cpp")
+        "King of New York/Drivers/MapDriver.cpp"
+        "King of New York/Drivers/PlayerDiver.cpp"
+        "King of New York/Drivers/CardsPiecesDriver.cpp"
+        )

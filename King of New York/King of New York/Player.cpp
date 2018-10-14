@@ -42,14 +42,20 @@ void Player::addCard(Cards card) {
 Player::Player() {
     victoryPoints = 0;
     lifePoints= 10;
+
+    Dice dice;
+    MonsterCards monsterCard;
+    BoardFigures boardFigure;
+    vector <Cards> cards;
+    vector <GameTokens> gameTokens;
+    vector <BuildingUnitTiles> buildingUnitTiles;
 }
 
 Player::~Player() {
 
 }
 
-Player::Player(MonsterCards m, Dice d): Player() {
-    this->monsterCard = m;
+Player::Player(Dice d): Player() {
     this ->dice = d ;
 }
 

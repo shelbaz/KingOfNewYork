@@ -5,48 +5,52 @@
 #include "Cards.h"
 #include <iostream>
 
-//void Cards::setCard(string name, string description, vector<CardEffects, int> playerEffect, int cost) {
-//    this->name = name;
-//    this->description = description;
-//    this->effect = playerEffect;
-//    this->energyCost = cost;
-//}
+void Cards::setCard(string name, string description, vector<int> playerEffect, int cost) {
+    this->name = name;
+    this->description = description;
+    this->effect = playerEffect;
+    this->energyCost = cost;
+}
 
-//ostream & operator<<(ostream & os, const Cards& card){
-//
-//    os << "----------------------------------------" << endl;
-//    os << "Name :" << card.getName() << endl;
-//    os << "Description :" << card.getDescription() << endl;
-//    os << "Cost :" << card.getEnergyCost() << endl;
-//    os << "***************" << endl;
-//    os << "Effect : ";
-//    os << "Energy =" << card.getEffect()[Energy];
-//    os << "Attack =" << card.getEffect()[Attack];
-//    os << "Destruction =" << card.getEffect()[Destruction];
-//    os << "Heal =" << card.getEffect()[Heal];
-//    os << "Celebrity =" << card.getEffect()[Celebrity];
-//    os << "Ouch =" << card.getEffect()[Ouch] << endl;
-//    os << "----------------------------------------" << endl;
-//    return os;
-//
-//}
+ostream & operator<<(ostream & os, const Cards& card){
+
+    os << "----------------------------------------" << endl;
+    os << "Name :" << card.getName() << endl;
+    os << "Description :" << card.getDescription() << endl;
+    os << "Cost :" << card.getEnergyCost() << endl;
+    os << "***************" << endl;
+    os << "Effect : " << endl;
+    os << "Energy = " << card.effect[Cards::Energy];
+    os << ", Attack = " << card.effect[Cards::Attack];
+    os << ", Destruction = " << card.effect[Cards::Destruction];
+    os << ", Heal = " << card.effect[Cards::Heal];
+    os << ", Celebrity = " << card.effect[Cards::Celebrity];
+    os << ", Ouch = " << card.effect[Cards::Ouch] << endl;
+    os << "----------------------------------------" << endl;
+    return os;
+
+}
 
 int Cards::getEnergyCost() const{
     return energyCost;
 }
 
 Cards::Cards() {
-
+    vector <int> effect;
+    vector <int> ::iterator it;
 }
 
-const string &Cards::getName() const {
+string Cards::getName() const {
     return name;
 }
 
-const string &Cards::getDescription() const {
+string Cards::getDescription() const {
     return description;
 }
 
-//const vector<CardEffects, int> &Cards::getEffect() const {
-//    return effect;
-//}
+vector<int> Cards::getEffect() {
+    return effect;
+}
+
+
+

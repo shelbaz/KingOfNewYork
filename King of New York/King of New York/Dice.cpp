@@ -83,16 +83,17 @@ void Dice::rollDice(bool testing) {
     int numbOfDice;
     cout << "How many dice do you want to roll? \n";
     cin >> numbOfDice;
-    this->rollDice(true);
-
     DiceOptions value;
+
     for(int i=0; i<numbOfDice; i++)
     {
         value = randomDiceOption();
-        this->totalDiceValues[value]++;
+        this->totalDiceValues[value]++ ;
     }
+    double probability=0.00;
     for(int i=0; i<6; i++) {
-        cout << this->totalDiceValues[i] << endl;
+        probability = double(this->totalDiceValues[i]) / double(numbOfDice) *100.00 ;
+        cout << DiceNames[i] << " : " << this->totalDiceValues[i] << ": Probability = " << probability << "%" <<  endl;
     }
 }
 
@@ -100,8 +101,6 @@ void Dice::storeDiceResult(map<DiceOptions, int> tempDiceValues) {
     historyOfRolls.push_back(tempDiceValues);
 
 }
-
-
 
 int Dice::getPlayerNumber() {
     return playerNumber;

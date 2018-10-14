@@ -3,19 +3,118 @@
 //
 
 #include "GameTokens.h"
+#include <iostream>
+#include <vector>
 
-const char* GameTokens::getName() const {
+using namespace std;
+
+string GameTokens::getName() {
     return tokenTypeName[token];
 }
 
 GameTokens::GameTokens() {
-
-}
-
-GameTokens::~GameTokens() {
-
+    TokenTypes token;
 }
 
 GameTokens::GameTokens(TokenTypes name): GameTokens() {
     token = name;
+}
+
+void GameTokens::setGameTokens(GameTokens::TokenTypes name) {
+    this->token = name;
+    this->index = index++;
+}
+
+void GameTokens::setIndex(int index) {
+    this->index = index;
+}
+
+int GameTokens::getIndex() {
+    return this->index;
+}
+
+shared_ptr<DeckOfGameTokens> DeckOfGameTokens::getInstance() {
+
+    static shared_ptr<DeckOfGameTokens> instance{new DeckOfGameTokens};
+    return instance;
+}
+
+void DeckOfGameTokens::currentState() {
+    for(int i=0; i< gameTokens.size(); i++){
+        cout << gameTokens[i] << endl;
+    }
+}
+
+int DeckOfGameTokens::getCardIndex(GameTokens card) {
+    it = find(gameTokens.begin(), gameTokens.end(), card);
+
+    if (it != gameTokens.end()) {
+        return int(distance(gameTokens.begin(), it));
+    }
+    else {
+        cout << "Element Not Found" << endl;
+        return -1;
+    }
+}
+
+GameTokens DeckOfGameTokens::draw() {
+    GameTokens pickedCard = gameTokens[gameTokens.size() -1];
+    gameTokens.erase(gameTokens.end());
+    return pickedCard;
+}
+
+GameTokens DeckOfGameTokens::draw(GameTokens card) {
+    int index = getCardIndex(card);
+    if (index > 0) {
+        gameTokens.erase(gameTokens.begin() + index);
+        return card;
+    }
+}
+
+ostream& operator<<(ostream& os, GameTokens& card){
+    os << "----------------------------------------" << endl;
+    os << "Name :" << card.getName() << endl;
+    os << "Index :" << card.getIndex() << endl;
+    os << "----------------------------------------" << endl;
+    return os;
+}
+
+DeckOfGameTokens::DeckOfGameTokens() {
+
+    gameTokens.reserve(46);
+    int index=0;
+    for(int i=0; i< GameTokens::EnumEnd; i++) {
+        GameTokens::TokenTypes current = (GameTokens::TokenTypes) i;
+        GameTokens singleCard;
+        singleCard.setGameTokens(current);
+        switch(current){
+            case 0:
+                for(int i=0; i< 13; i++){
+                    singleCard.setIndex(index++);
+                    gameTokens.push_back(singleCard);
+                }
+                break;
+            case 1:
+                for(int i=0; i< 13; i++){
+                    singleCard.setIndex(index++);
+                    gameTokens.push_back(singleCard);
+                }
+                break;
+            case 2:
+                for(int i=0; i< 5; i++){
+                    singleCard.setIndex(index++);
+                    gameTokens.push_back(singleCard);
+                }
+                break;
+            case 3:
+                for(int i=0; i< 15; i++){
+                    singleCard.setIndex(index++);
+                    gameTokens.push_back(singleCard);
+                }
+                break;
+            default:
+                break;
+        }
+    }
+
 }
