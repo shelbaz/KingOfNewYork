@@ -1,0 +1,226 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/Users/shayan/Xcode Projects/KingOfNewYork/King of New York/Drivers/DiceDriver.cpp
+
+/Users/shayan/Xcode Projects/KingOfNewYork/King of New York/King of New York/BoardFigures.h
+GamePieces.h
+/Users/shayan/Xcode Projects/KingOfNewYork/King of New York/King of New York/GamePieces.h
+MonsterCards.h
+/Users/shayan/Xcode Projects/KingOfNewYork/King of New York/King of New York/MonsterCards.h
+
+/Users/shayan/Xcode Projects/KingOfNewYork/King of New York/King of New York/BuildingUnitTiles.cpp
+BuildingUnitTiles.h
+/Users/shayan/Xcode Projects/KingOfNewYork/King of New York/King of New York/BuildingUnitTiles.h
+iostream
+-
+
+/Users/shayan/Xcode Projects/KingOfNewYork/King of New York/King of New York/BuildingUnitTiles.h
+GamePieces.h
+/Users/shayan/Xcode Projects/KingOfNewYork/King of New York/King of New York/GamePieces.h
+string
+-
+
+/Users/shayan/Xcode Projects/KingOfNewYork/King of New York/King of New York/Cards.cpp
+Cards.h
+/Users/shayan/Xcode Projects/KingOfNewYork/King of New York/King of New York/Cards.h
+iostream
+-
+
+/Users/shayan/Xcode Projects/KingOfNewYork/King of New York/King of New York/Cards.h
+string
+-
+vector
+-
+map
+-
+
+/Users/shayan/Xcode Projects/KingOfNewYork/King of New York/King of New York/DeckOfBuildinigUnitTiles.cpp
+DeckOfBuildinigUnitTiles.h
+/Users/shayan/Xcode Projects/KingOfNewYork/King of New York/King of New York/DeckOfBuildinigUnitTiles.h
+algorithm
+-
+vector
+-
+iostream
+-
+
+/Users/shayan/Xcode Projects/KingOfNewYork/King of New York/King of New York/DeckOfBuildinigUnitTiles.h
+vector
+-
+BuildingUnitTiles.h
+/Users/shayan/Xcode Projects/KingOfNewYork/King of New York/King of New York/BuildingUnitTiles.h
+
+/Users/shayan/Xcode Projects/KingOfNewYork/King of New York/King of New York/DeckOfCards.cpp
+DeckOfCards.h
+/Users/shayan/Xcode Projects/KingOfNewYork/King of New York/King of New York/DeckOfCards.h
+Cards.h
+/Users/shayan/Xcode Projects/KingOfNewYork/King of New York/King of New York/Cards.h
+algorithm
+-
+vector
+-
+iostream
+-
+
+/Users/shayan/Xcode Projects/KingOfNewYork/King of New York/King of New York/DeckOfCards.h
+Cards.h
+/Users/shayan/Xcode Projects/KingOfNewYork/King of New York/King of New York/Cards.h
+GamePieces.h
+/Users/shayan/Xcode Projects/KingOfNewYork/King of New York/King of New York/GamePieces.h
+vector
+-
+string
+-
+
+/Users/shayan/Xcode Projects/KingOfNewYork/King of New York/King of New York/Dice.cpp
+Dice.h
+/Users/shayan/Xcode Projects/KingOfNewYork/King of New York/King of New York/Dice.h
+random
+-
+ctime
+-
+vector
+-
+iostream
+-
+string
+-
+
+/Users/shayan/Xcode Projects/KingOfNewYork/King of New York/King of New York/Dice.h
+vector
+-
+map
+-
+string
+-
+
+/Users/shayan/Xcode Projects/KingOfNewYork/King of New York/King of New York/GamePieces.h
+string
+-
+
+/Users/shayan/Xcode Projects/KingOfNewYork/King of New York/King of New York/GameTokens.cpp
+GameTokens.h
+/Users/shayan/Xcode Projects/KingOfNewYork/King of New York/King of New York/GameTokens.h
+
+/Users/shayan/Xcode Projects/KingOfNewYork/King of New York/King of New York/GameTokens.h
+string
+-
+
+/Users/shayan/Xcode Projects/KingOfNewYork/King of New York/King of New York/KingOfNewYork.cpp
+iostream
+-
+string
+-
+Region.h
+/Users/shayan/Xcode Projects/KingOfNewYork/King of New York/King of New York/Region.h
+Map.h
+/Users/shayan/Xcode Projects/KingOfNewYork/King of New York/King of New York/Map.h
+Zone.h
+/Users/shayan/Xcode Projects/KingOfNewYork/King of New York/King of New York/Zone.h
+MapLoader.h
+/Users/shayan/Xcode Projects/KingOfNewYork/King of New York/King of New York/MapLoader.h
+
+/Users/shayan/Xcode Projects/KingOfNewYork/King of New York/King of New York/Map.cpp
+Map.h
+/Users/shayan/Xcode Projects/KingOfNewYork/King of New York/King of New York/Map.h
+Region.h
+/Users/shayan/Xcode Projects/KingOfNewYork/King of New York/King of New York/Region.h
+algorithm
+-
+iostream
+-
+
+/Users/shayan/Xcode Projects/KingOfNewYork/King of New York/King of New York/Map.h
+iostream
+-
+vector
+-
+string
+-
+Zone.h
+/Users/shayan/Xcode Projects/KingOfNewYork/King of New York/King of New York/Zone.h
+
+/Users/shayan/Xcode Projects/KingOfNewYork/King of New York/King of New York/MapLoader.cpp
+MapLoader.h
+/Users/shayan/Xcode Projects/KingOfNewYork/King of New York/King of New York/MapLoader.h
+string
+-
+iostream
+-
+MapLoader.h
+/Users/shayan/Xcode Projects/KingOfNewYork/King of New York/King of New York/MapLoader.h
+
+/Users/shayan/Xcode Projects/KingOfNewYork/King of New York/King of New York/MapLoader.h
+Map.h
+/Users/shayan/Xcode Projects/KingOfNewYork/King of New York/King of New York/Map.h
+Region.h
+/Users/shayan/Xcode Projects/KingOfNewYork/King of New York/King of New York/Region.h
+fstream
+-
+
+/Users/shayan/Xcode Projects/KingOfNewYork/King of New York/King of New York/MonsterCards.cpp
+MonsterCards.h
+/Users/shayan/Xcode Projects/KingOfNewYork/King of New York/King of New York/MonsterCards.h
+
+/Users/shayan/Xcode Projects/KingOfNewYork/King of New York/King of New York/MonsterCards.h
+string
+-
+
+/Users/shayan/Xcode Projects/KingOfNewYork/King of New York/King of New York/Player.cpp
+Player.h
+/Users/shayan/Xcode Projects/KingOfNewYork/King of New York/King of New York/Player.h
+iostream
+-
+
+/Users/shayan/Xcode Projects/KingOfNewYork/King of New York/King of New York/Player.h
+Dice.h
+/Users/shayan/Xcode Projects/KingOfNewYork/King of New York/King of New York/Dice.h
+MonsterCards.h
+/Users/shayan/Xcode Projects/KingOfNewYork/King of New York/King of New York/MonsterCards.h
+Cards.h
+/Users/shayan/Xcode Projects/KingOfNewYork/King of New York/King of New York/Cards.h
+GameTokens.h
+/Users/shayan/Xcode Projects/KingOfNewYork/King of New York/King of New York/GameTokens.h
+BoardFigures.h
+/Users/shayan/Xcode Projects/KingOfNewYork/King of New York/King of New York/BoardFigures.h
+BuildingUnitTiles.h
+/Users/shayan/Xcode Projects/KingOfNewYork/King of New York/King of New York/BuildingUnitTiles.h
+DeckOfCards.h
+/Users/shayan/Xcode Projects/KingOfNewYork/King of New York/King of New York/DeckOfCards.h
+
+/Users/shayan/Xcode Projects/KingOfNewYork/King of New York/King of New York/Region.cpp
+assert.h
+-
+Region.h
+/Users/shayan/Xcode Projects/KingOfNewYork/King of New York/King of New York/Region.h
+Zone.h
+/Users/shayan/Xcode Projects/KingOfNewYork/King of New York/King of New York/Zone.h
+Map.h
+/Users/shayan/Xcode Projects/KingOfNewYork/King of New York/King of New York/Map.h
+
+/Users/shayan/Xcode Projects/KingOfNewYork/King of New York/King of New York/Region.h
+iostream
+-
+vector
+-
+string
+-
+
+/Users/shayan/Xcode Projects/KingOfNewYork/King of New York/King of New York/Zone.cpp
+Zone.h
+/Users/shayan/Xcode Projects/KingOfNewYork/King of New York/King of New York/Zone.h
+
+/Users/shayan/Xcode Projects/KingOfNewYork/King of New York/King of New York/Zone.h
+iostream
+-
+vector
+-
+string
+-
+
