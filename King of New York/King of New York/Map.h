@@ -26,6 +26,8 @@ public:
     void addRegionToMap (Region* newRegion);
     void removeRegionFromMap (Region* region);
     int getRegionCount () const;
+    void checkNode(Region & currentNode);
+    bool isConnected();
     vector<Region*> getMapRegion () const;
     vector<Zone*> getAllZones () const;
     void displayRegionList();
@@ -34,4 +36,5 @@ public:
 private:
     
     vector<Region*> mapRegions;
+    vector<string> visited;
 };

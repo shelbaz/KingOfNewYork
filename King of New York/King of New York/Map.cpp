@@ -21,6 +21,41 @@ Map::Map(vector<Region*> newRegions) {
 
 }
 
+void Map::checkNode(Region & currentNode)
+{
+    visited.push_back(currentNode.getName());
+    Region* current = &currentNode;
+    vector<Region*> neighbours = (*current).getNeighbours();
+    for (auto & neighbour : neighbours)
+    {
+        if (find(visited.begin(), visited.end(), (*neighbour).getName()) != visited.end()) {
+        }
+        else {
+            checkNode(*neighbour);
+        }
+    }
+}
+
+bool Map::isConnected()
+{
+    cout << "Verifying if map is valid ..." << endl;
+    checkNode(*regions[0]);
+    cout << "Connected Regions: " << visited.size() << endl;
+    cout << "Total number of regions: " << regions.size() << endl;
+
+    if (visited.size() == regions.size())
+    {
+        cout << "Map is valid." << endl;
+        return true;
+    }
+    else
+    {
+        cout << "Map is invalid." << endl;
+        return false;
+    }
+}
+
+
 Map::~Map() {
     
     for (vector<Region*>::iterator it = mapRegions.begin(); it != mapRegions.end(); it++) {

@@ -58,3 +58,11 @@ vector<Zone*> Region::getZone() const {
     return regionZones;
 
 }
+
+Region::Region() {
+
+}
+
+vector<Region*> Region::getNeighbours() {
+    return neighbours();
+}
