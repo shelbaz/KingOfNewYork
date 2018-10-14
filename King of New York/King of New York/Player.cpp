@@ -15,6 +15,8 @@ Player::Player() {
     vector <Cards> cards;
     vector <GameTokens> gameTokens;
     vector <BuildingUnitTiles> buildingUnitTiles;
+
+    cards.reserve(3); // max size of cards to hold
 }
 
 Player::~Player() {
@@ -56,9 +58,27 @@ void Player::buyCards(Cards card) {
 }
 
 void Player::addCard(Cards card) {
-    cards.push_back(card);
+    if(getNumberOfCards()>=3)
+    {
+        cout << "You cannot hold more than 3 cards" << endl;
+    }
+    else{
+        cards.push_back(card);
+    }
 
 }
+
+void Player::disposeOfCards() {
+    if(getEnergyCubes()>2)
+    {
+        removeEnergyCubes(3);
+        cards.clear();
+    }
+    else{
+        cout << "You do not have enough energy cubes to dispose of your cards" << endl;
+    }
+}
+
 
 void Player::attack() {
 

@@ -36,13 +36,15 @@ public:
     Player(Dice d);
 
     int getPlayerID() const;
+
     void rollDice(int numbOfDice);
     void resolveDice();
     void move();
-    void buyCards(Cards card);
     void attack();
 
+    void buyCards(Cards card);
     void addCard(Cards card);
+    void disposeOfCards();
     void addGameToken(GameTokens token);
     void addBuildingUnitTiles(BuildingUnitTiles tile);
     void assignMonster(MonsterCards card);
