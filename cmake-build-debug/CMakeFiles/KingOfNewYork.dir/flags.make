@@ -6,5 +6,5 @@ CXX_FLAGS = -g -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/Ma
 
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I"/Users/shayan/Xcode Projects/KingOfNewYork/King of New York/King of New York" 
+CXX_INCLUDES = -I"/Users/shayan/KingOfNewYork/King of New York/King of New York" 
 

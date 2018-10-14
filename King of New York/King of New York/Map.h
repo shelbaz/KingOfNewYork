@@ -19,6 +19,7 @@ class Map
     
 public:
 
+    // testing
     Map();
     Map(vector<Region*> newRegions);
     ~Map();
