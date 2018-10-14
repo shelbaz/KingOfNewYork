@@ -41,16 +41,24 @@ public:
     void move();
     void buyCards(Cards card);
     void attack();
-    int getNumberOfCards();
 
     void addCard(Cards card);
+    void addGameToken(GameTokens token);
+    void addBuildingUnitTiles(BuildingUnitTiles tile);
+    void assignMonster(MonsterCards card);
+    void assignBoardFigure(BoardFigures figure);
+    void assignDiceObject(Dice dice);
+
     int getLifePoints() const;
     int getVictoryPoints() const;
     int getEnergyCubes() const;
+    int getNumberOfCards();
     void addLifePoints(unsigned int pts);
     void addVictoryPoints(unsigned int pts);
     void removeLifePoints(int pts);
     void removeVictoryPoints(int pts);
+    void removeEnergyCubes(int pts);
+    void addEnergyCubes(int pts);
 
     friend ostream & operator<<(ostream & os, const Player& player);
 
