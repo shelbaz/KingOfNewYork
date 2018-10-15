@@ -128,7 +128,7 @@ void loadDriver (){
     MapLoader ml;
 
     //Load Valid Map
-    Map newYork = ml.loadMap("../King of New York/King of New York/GoodMap.txt");
+    Map newYork = ml.loadMap("../King of New York/King of New York/BadMap.txt");
 
 
 }
@@ -136,8 +136,8 @@ void loadDriver (){
 
 int main () {
 
-   createValidMap();
-   createInvalidMap();
+   //createValidMap();
+//   createInvalidMap();
    loadDriver();
 
     return 0;
