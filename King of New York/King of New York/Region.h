@@ -16,6 +16,8 @@ class Map;
 
 using namespace std;
 
+//Implements the functionality of a region on the map.
+
 class Region
 {
 public:

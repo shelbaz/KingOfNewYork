@@ -21,6 +21,8 @@ Map::Map(vector<Region*> newRegions) {
 
 }
 
+// Searchers the map using recursion to verify whether the map is connected or not.
+
 void Map::checkNode(Region & currentNode)
 {
     visited.push_back(currentNode.getName());
@@ -35,6 +37,8 @@ void Map::checkNode(Region & currentNode)
         }
     }
 }
+
+// Checks if the map is connected (starts at the first node on the graph).
 
 bool Map::isConnected()
 {
@@ -59,6 +63,8 @@ bool Map::isConnected()
 Map::~Map() {
 
 }
+
+// Adds a region (as a node) to the map (graph).
 
 void Map::addRegionToMap(Region *newRegion) {
     

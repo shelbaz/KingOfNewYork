@@ -14,6 +14,8 @@ class Region;
 
 using namespace std;
 
+// Implements the functionality of King Of New York board game (Functions as a connected graph).
+
 class Map
 {
     
