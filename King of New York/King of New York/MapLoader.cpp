@@ -10,6 +10,11 @@
 
 using namespace std;
 
+/*
+Loads a map object by reading the map file.
+Checks if the map is valid (is a connected map) before loading it.
+*/
+
 Map MapLoader::loadMap(string readMapText) {
 cout << 'test' << endl;
     ifstream readMap;

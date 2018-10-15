@@ -12,7 +12,8 @@
 class Region;
 using std::string;
 using std::vector;
-// class Player; //Used once a player is defined & implemented
+
+//Implements the functionality of a zone on the map.
 
 class Zone
 
@@ -40,5 +41,3 @@ private:
    // Player* owner; //Used once a player is defined & implemented
     Region* region;
 };
-
-
