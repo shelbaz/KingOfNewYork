@@ -40,5 +40,3 @@ private:
    // Player* owner; //Used once a player is defined & implemented
     Region* region;
 };
-
-

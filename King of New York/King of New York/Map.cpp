@@ -39,11 +39,11 @@ void Map::checkNode(Region & currentNode)
 bool Map::isConnected()
 {
     cout << "Verifying if map is valid ..." << endl;
-    checkNode(*regions[0]);
+    checkNode(*mapRegions[0]);
     cout << "Connected Regions: " << visited.size() << endl;
-    cout << "Total number of regions: " << regions.size() << endl;
+    cout << "Total number of regions: " << mapRegions.size() << endl;
 
-    if (visited.size() == regions.size())
+    if (visited.size() == mapRegions.size())
     {
         cout << "Map is valid." << endl;
         return true;
@@ -57,13 +57,7 @@ bool Map::isConnected()
 
 
 Map::~Map() {
-    
-    for (vector<Region*>::iterator it = mapRegions.begin(); it != mapRegions.end(); it++) {
-        
-        delete *it;
-        *it = NULL;
-    }
-    mapRegions.clear();
+
 }
 
 void Map::addRegionToMap(Region *newRegion) {
@@ -77,7 +71,7 @@ void Map::addRegionToMap(Region *newRegion) {
 }
 
 void Map::displayRegionList() {
-    for (auto &region : regions) {
+    for (auto &region : mapRegions) {
         cout << "Region name: " << (*region).getRegionName();
     }
 }

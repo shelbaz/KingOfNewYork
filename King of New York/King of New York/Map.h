@@ -31,10 +31,9 @@ public:
     vector<Region*> getMapRegion () const;
     vector<Zone*> getAllZones () const;
     void displayRegionList();
-    vector<Region*> regions;
+    vector<Region*> mapRegions;
     
 private:
-    
-    vector<Region*> mapRegions;
+
     vector<string> visited;
 };

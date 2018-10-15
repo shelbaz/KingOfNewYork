@@ -64,5 +64,5 @@ Region::Region() {
 }
 
 vector<Region*> Region::getNeighbours() {
-    return neighbours();
+    return neighbours;
 }
