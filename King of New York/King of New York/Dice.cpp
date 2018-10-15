@@ -10,7 +10,7 @@
 #include <string>
 using namespace std;
 
-
+// Dice constructor : init random with seed, maxRolls =3
 Dice::Dice() {
     srand((unsigned)time(0));
     numberOfRolls = 3;
@@ -28,16 +28,19 @@ Dice::Dice(int playerVal): Dice() {
 
 }
 
+// Pick random option from DiceOptions Enum
 Dice::DiceOptions Dice::randomDiceOption() {
     return static_cast<DiceOptions>(rand() % DiceOptions::NumOfOptions);
 
 }
 
+// Reset dice rolls after player turn back to 3
 void Dice::resetDiceRolls() {
     this->numberOfRolls = 3;
 
 }
 
+//First roll dice of player, default to 6 dice
 void Dice::rollDice(){
 
     DiceOptions value;
@@ -51,6 +54,7 @@ void Dice::rollDice(){
     this->numberOfRolls--;
 }
 
+//Second and third roll of player, input amount
 void Dice::rollDice(int amtOfDice) {
 
     if(this->numberOfRolls == 0 || amtOfDice>6) {
@@ -75,6 +79,7 @@ void Dice::rollDice(int amtOfDice) {
 
 }
 
+// Dice roll for testing fairness, can roll unlimited times
 void Dice::rollDice(bool testing) {
 
     if(!testing)
@@ -97,9 +102,9 @@ void Dice::rollDice(bool testing) {
     }
 }
 
+//Store history of dice result in Map of {DiceOption-->value}
 void Dice::storeDiceResult(map<DiceOptions, int> tempDiceValues) {
     historyOfRolls.push_back(tempDiceValues);
-
 }
 
 int Dice::getPlayerNumber() {
@@ -110,6 +115,7 @@ int Dice::getNumbOfRollsRemaining() {
     return numberOfRolls;
 }
 
+// Reset dice values between rolls
 void Dice::resetDiceValuesMap() {
     DiceValues[DiceOptions::Heal] = 0;
     DiceValues[DiceOptions::Attack] = 0;
@@ -119,7 +125,7 @@ void Dice::resetDiceValuesMap() {
     DiceValues[DiceOptions::Ouch] = 0;
 }
 
-
+// Print all historical dice values for player
 void Dice::diceHistoricalValues()
 {
     cout << "Dice container values for player "<< this->playerNumber  << endl;

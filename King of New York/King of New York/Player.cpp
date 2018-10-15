@@ -9,14 +9,12 @@ Player::Player() {
     victoryPoints = 0;
     lifePoints= 10;
 
-    Dice dice;
-    MonsterCards monsterCard;
-    BoardFigures boardFigure;
-    vector <Cards> cards;
-    vector <GameTokens> gameTokens;
-    vector <BuildingUnitTiles> buildingUnitTiles;
-
-    cards.reserve(3); // max size of cards to hold
+    Dice dice; // Player dice obj
+    MonsterCards monsterCard; // Player monster card
+    BoardFigures boardFigure; // Player board fig
+    vector <Cards> cards; //List of all deck cards assigned to player (purchased)
+    vector <GameTokens> gameTokens; // List of all game tokens assigned to player
+    vector <BuildingUnitTiles> buildingUnitTiles; // List of all building tiles assigned to player
 }
 
 Player::~Player() {
@@ -31,6 +29,7 @@ int Player::getPlayerID() const {
     return playerID;
 }
 
+// Roll dice scenario for all rolls, called by player
 void Player::rollDice() {
     // Implement keeping certain number of dice, erasing diceHistorical values past 3
     // Then sum the values for the resolveDice step, total 6 dice
@@ -92,7 +91,7 @@ void Player::attack() {
 }
 
 int Player::getNumberOfCards() {
-    return cards.size();
+    return int(cards.size());
 }
 
 int Player::getLifePoints() const {
@@ -133,6 +132,7 @@ void Player::addEnergyCubes(int pts) {
     energyCubes += pts;
 }
 
+// Overload print operator for vector of Cards
 ostream& operator<<(ostream& os, vector<Cards> v)
 {
     os << "[";
@@ -145,6 +145,7 @@ ostream& operator<<(ostream& os, vector<Cards> v)
     return os;
 }
 
+// Overload print operator for vector of gameTokens
 ostream& operator<<(ostream& os, vector<GameTokens> v)
 {
     os << "[";
@@ -157,6 +158,7 @@ ostream& operator<<(ostream& os, vector<GameTokens> v)
     return os;
 }
 
+// Overload print operator for Player object
 ostream & operator<<(ostream & os, Player& player){
 
     os << "----------------------------------------" << endl;

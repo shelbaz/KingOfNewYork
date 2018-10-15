@@ -31,6 +31,7 @@ void MonsterCards::setMonster(MonsterOptions value){
     this->card = value;
 }
 
+// Init constructor of deck of monster cards, from first to last enum set 1 of each monster
 DeckOfMonsterCards::DeckOfMonsterCards() {
     deck.reserve(6);
     for(int i=0; i< MonsterCards::EnumEnd; i++) {
@@ -41,6 +42,7 @@ DeckOfMonsterCards::DeckOfMonsterCards() {
     }
 }
 
+//print state of Deck of Monster cards (should be empty if there are 6 players)
 void DeckOfMonsterCards::currentState() {
     for(int i=0; i< deck.size(); i++){
         cout << deck[i] << endl;
@@ -59,12 +61,14 @@ int DeckOfMonsterCards::getCardIndex(MonsterCards card) {
     }
 }
 
+// Draw top card in deck of monster cards
 MonsterCards DeckOfMonsterCards::draw() {
     MonsterCards pickedCard = deck[deck.size() -1];
     deck.erase(deck.end()-1);
     return pickedCard;
 }
 
+// Draw selected card in deck of monster cards
 MonsterCards DeckOfMonsterCards::draw(MonsterCards card) {
     int index = getCardIndex(card);
     if (index > 0) {
@@ -77,6 +81,7 @@ const vector<MonsterCards> &DeckOfMonsterCards::getDeck() const {
     return deck;
 }
 
+// Overloaded cout operator for Card object
 ostream& operator<<(ostream& os, const MonsterCards& card){
     os << "----------------------------------------" << endl;
     os << "Name :" << card.getName() << endl;
@@ -84,6 +89,7 @@ ostream& operator<<(ostream& os, const MonsterCards& card){
     return os;
 }
 
+// Remove top element of deck
 void DeckOfMonsterCards::removeTop() {
     deck.erase(deck.end());
 }

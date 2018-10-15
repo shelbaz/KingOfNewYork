@@ -6,6 +6,7 @@
 
 #include <string>
 
+// Interface for Gamepieces to implement shuffle function
 class GamePieces{
 
 

@@ -74,6 +74,7 @@ ostream& operator<<(ostream& os, GameTokens& card){
     return os;
 }
 
+// Init DeckOfGameTokens with 46 tokens (13 Web, 13 Jinx, 5 Souvenir, 15 Carapace)
 DeckOfGameTokens::DeckOfGameTokens() {
 
     gameTokens.reserve(46);

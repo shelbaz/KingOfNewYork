@@ -18,7 +18,7 @@ private:
     string description;
     int energyCost;
 
-    //                 E,  A , D,  H,  C,  O
+    // Effect array values{E,A,D,H,C,O}
     vector <int> effect = {0,0,0,0,0,0};
     vector <int> ::iterator it;
 
