@@ -22,7 +22,7 @@ private:
     map<DiceOptions, int>::iterator mapIt;
     vector< map < DiceOptions, int> > historyOfRolls;
     vector< map < DiceOptions, int> > ::iterator it;
-    int totalDiceValues[6];
+    int totalDiceValues[6] = {0,0,0,0,0,0};
 
 
 

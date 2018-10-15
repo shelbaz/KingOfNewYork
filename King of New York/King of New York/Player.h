@@ -20,10 +20,10 @@ private:
     int playerID=0;
     Dice dice;
     MonsterCards monsterCard;
-    vector <Cards> cards;
-//    vector <GameTokens, int> gameTokens;
     BoardFigures boardFigure;
-//    vector <BuildingUnitTiles, int> buildingUnitTiles;
+    vector <Cards> cards;
+    vector <GameTokens> gameTokens;
+    vector <BuildingUnitTiles> buildingUnitTiles;
     int victoryPoints;
     int lifePoints;
     int energyCubes;
@@ -33,25 +33,47 @@ public:
     Player();
     ~Player();
 
-    Player(MonsterCards m, Dice d);
+    explicit Player(Dice d);
 
     int getPlayerID() const;
-    void rollDice(int numbOfDice);
+
+    void rollDice();
     void resolveDice();
     void move();
-    void buyCards(Cards card);
     void attack();
-    int getNumberOfCards();
 
+    void buyCards(Cards card);
     void addCard(Cards card);
+    void disposeOfCards();
+    void addGameToken(GameTokens token);
+    void addBuildingUnitTiles(BuildingUnitTiles tile);
+    void assignMonster(MonsterCards card);
+    void assignBoardFigure(BoardFigures figure);
+    void assignDiceObject(Dice dice);
+
     int getLifePoints() const;
     int getVictoryPoints() const;
     int getEnergyCubes() const;
+    int getNumberOfCards();
     void addLifePoints(unsigned int pts);
     void addVictoryPoints(unsigned int pts);
     void removeLifePoints(int pts);
     void removeVictoryPoints(int pts);
+    void removeEnergyCubes(int pts);
+    void addEnergyCubes(int pts);
 
-    friend ostream & operator<<(ostream & os, const Player& player);
+    friend ostream & operator<<(ostream & os, Player& player);
+    friend ostream& operator<<(ostream& os, vector<GameTokens> v);
+    friend ostream& operator<<(ostream& os, vector<Cards> v);
+
+    const MonsterCards &getMonsterCard() const;
+
+    const BoardFigures &getBoardFigure() const;
+
+    const vector<Cards> &getCards() const;
+
+    const vector<GameTokens> &getGameTokens() const;
+
+    void getGameTokensState();
 
 };

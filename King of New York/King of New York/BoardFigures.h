@@ -9,8 +9,4 @@
 
 class BoardFigures: public MonsterCards {
 
-private:
-
-public:
-
 };

@@ -34,8 +34,8 @@ ostream & operator<<(ostream & os, const BuildingUnitTiles& tiles){
     os << "----------------------------------------" << endl;
     os << "Name :" << tiles.getName() << endl;
     os << "***************" << endl;
-    os << "Durability = " << tiles.getDurability();
-    os << "Reward =" << tiles.getReward();
+    os << "Durability = " << tiles.getDurability() << endl;
+    os << "Reward =" << tiles.getReward() << endl;
     os << "----------------------------------------" << endl;
     return os;
 }

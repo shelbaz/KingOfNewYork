@@ -11,15 +11,9 @@ class DeckOfBuildingUnitTiles: public GamePieces {
 
 private:
     vector<BuildingUnitTiles> deck;
-    DeckOfBuildingUnitTiles();
 
 public:
-
-    static shared_ptr<DeckOfBuildingUnitTiles> getInstance();
-
-    DeckOfBuildingUnitTiles(DeckOfBuildingUnitTiles const&) = delete;
-    DeckOfBuildingUnitTiles& operator=(DeckOfBuildingUnitTiles const&) = delete;
-
+    DeckOfBuildingUnitTiles();
     void shuffle() override;
     BuildingUnitTiles draw();
     int getSize();

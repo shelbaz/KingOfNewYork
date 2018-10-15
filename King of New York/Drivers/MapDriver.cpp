@@ -120,6 +120,21 @@ void createInvalidMap(){
 
 
     newYork.isConnected();
+
+    //Zone* manhattan = new Zone
+
+    //cout <<queens->getName() <<endl;
+    //cout <<manhattan->getZone   <<endl;
+
+    vector<Zone*> zone=manhattan->getZone();
+
+    //cout<<zone.size();
+
+    for(int i=0;i<zone.size();i++)
+    {
+        cout<<zone[i]->getZoneName()<<endl;
+
+    }
 }
 
 void loadDriver (){
@@ -128,17 +143,17 @@ void loadDriver (){
     MapLoader ml;
 
     //Load Valid Map
-    Map newYork = ml.loadMap("../King of New York/King of New York/BadMap.txt");
 
+    Map newYorkBad = ml.loadMap("../King of New York/King of New York/BadMap.txt");
+
+    Map newYork = ml.loadMap("../King of New York/King of New York/GoodMap.txt");
 
 }
-
 
 int main () {
-
-   //createValidMap();
-//   createInvalidMap();
+   createValidMap();
+   createInvalidMap();
    loadDriver();
-
     return 0;
 }
+
