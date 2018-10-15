@@ -33,11 +33,11 @@ public:
     Player();
     ~Player();
 
-    Player(Dice d);
+    explicit Player(Dice d);
 
     int getPlayerID() const;
 
-    void rollDice(int numbOfDice);
+    void rollDice();
     void resolveDice();
     void move();
     void attack();
@@ -62,6 +62,18 @@ public:
     void removeEnergyCubes(int pts);
     void addEnergyCubes(int pts);
 
-    friend ostream & operator<<(ostream & os, const Player& player);
+    friend ostream & operator<<(ostream & os, Player& player);
+    friend ostream& operator<<(ostream& os, vector<GameTokens> v);
+    friend ostream& operator<<(ostream& os, vector<Cards> v);
+
+    const MonsterCards &getMonsterCard() const;
+
+    const BoardFigures &getBoardFigure() const;
+
+    const vector<Cards> &getCards() const;
+
+    const vector<GameTokens> &getGameTokens() const;
+
+    void getGameTokensState();
 
 };

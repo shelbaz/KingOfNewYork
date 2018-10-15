@@ -33,12 +33,6 @@ int GameTokens::getIndex() {
     return this->index;
 }
 
-shared_ptr<DeckOfGameTokens> DeckOfGameTokens::getInstance() {
-
-    static shared_ptr<DeckOfGameTokens> instance{new DeckOfGameTokens};
-    return instance;
-}
-
 void DeckOfGameTokens::currentState() {
     for(int i=0; i< gameTokens.size(); i++){
         cout << gameTokens[i] << endl;
@@ -46,10 +40,11 @@ void DeckOfGameTokens::currentState() {
 }
 
 int DeckOfGameTokens::getCardIndex(GameTokens card) {
-    it = find(gameTokens.begin(), gameTokens.end(), card);
+    auto it = find(gameTokens.begin(), gameTokens.end(), card);
 
     if (it != gameTokens.end()) {
-        return int(distance(gameTokens.begin(), it));
+        int val = distance(gameTokens.begin(), it);
+        return val;
     }
     else {
         cout << "Element Not Found" << endl;
@@ -59,7 +54,7 @@ int DeckOfGameTokens::getCardIndex(GameTokens card) {
 
 GameTokens DeckOfGameTokens::draw() {
     GameTokens pickedCard = gameTokens[gameTokens.size() -1];
-    gameTokens.erase(gameTokens.end());
+    gameTokens.erase(gameTokens.end()-1);
     return pickedCard;
 }
 

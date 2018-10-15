@@ -15,21 +15,24 @@ class DeckOfCards: public GamePieces {
 
 private:
     vector<Cards> deck;
-    DeckOfCards();
     int index;
 
 public:
 
     // guarantee that the singleton will not be destroyed until all your static objects that use the singleton no longer need it.
-    static shared_ptr<DeckOfCards> getInstance();
-
-    DeckOfCards(DeckOfCards const&) = delete;
-    DeckOfCards& operator=(DeckOfCards const&) = delete;
+    DeckOfCards();
 
     void shuffle();
+    void showTopCard();
+    void showTopThreeCards();
+    Cards peekTopCard();
+    vector <Cards> topThreeCards();
+    void removeTopThreeCards();
+    void insertBackInDeckBottom(Cards card);
     unsigned int getSize();
     void currentState();
     Cards draw();
+
 
 
 };

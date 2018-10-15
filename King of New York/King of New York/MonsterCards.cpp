@@ -7,15 +7,23 @@
 
 using namespace std;
 
+MonsterCards::MonsterCards(MonsterOptions card): MonsterCards() {
+    this->card =card;
+}
+
 MonsterCards::MonsterCards() {
-    MonsterOptions card;
+
 }
 
 MonsterCards::~MonsterCards() {
 
 }
 
-string MonsterCards::getName(){
+MonsterCards::MonsterCards(const MonsterCards &p2) {
+    card = p2.card;
+}
+
+string MonsterCards::getName() const{
     return MonsterNames[card];
 }
 
@@ -31,12 +39,6 @@ DeckOfMonsterCards::DeckOfMonsterCards() {
         singleCard.setMonster(current);
         deck.push_back(singleCard);
     }
-}
-
-shared_ptr<DeckOfMonsterCards> DeckOfMonsterCards::getInstance() {
-
-    static shared_ptr<DeckOfMonsterCards> instance{new DeckOfMonsterCards};
-    return instance;
 }
 
 void DeckOfMonsterCards::currentState() {
@@ -59,7 +61,7 @@ int DeckOfMonsterCards::getCardIndex(MonsterCards card) {
 
 MonsterCards DeckOfMonsterCards::draw() {
     MonsterCards pickedCard = deck[deck.size() -1];
-    deck.erase(deck.end());
+    deck.erase(deck.end()-1);
     return pickedCard;
 }
 
@@ -71,9 +73,17 @@ MonsterCards DeckOfMonsterCards::draw(MonsterCards card) {
     }
 }
 
-ostream& operator<<(ostream& os, MonsterCards& card){
+const vector<MonsterCards> &DeckOfMonsterCards::getDeck() const {
+    return deck;
+}
+
+ostream& operator<<(ostream& os, const MonsterCards& card){
     os << "----------------------------------------" << endl;
     os << "Name :" << card.getName() << endl;
     os << "----------------------------------------" << endl;
     return os;
+}
+
+void DeckOfMonsterCards::removeTop() {
+    deck.erase(deck.end());
 }

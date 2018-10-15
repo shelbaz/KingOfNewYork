@@ -16,11 +16,6 @@ DeckOfBuildingUnitTiles::DeckOfBuildingUnitTiles() {
     }
 }
 
-shared_ptr<DeckOfBuildingUnitTiles> DeckOfBuildingUnitTiles::getInstance() {
-    static shared_ptr<DeckOfBuildingUnitTiles> instance{new DeckOfBuildingUnitTiles};
-    return instance;
-}
-
 void DeckOfBuildingUnitTiles::shuffle() {
     srand (time(0));
     std::random_shuffle(deck.begin(), deck.end());
@@ -28,7 +23,7 @@ void DeckOfBuildingUnitTiles::shuffle() {
 
 BuildingUnitTiles DeckOfBuildingUnitTiles::draw() {
     BuildingUnitTiles pickedCard = deck[deck.size() -1];
-    deck.erase(deck.end());
+    deck.erase(deck.end()-1);
     return pickedCard;
 }
 

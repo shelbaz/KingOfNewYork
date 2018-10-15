@@ -15,11 +15,13 @@ public:
 
     enum MonsterOptions{CaptainFish=0, Sheriff, Kong, Mantis, Rob, Drakonis, EnumEnd};
     MonsterCards();
+    explicit MonsterCards(MonsterOptions value);
+    MonsterCards(const MonsterCards &p2);
     ~MonsterCards();
 
-    string getName();
+    string getName() const;
     void setMonster(MonsterOptions value);
-    friend ostream& operator<<(ostream& os, MonsterCards& card);
+    friend ostream& operator<<(ostream& os, const MonsterCards& card);
     friend bool operator== (const MonsterCards& p1, const MonsterCards& p2) {
         return true;
     }
@@ -33,20 +35,16 @@ private:
 class DeckOfMonsterCards {
 
 private:
-    DeckOfMonsterCards();
     vector<MonsterCards> deck;
     vector<MonsterCards>::iterator it;
 
 public:
-
-    static shared_ptr<DeckOfMonsterCards> getInstance();
-
-    DeckOfMonsterCards(DeckOfMonsterCards const&) = delete;
-    DeckOfMonsterCards& operator=(DeckOfMonsterCards const&) = delete;
-
+    DeckOfMonsterCards();
     void currentState();
     MonsterCards draw();
     MonsterCards draw(MonsterCards card);
     int getCardIndex(MonsterCards card);
+    const vector<MonsterCards> &getDeck() const;
+    void removeTop();
 
 };

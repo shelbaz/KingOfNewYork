@@ -8,12 +8,6 @@
 #include <vector>
 #include <iostream>
 
-shared_ptr<DeckOfCards> DeckOfCards::getInstance() {
-
-    static shared_ptr<DeckOfCards> instance{new DeckOfCards};
-    return instance;
-}
-
 
 DeckOfCards::DeckOfCards() {
     deck.reserve(64 + 2); // 64 regular + 2 special cards
@@ -33,7 +27,7 @@ void DeckOfCards::shuffle() {
 
 Cards DeckOfCards::draw() {
     Cards pickedCard = deck[deck.size() -1];
-    deck.erase(deck.end());
+    deck.erase(deck.end()-1);
     return pickedCard;
 }
 
@@ -43,10 +37,48 @@ unsigned int DeckOfCards::getSize() {
 
 
 void DeckOfCards::currentState() {
-    for(int i=0; i<deck.size(); i++){
+    for (int i = 0; i < deck.size(); i++) {
         cout << deck[i] << endl;
     }
+}
 
+Cards DeckOfCards::peekTopCard() {
+    Cards pickedCard = deck[deck.size() -1];
+    return pickedCard;
+}
+
+void DeckOfCards::showTopCard() {
+    Cards one = deck[deck.size() -1];
+    cout << "Top Card : " << one << endl;
+}
+
+void DeckOfCards::showTopThreeCards() {
+    Cards one = deck[deck.size() -1];
+    Cards two = deck[deck.size() -2];
+    Cards three = deck[deck.size() -3];
+    cout << "Card 1 : " << one << endl;
+    cout << "Card 2 : " << two << endl;
+    cout << "Card 3 : " << three << endl;
+}
+
+vector<Cards> DeckOfCards::topThreeCards() {
+    vector <Cards> topCards;
+    for(int i=0; i<3; i++) {
+        topCards.push_back(deck[deck.size()-(i-1)]);
+    }
+
+    return topCards;
+}
+
+void DeckOfCards::removeTopThreeCards() {
+    vector <Cards> topCards;
+    for(int i=0; i<3; i++) {
+        deck.erase(deck.end());
+    }
+}
+
+void DeckOfCards::insertBackInDeckBottom(Cards card) {
+    deck.insert(deck.begin(), card);
 }
 
 

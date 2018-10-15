@@ -18,24 +18,21 @@ using namespace std;
 
 int main(int argc, const char * argv[]) {
 
-    shared_ptr<DeckOfCards> deckOfCards = DeckOfCards::getInstance();
-    shared_ptr<DeckOfBuildingUnitTiles> deckOfBuildingUnitTiles  = DeckOfBuildingUnitTiles::getInstance();
-    shared_ptr<DeckOfMonsterCards> deckOfMonsterCards  = DeckOfMonsterCards::getInstance();
-    shared_ptr<DeckOfGameTokens> deckOfGameTokens  = DeckOfGameTokens::getInstance();
+    DeckOfCards deckOfCards;
+    DeckOfBuildingUnitTiles deckOfBuildingUnitTiles;
+    DeckOfMonsterCards deckOfMonsterCards;
+    DeckOfGameTokens deckOfGameTokens;
 
-    deckOfGameTokens->currentState();
-    deckOfMonsterCards->currentState();
+    deckOfCards.currentState();
+    deckOfCards.shuffle();
+    deckOfCards.currentState();
 
-    deckOfBuildingUnitTiles->currentState();
-    deckOfBuildingUnitTiles->shuffle();
-    deckOfBuildingUnitTiles->currentState();
+    deckOfBuildingUnitTiles.currentState();
+    deckOfBuildingUnitTiles.shuffle();
+    deckOfBuildingUnitTiles.currentState();
 
-    deckOfCards->currentState();
-    deckOfCards->shuffle();
-    deckOfCards->currentState();
-
-
-
+    deckOfGameTokens.currentState();
+    deckOfMonsterCards.currentState();
 
     return 0;
 }

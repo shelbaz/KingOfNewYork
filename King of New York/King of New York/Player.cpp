@@ -31,10 +31,24 @@ int Player::getPlayerID() const {
     return playerID;
 }
 
-void Player::rollDice(int numbOfDice) {
-
-    this-> dice.rollDice(numbOfDice);
-
+void Player::rollDice() {
+    // Implement keeping certain number of dice, erasing diceHistorical values past 3
+    // Then sum the values for the resolveDice step, total 6 dice
+    int numbOfDice=0;
+    cout << "Rolling first dice for player, Press enter to confirm" << endl;
+    cin.ignore();
+    //Roll first dice
+    this-> dice.rollDice();
+    this-> dice.diceHistoricalValues();
+    cout << "How many dice do you want to roll next?" << endl;
+    cin >> numbOfDice;
+    this->dice.rollDice(numbOfDice);
+    this-> dice.diceHistoricalValues();
+    cout << "How many dice do you want to roll next?" << endl;
+    cin >> numbOfDice;
+    this->dice.rollDice(numbOfDice);
+    this-> dice.diceHistoricalValues();
+    cout << "Player turn is over" << endl;
 }
 
 void Player::resolveDice() {
@@ -58,21 +72,14 @@ void Player::buyCards(Cards card) {
 }
 
 void Player::addCard(Cards card) {
-    if(getNumberOfCards()>=3)
-    {
-        cout << "You cannot hold more than 3 cards" << endl;
-    }
-    else{
         cards.push_back(card);
-    }
-
 }
 
 void Player::disposeOfCards() {
     if(getEnergyCubes()>2)
     {
         removeEnergyCubes(3);
-        cards.clear();
+        //cards.clear(); // Replace with clear top 3 of deck
     }
     else{
         cout << "You do not have enough energy cubes to dispose of your cards" << endl;
@@ -126,14 +133,41 @@ void Player::addEnergyCubes(int pts) {
     energyCubes += pts;
 }
 
-ostream & operator<<(ostream & os, const Player& player){
+ostream& operator<<(ostream& os, vector<Cards> v)
+{
+    os << "[";
+    for (int i = 0; i < v.size(); ++i) {
+        os << v[i];
+        if (i != v.size() - 1)
+            os << ", ";
+    }
+    os << "]\n";
+    return os;
+}
+
+ostream& operator<<(ostream& os, vector<GameTokens> v)
+{
+    os << "[";
+    for (int i = 0; i < v.size(); ++i) {
+        os << v[i];
+        if (i != v.size() - 1)
+            os << ", ";
+    }
+    os << "]\n";
+    return os;
+}
+
+ostream & operator<<(ostream & os, Player& player){
 
     os << "----------------------------------------" << endl;
     os << "ID :" << player.getPlayerID() << endl;
     os << "***************" << endl;
-    os << "Victory Points :" << player.getVictoryPoints() << endl;
-    os << "Life Points :" << player.getLifePoints() << endl;
-    os << "Energy Cubes :" << player.getEnergyCubes() << endl;
+    os << "Victory Points: " << player.getVictoryPoints() << endl;
+    os << "Life Points: " << player.getLifePoints() << endl;
+    os << "Energy Cubes: " << player.getEnergyCubes() << endl;
+    os << "Monster Card: \n " << player.getMonsterCard() << endl;
+    os << "Game Tokens: \n"  << player.getGameTokens() << endl;
+    os << "Game Cards: \n"  << player.getCards() << endl;
     os << "----------------------------------------" << endl;
     return os;
 
@@ -157,4 +191,26 @@ void Player::assignBoardFigure(BoardFigures figure) {
 
 void Player::assignDiceObject(Dice dice) {
     this->dice = dice;
+}
+
+const MonsterCards &Player::getMonsterCard() const {
+    return monsterCard;
+}
+
+const BoardFigures &Player::getBoardFigure() const {
+    return this->boardFigure;
+}
+
+const vector<Cards> &Player::getCards() const {
+    return this->cards;
+}
+
+const vector<GameTokens> &Player::getGameTokens() const {
+    return this->gameTokens;
+}
+
+void Player::getGameTokensState() {
+    for(int i=0; i< gameTokens.size(); i++){
+        cout << gameTokens[i] << endl;
+    }
 }

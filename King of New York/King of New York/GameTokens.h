@@ -37,21 +37,15 @@ private:
 class DeckOfGameTokens {
 
 private:
-    DeckOfGameTokens();
     vector<GameTokens> gameTokens;
     vector<GameTokens>::iterator it;
 
 public:
-
-    static shared_ptr<DeckOfGameTokens> getInstance();
-
-    DeckOfGameTokens(DeckOfGameTokens const&) = delete;
-    DeckOfGameTokens& operator=(DeckOfGameTokens const&) = delete;
-
+    DeckOfGameTokens();
     int getCardIndex(GameTokens card);
     void currentState();
     GameTokens draw();
-    GameTokens draw(GameTokens token);
+    GameTokens draw(GameTokens card);
 
 };
 
