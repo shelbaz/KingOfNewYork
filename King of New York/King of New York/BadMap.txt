@@ -4,7 +4,7 @@ Bronx
 Queens
 Brooklyn
 StatenIsland
-4
+3
 Bronx
 Queens
 Brooklyn
@@ -15,7 +15,7 @@ Queens
 Bronx
 Manhattan
 Brooklyn
-2
+1
 Queens
 6
 Lower1

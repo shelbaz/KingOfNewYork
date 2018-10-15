@@ -21,7 +21,7 @@ Map::Map(vector<Region*> newRegions) {
 
 }
 
-// Searchers the map using recursion to verify whether the map is connected or not.
+// Searches the map using recursion
 
 void Map::checkNode(Region & currentNode)
 {
