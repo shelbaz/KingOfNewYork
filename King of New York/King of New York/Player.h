@@ -17,7 +17,7 @@ using namespace std;
 class Player {
 
 private:
-    int playerID=0;
+    int playerID;
     Dice dice;
     MonsterCards monsterCard;
     BoardFigures boardFigure;
@@ -33,11 +33,13 @@ public:
     Player();
     ~Player();
 
-    explicit Player(Dice d);
+    explicit Player(Dice d, int i);
 
     int getPlayerID() const;
+    void setPlayerID(int playerId);
 
     void rollDice();
+    int rollDiceFirst();
     void resolveDice();
     void move();
     void attack();
@@ -61,6 +63,9 @@ public:
     void removeVictoryPoints(int pts);
     void removeEnergyCubes(int pts);
     void addEnergyCubes(int pts);
+
+    int getZone();
+    void setZone(int);
 
     friend ostream & operator<<(ostream & os, Player& player);
     friend ostream& operator<<(ostream& os, vector<GameTokens> v);

@@ -21,13 +21,6 @@ Dice::Dice() {
     vector< map < DiceOptions, int> > ::iterator it;
 }
 
-
-Dice::Dice(int playerVal): Dice() {
-
-    playerNumber = playerVal;
-
-}
-
 // Pick random option from DiceOptions Enum
 Dice::DiceOptions Dice::randomDiceOption() {
     return static_cast<DiceOptions>(rand() % DiceOptions::NumOfOptions);
@@ -42,16 +35,38 @@ void Dice::resetDiceRolls() {
 
 //First roll dice of player, default to 6 dice
 void Dice::rollDice(){
-
+    string keep;
     DiceOptions value;
     for(int i=0; i<6; i++)
     {
         value = randomDiceOption();
         this->DiceValues[value] ++;
     }
+    cout << "Which dice do you want to keep? " << endl;
+    cin >> keep;
     storeDiceResult(DiceValues);
     resetDiceValuesMap();
     this->numberOfRolls--;
+}
+
+void Dice::setPlayerNumber(int numb) {
+    this->playerNumber = numb;
+
+}
+
+int Dice::rollDiceDetermineStart(){
+
+    DiceOptions value;
+    int numbOfAttacks=0;
+    for(int i=0; i<8; i++)
+    {
+        value = randomDiceOption();
+        if(value == DiceOptions::Attack)
+        {
+            numbOfAttacks++;
+        }
+    }
+    return numbOfAttacks;
 }
 
 //Second and third roll of player, input amount
@@ -128,13 +143,13 @@ void Dice::resetDiceValuesMap() {
 // Print all historical dice values for player
 void Dice::diceHistoricalValues()
 {
-    cout << "Dice container values for player "<< this->playerNumber  << endl;
+    cout << "Dice container values for player "<< this->getPlayerNumber() << endl;
     cout << "-----------------------------------------------------------------" << endl;
     for (it = historyOfRolls.begin(); it != historyOfRolls.end(); ++it) {
         cout << "Dice Roll # "<< it - historyOfRolls.begin() +1 << endl;
         cout << "-----------------------------------------------------------------" << endl;
 
-        for (map<DiceOptions, int>::iterator mapIt(it->begin()); mapIt != it->end(); ++mapIt) {
+        for (auto mapIt(it->begin()); mapIt != it->end(); ++mapIt) {
 
             std::cout << DiceNames[mapIt->first] << ", " << mapIt->second << std::endl;
         }

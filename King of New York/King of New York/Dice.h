@@ -18,8 +18,9 @@ private:
     int playerNumber;
     int numberOfRolls;
     map<DiceOptions, int> DiceValues = {{Energy, 0}, {Attack, 0}, {Destruction, 0}, {Heal, 0} , {Celebrity, 0} , {Ouch, 0}};
-
     map<DiceOptions, int>::iterator mapIt;
+    map<DiceOptions, int> resolvedHand = {{Energy, 0}, {Attack, 0}, {Destruction, 0}, {Heal, 0} , {Celebrity, 0} , {Ouch, 0}};
+    vector< map < DiceOptions, int> > historyOfResolvedRolls;
     vector< map < DiceOptions, int> > historyOfRolls;
     vector< map < DiceOptions, int> > ::iterator it;
     int totalDiceValues[6] = {0,0,0,0,0,0};
@@ -28,13 +29,14 @@ private:
 
 public:
     Dice();
-    Dice(int playerVal);
 
     void rollDice();
     void rollDice(int amtOfDice);
     void rollDice(bool testing);
+    int rollDiceDetermineStart();
     void storeDiceResult(map<DiceOptions, int> tempDiceValues);
     int getPlayerNumber();
+    void setPlayerNumber(int numb);
     void resetDiceValuesMap();
     void resetDiceRolls();
     void diceHistoricalValues();

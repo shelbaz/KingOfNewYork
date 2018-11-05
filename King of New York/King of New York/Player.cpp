@@ -21,8 +21,10 @@ Player::~Player() {
 
 }
 
-Player::Player(Dice d): Player() {
+Player::Player(Dice d, int i): Player() {
     this ->dice = d ;
+    this ->playerID = i;
+    this ->dice.setPlayerNumber(i);
 }
 
 int Player::getPlayerID() const {
@@ -48,6 +50,12 @@ void Player::rollDice() {
     this->dice.rollDice(numbOfDice);
     this-> dice.diceHistoricalValues();
     cout << "Player turn is over" << endl;
+}
+
+int Player::rollDiceFirst() {
+    int result;
+    result = this-> dice.rollDiceDetermineStart();
+    return result;
 }
 
 void Player::resolveDice() {
@@ -215,4 +223,9 @@ void Player::getGameTokensState() {
     for(int i=0; i< gameTokens.size(); i++){
         cout << gameTokens[i] << endl;
     }
+}
+
+void Player::setPlayerID(int playerId) {
+    this->playerID = playerId;
+
 }
