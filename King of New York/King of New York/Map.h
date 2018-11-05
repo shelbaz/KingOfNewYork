@@ -1,41 +1,35 @@
 //
-//  Map.h
-//  King of New York
+// Created by Shawn Elbaz on 2018-11-05.
 //
 
 #pragma once
 
-#include <iostream>
-#include <vector>
+#include "./Graph/Graph.h"
 #include <string>
-#include "Zone.h"
-
-class Region;
-
 using namespace std;
 
-// Implements the functionality of King Of New York board game (Functions as a connected graph).
+class Map {
 
-class Map
-{
-    
 public:
 
-    // testing
     Map();
-    Map(vector<Region*> newRegions);
     ~Map();
-    void addRegionToMap (Region* newRegion);
-    void removeRegionFromMap (Region* region);
-    int getRegionCount () const;
-    void checkNode(Region & currentNode);
-    bool isConnected();
-    vector<Region*> getMapRegion () const;
-    vector<Zone*> getAllZones () const;
-    void displayRegionList();
-    vector<Region*> mapRegions;
-    
+
+    void assignMap(Graph<string>* map);
+    void move();
+    void isMoveValid();
+    void assignPlayerToZone();
+    void assignPlayerToRegion();
+    void isNodeFull(); // has 2 players
+
+
 private:
 
-    vector<string> visited;
+    int* playerPositions;
+    Graph<string>* gameMap; //the game map
+
+
+
 };
+
+

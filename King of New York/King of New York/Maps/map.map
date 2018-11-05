@@ -1,0 +1,123 @@
+@node
+{
+  name: Manhattan
+  type: master
+  adjacent: Manhattan Lower 2-4
+  adjacent: Manhattan Lower 5-6
+  adjacent: Bronx
+  adjacent: Queens
+  adjacent: Staten Island
+  adjacent: Brooklyn
+}
+
+@node
+{
+  name: Manhattan Lower 2-4
+  type: inner
+  adjacent: Manhattan
+  adjacent: Manhattan Midtown 2-4
+  adjacent: Bronx
+  adjacent: Queens
+  adjacent: Staten Island
+  adjacent: Brooklyn
+}
+
+@node
+{
+  name: Manhattan Midtown 2-4
+  type: inner
+  adjacent: Manhattan
+  adjacent: Manhattan Upper 2-4
+  adjacent: Bronx
+  adjacent: Queens
+  adjacent: Staten Island
+  adjacent: Brooklyn
+}
+
+@node
+{
+  name: Manhattan Upper 2-4
+  type: inner
+  adjacent: Manhattan
+  adjacent: Bronx
+  adjacent: Queens
+  adjacent: Staten Island
+  adjacent: Brooklyn
+}
+
+@node
+{
+  name: Manhattan Lower 5-6
+  type: inner
+  adjacent: Manhattan
+  adjacent: Manhattan Midtown 5-6
+  adjacent: Bronx
+  adjacent: Queens
+  adjacent: Staten Island
+  adjacent: Brooklyn
+}
+
+@node
+{
+  name: Manhattan Midtown 5-6
+  type: inner
+  adjacent: Manhattan
+  adjacent: Manhattan Upper 5-6
+  adjacent: Bronx
+  adjacent: Queens
+  adjacent: Staten Island
+  adjacent: Brooklyn
+}
+
+@node
+{
+  name: Manhattan Upper 5-6
+  type: inner
+  adjacent: Manhattan
+  adjacent: Bronx
+  adjacent: Queens
+  adjacent: Staten Island
+  adjacent: Brooklyn
+}
+
+@node
+{
+  name: Bronx
+  type: outer
+  adjacent: Manhattan
+  adjacent: Queens
+  adjacent: Staten Island
+  adjacent: Brooklyn
+}
+
+@node
+{
+  name: Queens
+  type: outer
+  adjacent: Manhattan
+  adjacent: Bronx
+  adjacent: Staten Island
+  adjacent: Brooklyn
+}
+
+@node
+{
+  name: Staten Island
+  type: outer
+  adjacent: Manhattan
+  adjacent: Bronx
+  adjacent: Queens
+  adjacent: Brooklyn
+}
+
+@node
+{
+  name: Brooklyn
+  type: outer
+  adjacent: Manhattan
+  adjacent: Bronx
+  adjacent: Queens
+  adjacent: Staten Island
+}
+
+

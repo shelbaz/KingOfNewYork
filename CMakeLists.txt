@@ -6,8 +6,6 @@ set(CMAKE_CXX_STANDARD 14)
 include_directories("King of New York/King of New York")
 
 add_executable(KingOfNewYork
-        "King of New York/King of New York/Map.cpp"
-        "King of New York/King of New York/Map.h"
         "King of New York/King of New York/Dice.cpp"
         "King of New York/King of New York/Dice.h"
         "King of New York/Drivers/DiceDriver.cpp"
@@ -27,14 +25,15 @@ add_executable(KingOfNewYork
         "King of New York/King of New York/DeckOfCards.h"
         "King of New York/King of New York/DeckOfBuildinigUnitTiles.cpp"
         "King of New York/King of New York/DeckOfBuildinigUnitTiles.h"
-        "King of New York/King of New York/Region.cpp"
-        "King of New York/King of New York/Region.h"
-        "King of New York/King of New York/Zone.cpp"
-        "King of New York/King of New York/Zone.h"
+        "King of New York/King of New York/Game.cpp"
+        "King of New York/King of New York/Game.h"
         "King of New York/King of New York/MapLoader.cpp"
         "King of New York/King of New York/MapLoader.h"
-        "King of New York/Drivers/MapDriver.cpp"
         "King of New York/Drivers/PlayerDriver.cpp"
         "King of New York/Drivers/CardsPiecesDriver.cpp"
-        )
+        "King of New York/Drivers/GameDriver.cpp"
+        "King of New York/Drivers/MapDriver.cpp"
+        "King of New York/King of New York/Graph/StringFunctions.h"
+        "King of New York/King of New York/Map.cpp"
+        "King of New York/King of New York/Map.h")
 
