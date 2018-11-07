@@ -11,17 +11,14 @@ class GraphVertex
   //a class for the vertices of the graph data structure
   private:
     int index; //the vertices index in the graph's array
-    std::string name; //the name of the vertex
+    string name; //the name of the vertex
     T data; //the data stored in the vertex
-    string owner;
   public:
     GraphVertex(); //constructor
     ~GraphVertex(); //destructor
     int getIndex(); //returns the index of the vertex in the graph's array
     void setIndex(int); //change the index of the vertex in the graph's array
     string getName(); //get the name of the vertex
-    void setOwner(string player);
-    string getOwner();
     void setName(std::string); //set the name of the vertex
     T getData(); //get the data stored in the vertex
     void setData(T); //set the data stored in the vertex
@@ -73,17 +70,14 @@ void GraphVertex<T>::setName(string newName)
 template <class T>
 string GraphVertex<T>::toString()
 {
-  return ("(Owner= " + owner + ") : "+ name);
+  return ("(" + name + ")");
 }
 
-template <class T>
-string GraphVertex<T>::getOwner()
-{
-  return owner;
-}
 
 template <class T>
-void GraphVertex<T>::setOwner(string owner)
+string GraphVertex<T>::getName()
 {
-  this->owner = owner;
+  return name;
 }
+
+

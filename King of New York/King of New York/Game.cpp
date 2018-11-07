@@ -129,3 +129,7 @@ void Game::changePlayerIndexes() {
     }
 
 }
+
+int Game::getNumberOfPlayers() {
+    return numberOfPlayers;
+}

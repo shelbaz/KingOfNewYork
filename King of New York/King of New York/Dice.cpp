@@ -35,18 +35,132 @@ void Dice::resetDiceRolls() {
 
 //First roll dice of player, default to 6 dice
 void Dice::rollDice(){
-    string keep;
     DiceOptions value;
     for(int i=0; i<6; i++)
     {
         value = randomDiceOption();
         this->DiceValues[value] ++;
     }
-    cout << "Which dice do you want to keep? " << endl;
-    cin >> keep;
+
+    resolveDuringHand();
+
     storeDiceResult(DiceValues);
     resetDiceValuesMap();
     this->numberOfRolls--;
+}
+
+void Dice::resolveDuringHand() {
+    diceHistoricalValues();
+    string keep;
+    int keepNumber;
+    string next = "yes";
+
+    if (this->getNumbOfRollsRemaining() == 0) {
+        return;
+    }
+    if (this->getNumbOfRollsRemaining() == 1 && addToCount() == 0) {
+        cout << "Selected None on 2nd role, forcing 3rd role and keeping" << endl;
+        resetResolvedHand();
+        setResolvedHandToDiceValues();
+        return;
+    }
+    if (getNumbOfRollsRemaining() == 2) {
+        string answer;
+        cout << "Do you want to throw your 1st roll keeps to select more dice on 3rd roll? (Y or N)" << endl;
+        cin >> answer;
+        if (answer == "Y" || answer == "Yes" || answer == "y") {
+            resetResolvedHand();
+        }
+    }
+
+    if(getNumbOfRollsRemaining() == 1) {
+        showResolvedHand();
+        cout << "You must select a total of 6 cards to resolve the hand" << endl;
+    }
+
+    while (next == "yes" || next == "y" || next == "Y" || next == "YES") {
+        if(getNumbOfRollsRemaining() != 1) {
+            cout << "Which dice do you want to keep?" << endl;
+            cout << "All - Type: All , this will discard roll 2 & 3" << endl;
+            cout << "None - Type: None or N, this will force the next roll" << endl;
+            cout << "Some - Type first letter of type (Dice Type: Char) Ex= A for Attacks..." << endl;
+        }
+
+        if(getNumbOfRollsRemaining() == 1) {
+            cout << "Rest - Type: Rest , this will take the rest of roll 3 and add it to current resolved" << endl;
+        }
+        cin >> keep;
+        transform(keep.begin(), keep.end(), keep.begin(), ::toupper);
+        if(keep== "All" || keep == "ALL") {
+            if(getNumbOfRollsRemaining() == 2 && addToCount() != 0) {
+                addDiceValuesToResolvedHand();
+            }
+            else{
+                resetResolvedHand();
+                setResolvedHandToDiceValues();
+            }
+
+            if(getNumbOfRollsRemaining() == 3 || getNumbOfRollsRemaining() == 2){
+                numberOfRolls -= (getNumbOfRollsRemaining() +1);
+            }
+
+            break;
+        }
+
+        if(keep == "NONE" || keep == "N" || keep == "None" || keep == "n") {
+            next = "no";
+            break;
+        }
+        if ((keep == "Rest" || keep == "rest" || keep == "REST") && getNumbOfRollsRemaining() == 1)  {
+            addDiceValuesToResolvedHand();
+            next = "N";
+            continue;
+        }
+
+        else {
+            cout << "How many of the selected dice do you want to keep? Ex= 2 for 2 Attacks  " << endl;
+            cin >> keepNumber;
+            if(DiceValues[diceMap[keep]] < keepNumber)
+            {
+                cout << "You cannot select more than is currently available" << endl;
+                continue;
+            }
+            resolvedHand[diceMap[keep]] += keepNumber;
+            if(getNumbOfRollsRemaining() == 1 && addToCount()==6) {
+                next = "N";
+                continue;
+            }
+            cout << "Do you have another selection for dice you wish to keep? Y=Yes, N=No  " << endl;
+            cin >> next;
+            transform(next.begin(), next.end(), next.begin(), ::tolower);
+            if (getNumbOfRollsRemaining() == 1 && addToCount()!=6){
+                showResolvedHand();
+                cout << "You must select a total of 6 cards to finish with. Please select more cards" << endl;
+                next = "Y";
+                continue;
+            }
+        }
+
+    }
+}
+
+void Dice::setResolvedHandToDiceValues() {
+    resolvedHand[DiceOptions::Attack] = DiceValues[DiceOptions::Attack];
+    resolvedHand[DiceOptions::Heal] = DiceValues[DiceOptions::Heal];
+    resolvedHand[DiceOptions::Energy] = DiceValues[DiceOptions::Energy];
+    resolvedHand[DiceOptions::Ouch] = DiceValues[DiceOptions::Ouch];
+    resolvedHand[DiceOptions::Destruction] = DiceValues[DiceOptions::Destruction];
+    resolvedHand[DiceOptions::Celebrity] = DiceValues[DiceOptions::Celebrity];
+}
+
+void Dice::addDiceValuesToResolvedHand() {
+    resolvedHand[DiceOptions::Attack] += DiceValues[DiceOptions::Attack];
+    resolvedHand[DiceOptions::Heal] += DiceValues[DiceOptions::Heal];
+    resolvedHand[DiceOptions::Energy] += DiceValues[DiceOptions::Energy];
+    resolvedHand[DiceOptions::Ouch] += DiceValues[DiceOptions::Ouch];
+    resolvedHand[DiceOptions::Destruction] += DiceValues[DiceOptions::Destruction];
+    resolvedHand[DiceOptions::Celebrity] += DiceValues[DiceOptions::Celebrity];
+
 }
 
 void Dice::setPlayerNumber(int numb) {
@@ -67,31 +181,6 @@ int Dice::rollDiceDetermineStart(){
         }
     }
     return numbOfAttacks;
-}
-
-//Second and third roll of player, input amount
-void Dice::rollDice(int amtOfDice) {
-
-    if(this->numberOfRolls == 0 || amtOfDice>6) {
-        cout << "No rolls left or invalid number of dice" << endl;
-        return;
-    }
-
-    else if(this->numberOfRolls == 3) {
-        rollDice();
-    }
-    else{
-        DiceOptions value;
-        for(int i=0; i<amtOfDice; i++)
-        {
-            value = randomDiceOption();
-            this->DiceValues[value] ++;
-        }
-        storeDiceResult(DiceValues);
-        resetDiceValuesMap();
-        this->numberOfRolls--;
-    }
-
 }
 
 // Dice roll for testing fairness, can roll unlimited times
@@ -122,6 +211,11 @@ void Dice::storeDiceResult(map<DiceOptions, int> tempDiceValues) {
     historyOfRolls.push_back(tempDiceValues);
 }
 
+//Store history of dice result in Map of {DiceOption-->value}
+void Dice::storeResolvedHand(map<DiceOptions, int> resolvedHand) {
+    historyOfResolvedRolls.push_back(resolvedHand);
+}
+
 int Dice::getPlayerNumber() {
     return playerNumber;
 }
@@ -140,6 +234,15 @@ void Dice::resetDiceValuesMap() {
     DiceValues[DiceOptions::Ouch] = 0;
 }
 
+void Dice::resetResolvedHand() {
+    resolvedHand[DiceOptions::Heal] = 0;
+    resolvedHand[DiceOptions::Attack] = 0;
+    resolvedHand[DiceOptions::Celebrity] = 0;
+    resolvedHand[DiceOptions::Destruction] = 0;
+    resolvedHand[DiceOptions::Energy] = 0;
+    resolvedHand[DiceOptions::Ouch] = 0;
+}
+
 // Print all historical dice values for player
 void Dice::diceHistoricalValues()
 {
@@ -151,11 +254,105 @@ void Dice::diceHistoricalValues()
 
         for (auto mapIt(it->begin()); mapIt != it->end(); ++mapIt) {
 
+            std::cout << "(" << DiceNames[mapIt->first][0] << ") --- " << DiceNames[mapIt->first] << ", " << mapIt->second << std::endl;
+        }
+        cout << "-----------------------------------------------------------------" << endl;
+
+    }
+
+
+}
+
+// Print all historical dice values for player
+void Dice::diceHistoricalResolvedValues()
+{
+    cout << "Dice container values for player "<< this->getPlayerNumber() << endl;
+    cout << "-----------------------------------------------------------------" << endl;
+    for (it = historyOfResolvedRolls.begin(); it != historyOfResolvedRolls.end(); ++it) {
+        cout << "Dice Roll # "<< it - historyOfResolvedRolls.begin() +1 << endl;
+        cout << "-----------------------------------------------------------------" << endl;
+
+        for (auto mapIt(it->begin()); mapIt != it->end(); ++mapIt) {
+
             std::cout << DiceNames[mapIt->first] << ", " << mapIt->second << std::endl;
         }
         cout << "-----------------------------------------------------------------" << endl;
 
     }
 
+}
+
+int Dice::addToCount() {
+    int count =0;
+    count += resolvedHand[DiceOptions::Attack];
+    count += resolvedHand[DiceOptions::Celebrity];
+    count += resolvedHand[DiceOptions::Destruction];
+    count += resolvedHand[DiceOptions::Ouch];
+    count += resolvedHand[DiceOptions::Energy];
+    count += resolvedHand[DiceOptions::Heal];
+    return count;
+}
+
+void Dice::rollDiceSequence() {
+    resetDiceRolls();
+
+    cout << "Rolling first hand of dice for player" << this->getPlayerNumber() << "\n";
+    this->rollDice(6);
+    numberOfRolls--;
+
+    if (getNumbOfRollsRemaining() == 2 || getNumbOfRollsRemaining() == 1) {         // roll 2
+        cout << "Sequence number " << getNumbOfRollsRemaining() << endl;
+        int count =0;
+        count = addToCount();
+        cout << "Rolling " << (6-count) << " dice since you saved: " << count << "\n";
+
+        this->rollDice(6-count);
+        numberOfRolls--;
+    }
+
+    if (getNumbOfRollsRemaining() == 0) {
+        cout << "No hands left: Resolving ......" << endl;
+        storeResolvedHand(resolvedHand);
+        resetResolvedHand();
+        resetDiceValuesMap();
+        historyOfRolls.clear();
+
+        cout << "Resolved Final Values ----------" << endl;
+        this->diceHistoricalResolvedValues();
+    }
+
+
+}
+
+//Second and third roll of player, input amount
+void Dice::rollDice(int amtOfDice) {
+
+    if(amtOfDice>6) {
+        cout << "Invalid number of dice" << endl;
+        return;
+    }
+
+        DiceOptions value;
+        for(int i=0; i<amtOfDice; i++)
+        {
+            value = randomDiceOption();
+            this->DiceValues[value] ++;
+        }
+
+        storeDiceResult(DiceValues);
+
+        resolveDuringHand();
+        resetDiceValuesMap();
+
+}
+
+void Dice::showResolvedHand() {
+    int index = 0;
+    cout << "Current resolved items -------" << endl;
+    for (auto hand : resolvedHand) {
+        cout << DiceNames[index] << " : " << hand.second << endl;
+        index++;
+    }
+    cout << "----------------------------" << endl;
 
 }

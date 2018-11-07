@@ -7,11 +7,13 @@
 #include <string>
 #include <sstream>
 
+using namespace std;
+
 namespace libString
 {
-    template <typename T> std::string to_string(const T& n)
+    template <typename T> string to_string(const T& n)
     {
-        std::ostringstream stream;
+        ostringstream stream;
         stream << n;
         return stream.str();
     }

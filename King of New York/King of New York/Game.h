@@ -37,6 +37,8 @@ public:
 
     void determinePlayerOrder();
 
+    int getNumberOfPlayers();
+
 
 private:
 

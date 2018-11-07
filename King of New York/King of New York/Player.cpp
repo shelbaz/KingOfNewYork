@@ -35,23 +35,14 @@ int Player::getPlayerID() const {
 void Player::rollDice() {
     // Implement keeping certain number of dice, erasing diceHistorical values past 3
     // Then sum the values for the resolveDice step, total 6 dice
-    int numbOfDice=0;
     cout << "Rolling first dice for player, Press enter to confirm" << endl;
     cin.ignore();
     //Roll first dice
-    this-> dice.rollDice();
-    this-> dice.diceHistoricalValues();
-    cout << "How many dice do you want to roll next?" << endl;
-    cin >> numbOfDice;
-    this->dice.rollDice(numbOfDice);
-    this-> dice.diceHistoricalValues();
-    cout << "How many dice do you want to roll next?" << endl;
-    cin >> numbOfDice;
-    this->dice.rollDice(numbOfDice);
-    this-> dice.diceHistoricalValues();
+    this->dice.rollDiceSequence();
     cout << "Player turn is over" << endl;
 }
 
+// roll dice to determine which player starts
 int Player::rollDiceFirst() {
     int result;
     result = this-> dice.rollDiceDetermineStart();
@@ -59,10 +50,14 @@ int Player::rollDiceFirst() {
 }
 
 void Player::resolveDice() {
+
 }
 
 void Player::move() {
+    cout << "Please enter the region you want to move to" << endl;
 
+    // on success:
+    // setZone(zoneNumber);
 }
 
 void Player::buyCards(Cards card) {
@@ -171,6 +166,7 @@ ostream & operator<<(ostream & os, Player& player){
 
     os << "----------------------------------------" << endl;
     os << "ID :" << player.getPlayerID() << endl;
+    os << "Owned Zone: \n"  << player.getZoneName() << endl;
     os << "***************" << endl;
     os << "Victory Points: " << player.getVictoryPoints() << endl;
     os << "Life Points: " << player.getLifePoints() << endl;
@@ -228,4 +224,16 @@ void Player::getGameTokensState() {
 void Player::setPlayerID(int playerId) {
     this->playerID = playerId;
 
+}
+
+int Player::getZone() {
+    return ownedZone;
+}
+
+void Player::setZone(int zone) {
+    this-> ownedZone = zone;
+}
+
+string Player::getZoneName() {
+    return zoneNames[ownedZone];
 }

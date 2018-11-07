@@ -27,6 +27,10 @@ private:
     int victoryPoints;
     int lifePoints;
     int energyCubes;
+    int ownedZone;
+    const vector<string> zoneNames = {"Manhattan", "Manhattan Lower 2-4", "Manhattan Midtown 2-4", "Manhattan Upper 2-4",
+                               "Manhattan Lower 5-6", "Manhattan Midtown 5-6""Manhattan Upper 5-6", "Bronx", "Queens",
+                               "Staten Island", "Brooklyn"};
 
 public:
 
@@ -65,7 +69,8 @@ public:
     void addEnergyCubes(int pts);
 
     int getZone();
-    void setZone(int);
+    void setZone(int zone);
+    string getZoneName();
 
     friend ostream & operator<<(ostream & os, Player& player);
     friend ostream& operator<<(ostream& os, vector<GameTokens> v);

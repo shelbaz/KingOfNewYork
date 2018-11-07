@@ -24,23 +24,33 @@ private:
     vector< map < DiceOptions, int> > historyOfRolls;
     vector< map < DiceOptions, int> > ::iterator it;
     int totalDiceValues[6] = {0,0,0,0,0,0};
+    map<string, DiceOptions> diceMap = { {"A",DiceOptions::Attack}, {"E",DiceOptions::Energy}, {"D",DiceOptions::Destruction}, {"H",DiceOptions::Heal}, {"C",DiceOptions::Celebrity}, {"O" ,DiceOptions::Ouch} };
 
 
 
 public:
     Dice();
 
+    void rollDiceSequence();
     void rollDice();
     void rollDice(int amtOfDice);
     void rollDice(bool testing);
     int rollDiceDetermineStart();
     void storeDiceResult(map<DiceOptions, int> tempDiceValues);
+    void storeResolvedHand(map<DiceOptions, int> resolvedHand);
     int getPlayerNumber();
     void setPlayerNumber(int numb);
     void resetDiceValuesMap();
+    void resetResolvedHand();
+    void resolveDuringHand();
+    int addToCount();
     void resetDiceRolls();
     void diceHistoricalValues();
+    void diceHistoricalResolvedValues();
     int getNumbOfRollsRemaining();
+    void showResolvedHand();
+    void addDiceValuesToResolvedHand();
+    void setResolvedHandToDiceValues();
     DiceOptions randomDiceOption();
 
 
