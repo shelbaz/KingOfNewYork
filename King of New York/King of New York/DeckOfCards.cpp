@@ -1,3 +1,5 @@
+#include <random>
+
 //
 // Created by Shawn Elbaz on 2018-10-12.
 //
@@ -8,6 +10,7 @@
 #include <vector>
 #include <iostream>
 
+// Init properties later with a CSV File ****
 // Push 66 cards onto the deck
 DeckOfCards::DeckOfCards() {
     deck.reserve(64 + 2); // 64 regular + 2 special cards
@@ -22,8 +25,8 @@ DeckOfCards::DeckOfCards() {
 
 //shuffle card deck with random fcn
 void DeckOfCards::shuffle() {
-    srand (time(0));
-    std::random_shuffle(deck.begin(), deck.end());
+    srand (static_cast<unsigned int>(time(0)));
+    std::shuffle(deck.begin(), deck.end(), std::mt19937(std::random_device()()));
 }
 
 // draw card and remove it from deck and then return it
@@ -39,8 +42,8 @@ unsigned int DeckOfCards::getSize() {
 
 //show current visual state of deck
 void DeckOfCards::currentState() {
-    for (int i = 0; i < deck.size(); i++) {
-        cout << deck[i] << endl;
+    for (const auto &i : deck) {
+        cout << i << endl;
     }
 }
 
@@ -69,6 +72,7 @@ void DeckOfCards::showTopThreeCards() {
 // return top 3 cards, does not remove it
 vector<Cards> DeckOfCards::topThreeCards() {
     vector <Cards> topCards;
+    topCards.reserve(3);
     for(int i=0; i<3; i++) {
         topCards.push_back(deck[deck.size()-(i-1)]);
     }

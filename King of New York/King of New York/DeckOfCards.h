@@ -22,7 +22,7 @@ public:
     // guarantee that the singleton will not be destroyed until all your static objects that use the singleton no longer need it.
     DeckOfCards();
 
-    void shuffle();
+    void shuffle() override;
     void showTopCard();
     void showTopThreeCards();
     Cards peekTopCard();

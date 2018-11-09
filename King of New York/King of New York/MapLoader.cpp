@@ -22,7 +22,7 @@ string MapLoader::getFilePath()
 Graph<string>* MapLoader::loadMap()
 {
   //method to load the map file into a graph object
-  //IMPORTANT!!! The master node, i.e. manhattan, must appear first in the file
+  //IMPORTANT!!! The master node, ex: manhattan, must appear first in the file
 
   bool result = false;
 
@@ -39,7 +39,7 @@ Graph<string>* MapLoader::loadMap()
       //we need to reopen the file
 
       ifstream input; //the input stream associated to out file
-      input.open(MapLoader::filePath.c_str()); //try opening the file
+      input.open(filePath.c_str()); //try opening the file
 
       //we already know it is valid so we can start reading right away
       string line = "";
@@ -269,7 +269,7 @@ Graph<string>* MapLoader::getMap()
 MapLoader::MapLoader() {
   filePath = "";
   nodeCount = 0;
-  map = NULL; //initialize the graph to NULL
+  map = nullptr; //initialize the graph to nullptr
 
 }
 

@@ -22,7 +22,7 @@ GameTokens::GameTokens(TokenTypes name): GameTokens() {
 
 void GameTokens::setGameTokens(GameTokens::TokenTypes name) {
     this->token = name;
-    this->index = index++;
+    this->index++;
 }
 
 void GameTokens::setIndex(int index) {

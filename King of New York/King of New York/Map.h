@@ -18,27 +18,27 @@ public:
 
     Map();
     explicit Map(Graph<string>* map);
-    Map(Graph<string>* map, int numberOfPlayers);
     ~Map();
 
-    void assignMap(Graph<string>* map, int playerCount);
-    void move(int regionNumber);
+    void assignMap(Graph<string>* map);
+    bool move(Player* player);
     void isMoveValid(int regionNumber);
-    bool checkManhattan();
+    bool isManhattanEmpty();
     void setRegionOwner(int region, Player* player);
+    void removeRegionOwner(Player* player);
     void initRegionOwners();
     bool isRegionFull(int region);
     void showMap();
+    void showMapWithOwners();
     Player* getRegionOwner(int region);
-    void setPlayerCount(int playerCount);
-    void initPlayersList(vector<Player*>* list);
 
 private:
 
-    int playerCount;
-    vector<Player*> playersInGame;
     Graph<string>* gameMap; //the game map
-    map<int,vector<Player*>> regionOwners; // region can have max 2 owners (outer).
+    vector<pair<Player*, Player*>> regionOwners;
+    Player* nullPlayer;
+    Player* emptyPlayer;
+
 
 
 

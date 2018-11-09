@@ -1,3 +1,5 @@
+#include <random>
+
 //
 // Created by Shawn Elbaz on 2018-10-13.
 //
@@ -19,8 +21,8 @@ DeckOfBuildingUnitTiles::DeckOfBuildingUnitTiles() {
 
 // random shuffle deck of building tiles
 void DeckOfBuildingUnitTiles::shuffle() {
-    srand (time(0));
-    std::random_shuffle(deck.begin(), deck.end());
+    srand (static_cast<unsigned int>(time(0)));
+    std::shuffle(deck.begin(), deck.end(), std::mt19937(std::random_device()()));
 }
 
 // draw building card/tile and remove it from deck and then return it
@@ -31,12 +33,12 @@ BuildingUnitTiles DeckOfBuildingUnitTiles::draw() {
 }
 
 int DeckOfBuildingUnitTiles::getSize() {
-    return deck.size();
+    return static_cast<int>(deck.size());
 }
 
 // Print entire state of deck
 void DeckOfBuildingUnitTiles::currentState() {
-    for(int i=0; i<deck.size(); i++){
-        cout << deck[i] << endl;
+    for (const auto &i : deck) {
+        cout << i << endl;
     }
 }

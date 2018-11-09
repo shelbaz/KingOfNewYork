@@ -10,6 +10,8 @@
 #include "MonsterCards.h"
 #include "GameTokens.h"
 #include "Dice.h"
+#include "MapLoader.h"
+#include "Map.h"
 
 using namespace std;
 
@@ -17,16 +19,19 @@ class Game {
 
 public:
 
+    Game();
+    ~Game();
+
     int init_players();
     void init_map();
     void init_all_decks();
 
-    void init_game_dependencies();
+    int init_game_dependencies();
 
     void init_game_loop();
     Player* checkWinCondition();
 
-    vector<Player*> getGamePlayers() const { return playersTemp;}
+    vector<Player*> getGamePlayers() { return playersTemp;}
     vector<Player*> getGamePlayersAfter() { return players;}
     DeckOfCards* getGameDeck() {return &deckOfCards;}
     DeckOfGameTokens* getGameTokensDeck() {return &deckOfGameTokens;}
@@ -34,10 +39,10 @@ public:
 
     void removePlayer(Player* player);
     void changePlayerIndexes();
-
+    Graph<string>* loadMap();
     void determinePlayerOrder();
-
     int getNumberOfPlayers();
+    void setStartingLocationOfPlayers();
 
 
 private:
@@ -45,7 +50,8 @@ private:
     vector<Player*> playersTemp;
     vector<Player*> players;
 
-    //    Map game_map;
+    Map gameMap;
+    MapLoader mapLoader;
     DeckOfCards deckOfCards;
     DeckOfGameTokens deckOfGameTokens;
     DeckOfMonsterCards deckOfMonsterCards;

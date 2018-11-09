@@ -13,38 +13,10 @@
 using namespace std;
 
 int main(int argc, const char * argv[]) {
-
     Game game;
-    game.init_all_decks();
-    int numbOfPlayers = game.init_players();
-    vector<Player*> players = game.getGamePlayers();
-
-//    for (int i=0; i< numbOfPlayers; i++){
-//        cout << *players[i];
-//    }
-    game.determinePlayerOrder();
-    players = game.getGamePlayersAfter();
-    for (int i=0; i< players.size(); i++){
-        cout << *players[i];
-    }
-
-
-    cout << "NEW PLAYER ORDER ----------------------------------" << endl;
-
-    for (int i=0; i< players.size(); i++){
-        cout << *players[i];
-    }
-
-    game.removePlayer(players[3]);
-    players = game.getGamePlayersAfter();
-
-    cout << "removed player ----------------------------------" << endl;
-
-
-    for (int i=0; i< players.size(); i++){
-        cout << *players[i];
-    }
-
+    game.init_game_dependencies();
+    game.init_game_loop();
+    cout << "Game is over. Thanks for playing" << endl;
 
     return 0;
 }

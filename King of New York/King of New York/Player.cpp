@@ -3,7 +3,9 @@
 //
 
 #include "Player.h"
+#include "Map.h"
 #include <iostream>
+
 
 Player::Player() {
     victoryPoints = 0;
@@ -17,14 +19,20 @@ Player::Player() {
     vector <BuildingUnitTiles> buildingUnitTiles; // List of all building tiles assigned to player
 }
 
+Player::Player(string s) {
+    this -> setPlayerName(s);
+}
+
 Player::~Player() {
 
 }
 
 Player::Player(Dice d, int i): Player() {
-    this ->dice = d ;
+    this ->dice = std::move(d) ;
     this ->playerID = i;
     this ->dice.setPlayerNumber(i);
+    this ->setPlayerName(std::string("Random ") += to_string(i));
+    this ->setZone(10); // Nothing
 }
 
 int Player::getPlayerID() const {
@@ -55,7 +63,7 @@ void Player::resolveDice() {
 
 void Player::move() {
     cout << "Please enter the region you want to move to" << endl;
-
+    Map::move(this);
     // on success:
     // setZone(zoneNumber);
 }
@@ -166,17 +174,31 @@ ostream & operator<<(ostream & os, Player& player){
 
     os << "----------------------------------------" << endl;
     os << "ID :" << player.getPlayerID() << endl;
-    os << "Owned Zone: \n"  << player.getZoneName() << endl;
+    os << "Name :" << player.getPlayerName() << endl;
+    os << "***************" << endl;
+    os << "Monster Card: " << player.getMonsterCard().getName() << endl;
+    os << "***************" << endl;
+    os << "Owned Zone: "  << player.getZoneName() << endl;
     os << "***************" << endl;
     os << "Victory Points: " << player.getVictoryPoints() << endl;
     os << "Life Points: " << player.getLifePoints() << endl;
     os << "Energy Cubes: " << player.getEnergyCubes() << endl;
-    os << "Monster Card: \n " << player.getMonsterCard() << endl;
-    os << "Game Tokens: \n"  << player.getGameTokens() << endl;
-    os << "Game Cards: \n"  << player.getCards() << endl;
+    os << "***************" << endl;
+    os << "Game Tokens: \n"  << player.getGameTokens();
+    os << "Game Cards: \n"  << player.getCards();
     os << "----------------------------------------" << endl;
     return os;
 
+}
+
+void Player::showStats(){
+    cout << "***************" << endl;
+    cout << "Owned Zone: "  << this->getZoneName() << endl;
+    cout << "***************" << endl;
+    cout << "Victory Points: " << this->getVictoryPoints() << endl;
+    cout << "Life Points: " << this->getLifePoints() << endl;
+    cout << "Energy Cubes: " << this->getEnergyCubes() << endl;
+    cout << "***************" << endl;
 }
 
 void Player::addGameToken(GameTokens token) {
@@ -192,11 +214,11 @@ void Player::assignMonster(MonsterCards card) {
 }
 
 void Player::assignBoardFigure(BoardFigures figure) {
-    this->boardFigure = figure;
+    this->boardFigure = std::move(figure);
 }
 
 void Player::assignDiceObject(Dice dice) {
-    this->dice = dice;
+    this->dice = std::move(dice);
 }
 
 const MonsterCards &Player::getMonsterCard() const {
@@ -216,8 +238,8 @@ const vector<GameTokens> &Player::getGameTokens() const {
 }
 
 void Player::getGameTokensState() {
-    for(int i=0; i< gameTokens.size(); i++){
-        cout << gameTokens[i] << endl;
+    for (auto &gameToken : gameTokens) {
+        cout << gameToken << endl;
     }
 }
 
@@ -237,3 +259,13 @@ void Player::setZone(int zone) {
 string Player::getZoneName() {
     return zoneNames[ownedZone];
 }
+
+const string &Player::getPlayerName() const {
+    return playerName;
+}
+
+void Player::setPlayerName(const string &playerName) {
+    Player::playerName = playerName;
+}
+
+

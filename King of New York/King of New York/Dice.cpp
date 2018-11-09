@@ -53,7 +53,7 @@ void Dice::resolveDuringHand() {
     diceHistoricalValues();
     string keep;
     int keepNumber;
-    string next = "yes";
+    string next = "Y";
 
     if (this->getNumbOfRollsRemaining() == 0) {
         return;
@@ -78,7 +78,7 @@ void Dice::resolveDuringHand() {
         cout << "You must select a total of 6 cards to resolve the hand" << endl;
     }
 
-    while (next == "yes" || next == "y" || next == "Y" || next == "YES") {
+    while (next == "YES" || next == "Y") {
         if(getNumbOfRollsRemaining() != 1) {
             cout << "Which dice do you want to keep?" << endl;
             cout << "All - Type: All , this will discard roll 2 & 3" << endl;
@@ -107,8 +107,8 @@ void Dice::resolveDuringHand() {
             break;
         }
 
-        if(keep == "NONE" || keep == "N" || keep == "None" || keep == "n") {
-            next = "no";
+        if(keep == "NONE" || keep == "None") {
+            next = "N";
             break;
         }
         if ((keep == "Rest" || keep == "rest" || keep == "REST") && getNumbOfRollsRemaining() == 1)  {
@@ -132,12 +132,15 @@ void Dice::resolveDuringHand() {
             }
             cout << "Do you have another selection for dice you wish to keep? Y=Yes, N=No  " << endl;
             cin >> next;
-            transform(next.begin(), next.end(), next.begin(), ::tolower);
+            transform(next.begin(), next.end(), next.begin(), ::toupper);
+            if(next == "N" || next == "NO"){
+                return;
+            }
             if (getNumbOfRollsRemaining() == 1 && addToCount()!=6){
-                showResolvedHand();
-                cout << "You must select a total of 6 cards to finish with. Please select more cards" << endl;
-                next = "Y";
-                continue;
+            showResolvedHand();
+            cout << "You must select a total of 6 cards to finish with. Please select more cards" << endl;
+            next = "Y";
+            continue;
             }
         }
 
@@ -300,7 +303,7 @@ void Dice::rollDiceSequence() {
     this->rollDice(6);
     numberOfRolls--;
 
-    if (getNumbOfRollsRemaining() == 2 || getNumbOfRollsRemaining() == 1) {         // roll 2
+    while (getNumbOfRollsRemaining() == 1 || getNumbOfRollsRemaining() == 2) {         // roll 2
         cout << "Sequence number " << getNumbOfRollsRemaining() << endl;
         int count =0;
         count = addToCount();
@@ -311,13 +314,13 @@ void Dice::rollDiceSequence() {
     }
 
     if (getNumbOfRollsRemaining() == 0) {
-        cout << "No hands left: Resolving ......" << endl;
+        cout << "\n No hands left: Resolving ......" << endl;
         storeResolvedHand(resolvedHand);
         resetResolvedHand();
         resetDiceValuesMap();
         historyOfRolls.clear();
 
-        cout << "Resolved Final Values ----------" << endl;
+        cout << "Resolved Final Values ---------------------------" << endl;
         this->diceHistoricalResolvedValues();
     }
 

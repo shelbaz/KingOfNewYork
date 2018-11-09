@@ -5,65 +5,78 @@
 #include "Map.h"
 
 Map::Map() {
-    initRegionOwners();
+    Graph<string>* gameMap; //the game map
+    vector<pair<Player*, Player*>> regionOwners;
+    Player* nullPlayer = new Player("X");
+    Player* emptyPlayer = new Player("");
+
 }
 
 Map::Map(Graph<string> *map) : Map() {
     this->gameMap = map;
-
-}
-
-Map::Map(Graph<string>* map, int numberOfPlayers): Map(map){
-    this->playerCount = numberOfPlayers;
+    initRegionOwners();
 }
 
 Map::~Map() {
 
 }
 
-void Map::initPlayersList(vector<Player*>* list){
-    playersInGame = *list;
-}
-
-void Map::assignMap(Graph<string> *map, int playerCount) {
+void Map::assignMap(Graph<string> *map) {
     this->gameMap = map;
-    this->playerCount = playerCount;
-    this->setRegionOwner(0, nullptr); // Cannot own manhattan, only its subregions
-
+    initRegionOwners();
 }
 
-void Map::move(int regionNumber) {
+bool Map::move(Player* player) {
+    bool success = false;
+    bool proceed = true;
+    int regionNumber = -1;
+    //now we should go through the linked list of players and fill in the array appropriately
+    // node<Player*>* currentPlayer = players->getHead();
+    //currentPlayer = currentPlayer->getNext();
+    do {
+        cout << "Which region do you want to move to ?" << endl;
+        showMap();
+        cin >> regionNumber;
 
-    if(isRegionFull(regionNumber)){
-        throw "You cannot move to that region, it is occupied";
-    }
-
-    if (regionNumber+1 > gameMap->getVertexCount()){
-        throw "You cannot select a region more than # vertexes";
-    }
-
-    if(gameMap->getVertex(regionNumber)->getData() == "inner"){
-        throw "You cannot move to an inner Manhattan region explicitly. Select Manhattan (0)";
-    }
-
-    if(gameMap->getVertex(regionNumber)->getData() == "master"){
-        if(playerCount >4){
-            // allow more than 1 player in manhattan
+        if (regionNumber < 0){
+            cout << "Invalid region, select greater than 0" << endl;
+            continue;
         }
-        else {
+
+        if (regionNumber+1 > gameMap->getVertexCount()){
+            cout << "You cannot select a region more than # vertexes" << endl;
+            continue;
+        }
+
+        if(gameMap->getVertex(regionNumber)->getData() == "inner"){
+            cout << "You cannot move to an inner Manhattan region explicitly. Select Manhattan (0)" << endl;
+            continue;
+        }
+
+        if(isRegionFull(regionNumber)){
+            cout << "You cannot move to that region, it is occupied" << endl;
+            continue;
+        }
+
+        if(gameMap->getVertex(regionNumber)->getData() == "master"){
             // if all manhattan is empty
-            if (checkManhattan()){
-                setRegionOwner(1, player); // Manhattan 2-4
-            }
+            setRegionOwner(1, player); // Manhattan 2-4
+            proceed = false;
         }
         // player move to manhattan master object
         // player move to manhattan objects (2-4 & 5-6 regions)
         // should not be allowed to pick. Should have to pick Manhattan (1)
         // If 5-6 players, and 2-4 space is occupied, must be put in 5-6 space
-    }
-    if(gameMap->getVertex(regionNumber)->getData() == "outer"){
-        setRegionOwner(regionNumber, player);
-    }
+
+        if(gameMap->getVertex(regionNumber)->getData() == "outer"){
+            setRegionOwner(regionNumber, player);
+            proceed = false;
+            success = true;
+        }
+
+    } while(proceed);
+
+    return success;
 
 }
 
@@ -71,7 +84,9 @@ void Map::isMoveValid(int regionNumber) {
 
 }
 
-bool Map::checkManhattan() {
+// if returns true, then no one in manhattan
+// else manhattan is full = false
+bool Map::isManhattanEmpty() {
     bool check = true;
     for(int i=0; i< gameMap->getVertexCount(); i++) {
         if (gameMap->getVertex(i)->getData() == "inner") {
@@ -84,39 +99,47 @@ bool Map::checkManhattan() {
 }
 
 void Map::initRegionOwners() {
+
     for(int i=0; i< gameMap->getVertexCount(); i++) {
         if(gameMap->getVertex(i)->getData() == "outer") {
-            regionOwners.insert({i, {nullptr , nullptr}});
+            regionOwners.push_back({emptyPlayer, emptyPlayer});
         }
-        else if (gameMap->getVertex(i)->getData() == "inner") {
-            regionOwners.insert({i, {nullptr}});
+        else if(gameMap->getVertex(i)->getData() == "master") {
+            regionOwners.push_back({nullPlayer, nullPlayer});
         }
-        else {
-            regionOwners.insert({i, {}});
+        else{
+            regionOwners.push_back({emptyPlayer, nullPlayer});
         }
+
     }
 }
 
 void Map::setRegionOwner(int region, Player* player) {
     if(gameMap->getVertex(region)->getData() == "outer") {
 
-            if(regionOwners[region][0] != nullptr && regionOwners[region][1] != nullptr) {
+            if(regionOwners[region].first->getPlayerName() != "" && regionOwners[region].second->getPlayerName() != "") {
                 cout << "Region is full, cannot move there" << endl;
             }
             else {
-                if (regionOwners[region][0]== nullptr) {
-                    regionOwners[region][0] = player;
+                if (regionOwners[region].first->getPlayerName() == "") {
+                    removeRegionOwner(player);
+                    regionOwners[region].first = player;
+                    player->setZone(region);
                 }
-                else if(regionOwners[region][1]== nullptr) {
-                    regionOwners[region][1] = player;
+                else if(regionOwners[region].second->getPlayerName() == "") {
+                    removeRegionOwner(player);
+                    regionOwners[region].second = player;
+                    player->setZone(region);
                 }
 
             }
 
     }
     else if (gameMap->getVertex(region)->getData() == "inner") {
-        if (regionOwners[region][0]== nullptr) {
-            regionOwners[region][0] = player;
+        if (regionOwners[region].first->getPlayerName() == "") {
+            removeRegionOwner(player);
+            regionOwners[region].first = player;
+            player->setZone(region);
         }
         else {
             cout << "Region is full, cannot move there" << endl;
@@ -125,37 +148,34 @@ void Map::setRegionOwner(int region, Player* player) {
     else if (gameMap->getVertex(region)->getData() == "master") {
         cout << "Cannot explicitly move to Manhattan (top level)" << endl;
     }
-
 }
 
 Player* Map::getRegionOwner(int region){
     if (region==0) { // Manhattan
-        return nullptr;
+        return regionOwners[0].first;
     }
-    if(regionOwners[region][0] != nullptr) {
-        return regionOwners[region][0];
+    else if(gameMap->getVertex(region)->getData() == "outer" && regionOwners[region].second->getPlayerName() != "") {
+        return regionOwners[region].second;
     }
-    else if(gameMap->getVertex(region)->getData() == "outer" && regionOwners[region][1] != nullptr) {
-        return regionOwners[region][1];
+    else if(regionOwners[region].first->getPlayerName() != "") {
+        return regionOwners[region].first;
     }
     else {
-        return nullptr;
+        return regionOwners[region].first;
     };
 }
+
+
 
 bool Map::isRegionFull(int region) {
     if (region==0) { // Manhattan
         return false;
-    }
-    if(gameMap->getVertex(region)->getData() == "inner" && regionOwners[region][0] != nullptr) {
+     }
+    if(gameMap->getVertex(region)->getData() == "inner" && regionOwners[region].first->getPlayerName() != "") {
         return true;
     }
-    else if(gameMap->getVertex(region)->getData() == "outer" && regionOwners[region][0] != nullptr && regionOwners[region][1] != nullptr) {
-        return true;
-    }
-    else {
-        return false;
-    };
+    else if(gameMap->getVertex(region)->getData() == "outer")
+        return regionOwners[region].first->getPlayerName() != "" && regionOwners[region].second->getPlayerName() != "";
 }
 
 void Map::showMap() {
@@ -166,9 +186,30 @@ void Map::showMap() {
     }
 }
 
-void Map::setPlayerCount(int playerCount) {
-    Map::playerCount = playerCount;
+void Map::showMapWithOwners() {
+    for (int i = 0; i < gameMap->getVertexCount(); i++)
+    {
+        cout << (i) << ". " << gameMap->getVertex(i)->toString() << " --> {  " << regionOwners[i].first->getPlayerName() << " , " << regionOwners[i].second->getPlayerName() << "  }" << endl;
+        // Player can be in all vertices except Manhattan (0) , since it can be in its subvertices
+    }
 }
+
+void Map::removeRegionOwner(Player* player) {
+    int currentRegion = player->getZone();
+
+    if(currentRegion >0 && currentRegion <7) { // Manhattan
+        regionOwners[currentRegion].first = emptyPlayer;
+    }
+    else if (currentRegion > 6) { // Rest of NY
+        if(regionOwners[currentRegion].first == player){ // in first spot
+            regionOwners[currentRegion].first = emptyPlayer;
+        }
+        else if (regionOwners[currentRegion].second == player) { // in second spot
+            regionOwners[currentRegion].second = emptyPlayer;
+        }
+    }
+}
+
 
 
 

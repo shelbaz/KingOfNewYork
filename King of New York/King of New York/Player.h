@@ -18,6 +18,7 @@ class Player {
 
 private:
     int playerID;
+    string playerName;
     Dice dice;
     MonsterCards monsterCard;
     BoardFigures boardFigure;
@@ -30,17 +31,20 @@ private:
     int ownedZone;
     const vector<string> zoneNames = {"Manhattan", "Manhattan Lower 2-4", "Manhattan Midtown 2-4", "Manhattan Upper 2-4",
                                "Manhattan Lower 5-6", "Manhattan Midtown 5-6""Manhattan Upper 5-6", "Bronx", "Queens",
-                               "Staten Island", "Brooklyn"};
+                               "Staten Island", "Brooklyn", "None"};
 
 public:
 
     Player();
     ~Player();
 
-    explicit Player(Dice d, int i);
+    Player(Dice d, int i);
+    explicit Player(string s);
 
     int getPlayerID() const;
     void setPlayerID(int playerId);
+    const string &getPlayerName() const;
+    void setPlayerName(const string &playerName);
 
     void rollDice();
     int rollDiceFirst();
@@ -48,6 +52,7 @@ public:
     void move();
     void attack();
 
+    void showStats();
     void buyCards(Cards card);
     void addCard(Cards card);
     void disposeOfCards();
