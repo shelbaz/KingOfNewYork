@@ -35,5 +35,6 @@ add_executable(KingOfNewYork
         "King of New York/Drivers/MapDriver.cpp"
         "King of New York/King of New York/Graph/StringFunctions.h"
         "King of New York/King of New York/Map.cpp"
-        "King of New York/King of New York/Map.h")
+        "King of New York/King of New York/Map.h"
+        "King of New York/Drivers/Assignment2.cpp")
 

@@ -16,6 +16,7 @@ class Cards {
 private:
     string name;
     string description;
+    string type;
     int energyCost;
 
     // Effect array values{E,A,D,H,C,O}
@@ -26,12 +27,14 @@ public:
 
     Cards();
 
-    void setCard(string name, string description, vector <int> playerEffect, int energyCost);
+    void setCard(string name, string description, string type, vector <int> playerEffect, int energyCost);
     friend ostream& operator<<(ostream& os, const Cards& card);
 
     int getEnergyCost() const;
 
     string getName() const;
+
+    string getType() const;
 
     string getDescription() const;
 

@@ -10,6 +10,7 @@
 Player::Player() {
     victoryPoints = 0;
     lifePoints= 10;
+    energyCubes = 0;
 
     Dice dice; // Player dice obj
     MonsterCards monsterCard; // Player monster card
@@ -33,6 +34,7 @@ Player::Player(Dice d, int i): Player() {
     this ->dice.setPlayerNumber(i);
     this ->setPlayerName(std::string("Random ") += to_string(i));
     this ->setZone(10); // Nothing
+
 }
 
 int Player::getPlayerID() const {
@@ -58,14 +60,41 @@ int Player::rollDiceFirst() {
 }
 
 void Player::resolveDice() {
+    int order[5];
+    // 0= "Energy", 1="Attack", 2="Destruction", 3="Heal", 4="Celebrity", 5="Ouch"
+    map<int, int> currentHand = {{0, 0}, {1, 0}, {2, 0}, {3, 0} , {4, 0} , {5, 0}};
+    currentHand = dice.getLastResolvedHand();
+    cout << "Your hand was the following ---------------- " << endl;
+    dice.lastDiceHistoricalResolvedValues();
+//    cout << "What is the order you wish to resolve ?" << endl;
+//    cin >> order[0] >> order[1] >> order[2] >> order[3] >> order[4];
 
-}
 
-void Player::move() {
-    cout << "Please enter the region you want to move to" << endl;
-    Map::move(this);
-    // on success:
-    // setZone(zoneNumber);
+        if(currentHand[0] > 0){
+            addEnergyCubes(currentHand[0]);
+        }
+
+        if(currentHand[1] > 0){
+            if(getZone()>0 && getZone() < 7) { // In Manhattan
+
+            }
+            else if(getZone() > 6){ // Outside manhattan
+
+            }
+        }
+
+        if(currentHand[2] > 0) {
+
+        }
+
+        if(currentHand[3] > 0 && getZone() >6) {
+            addLifePoints(static_cast<unsigned int>(currentHand[3]));
+        }
+
+
+
+
+
 }
 
 void Player::buyCards(Cards card) {
@@ -85,14 +114,15 @@ void Player::addCard(Cards card) {
         cards.push_back(card);
 }
 
-void Player::disposeOfCards() {
+bool Player::disposeOfCards() {
     if(getEnergyCubes()>2)
     {
         removeEnergyCubes(3);
-        //cards.clear(); // Replace with clear top 3 of deck
+        return true;
     }
     else{
-        cout << "You do not have enough energy cubes to dispose of your cards" << endl;
+        cout << "You do not have enough energy cubes to dispose the top 3 cards" << endl;
+        return false;
     }
 }
 
@@ -266,6 +296,10 @@ const string &Player::getPlayerName() const {
 
 void Player::setPlayerName(const string &playerName) {
     Player::playerName = playerName;
+}
+
+Dice &Player::getDice() {
+    return dice;
 }
 
 

@@ -44,6 +44,7 @@ int Game::init_players() {
 
 void Game::init_map() {
     gameMap.assignMap(Game::loadMap());
+    gameMap.initRegionOwners();
     gameMap.showMap();
 }
 
@@ -51,15 +52,20 @@ void Game::init_all_decks() {
     cout << "Initializing Deck of Cards .........." << endl;
     DeckOfCards deckOfCards;
     cout << "Deck of Cards Initialized! .........." << endl;
+    deckOfCards.shuffle();
+    cout << "Deck of Cards Shuffled! .........." << endl;
     cout << "Initializing Deck of Building Unit tiles .........." << endl;
     DeckOfBuildingUnitTiles deckOfBuildingUnitTiles;
     cout << "Deck of Building Unit tiles Initialized! .........." << endl;
+    deckOfBuildingUnitTiles.shuffle();
+    cout << "Deck of Building unit tiles Shuffled! .........." << endl;
     cout << "Initializing Deck of Monster Cards .........." << endl;
     DeckOfMonsterCards deckOfMonsterCards;
     cout << "Deck of Monster Cards Initialized! .........." << endl;
     cout << "Initializing Deck of Game Tokens .........." << endl;
     DeckOfGameTokens deckOfGameTokens;
     cout << "Deck of Game Tokens Initialized! .........." << endl;
+
 }
 
 int Game::init_game_dependencies() {
@@ -83,9 +89,6 @@ int Game::init_game_dependencies() {
 void Game::init_game_loop() {
     Player* winner = checkWinCondition();
 
-    int nextTurn;
-    int proceed;
-
     while(winner == nullptr) {
 
         for(Player* player : players){
@@ -95,7 +98,7 @@ void Game::init_game_loop() {
             // roll the dice (up to 3 times)
             player->rollDice();
             // resolve the dice (mandatory)
-//            player->resolveDice();
+            resolvePlayer(player);
 
             if(player->getLifePoints() == 0) {
                 cout << "Player : " << player->getPlayerName() << " died while resolving dice" << endl;
@@ -144,16 +147,18 @@ void Game::init_game_loop() {
                     if (numberOfPlayers < 5){
                         player->setZone(1);
                         gameMap.setRegionOwner(1, player);
+                        cout << "Player : " << player->getPlayerName() << " is in : " << player->getZoneName() << endl;
                     }
                     else{
                         player->setZone(4);
                         gameMap.setRegionOwner(4, player);
+                        cout << "Player : " << player->getPlayerName() << " is in : " << player->getZoneName() << endl;
                     }
                 }
                 else{ // there is atleast 1 player in manhattan
                     string choice;
                     cout << "There is another player in Manhattan" << endl;
-                    cout << "Do you want to move (M) or stay (S) in current location?" << endl;
+                    cout << "Do you want to move (M) or stay (S) in current location : " << player->getZoneName() << "?" << endl;
                     cin >> choice;
                     if (choice == "M"){
                         gameMap.move(player);
@@ -164,17 +169,18 @@ void Game::init_game_loop() {
             }
 
             // buy cards (optional)
-            player->buyCards(); // TODO
+            buyCards(player);
             player->showStats();
+
+            cout << "Player : " << player->getPlayerName() << " turn is over " << endl;
             winner = checkWinCondition();
             // end turn
         }
 
     }
-    if(winner != nullptr){
-        cout << "PLAYER :" << winner->getPlayerName() << " IS THE WINNER !!! " << endl;
-        return;
-    }
+
+    cout << "PLAYER :" << winner->getPlayerName() << " IS THE WINNER !!! " << endl;
+    return;
 
 }
 
@@ -293,6 +299,102 @@ void Game::setStartingLocationOfPlayers() {
 
    }
 
+}
+
+void Game::resolvePlayer(Player *player) {
+
+     int order[5];
+    // 0= "Energy", 1="Attack", 2="Destruction", 3="Heal", 4="Celebrity", 5="Ouch"
+    map<int, int> currentHand = {{0, 0}, {1, 0}, {2, 0}, {3, 0} , {4, 0} , {5, 0}};
+    currentHand = player->getDice().getLastResolvedHand();
+    cout << "Your hand was the following ---------------- " << endl;
+    player->getDice().lastDiceHistoricalResolvedValues();
+//  cout << "What is the order you wish to resolve ?" << endl;
+//  cin >> order[0] >> order[1] >> order[2] >> order[3] >> order[4];
+
+
+    if(currentHand[0] > 0){ // Energy option
+        player->addEnergyCubes(currentHand[0]);
+        cout << "Player: "<< player->getPlayerName() << " added " << currentHand[0] << " energy points" << endl;
+    }
+
+    if(currentHand[1] > 0){ // Attack option
+        if(player->getZone()>0 && player->getZone() < 7) { // In Manhattan
+            for(auto tempPlayer : players){
+                if(tempPlayer->getZone() > 6){ // All players outside manhattan get -1 health
+                    tempPlayer->removeLifePoints(currentHand[1]);
+                    cout << "Player: "<< tempPlayer->getPlayerName() << " removed " << currentHand[1] << " energy points since he is outside manhattan" << endl;
+                }
+            }
+        }
+        else if(player->getZone() > 6){ // Outside manhattan
+            for(auto tempPlayer : players){
+                if(tempPlayer->getZone() > 0 && tempPlayer->getZone() < 7){ // All players inside manhattan get -1 health
+                    tempPlayer->removeLifePoints(currentHand[1]);
+                    cout << "Player: "<< tempPlayer->getPlayerName() << " removed " << currentHand[1] << " energy points since he is inside manhattan" << endl;
+                }
+            }
+        }
+    }
+
+    if(currentHand[2] > 0) { // Destruction option
+
+    }
+
+    if(currentHand[3] > 0 && player->getZone() >6) { // Heal Option
+        player->addLifePoints(static_cast<unsigned int>(currentHand[3]));
+        cout << "Player: "<< player->getPlayerName() << " added " << currentHand[3] << " health points" << endl;
+
+    }
+
+    if(currentHand[4] > 0) { // Celebrity Option
+
+    }
+
+    if(currentHand[5] > 0) { // Ouch Option
+
+    }
+
+
+}
+
+void Game::buyCards(Player* player) {
+    bool proceed = true;
+    while(proceed){
+        deckOfCards.showTopThreeCards();
+        cout << "Do you wish to throw the top three cards? (Y | N)" << endl;
+        string option;
+        cin >> option;
+        if (option == "Y" || option == "y") {
+            bool response;
+            response = player->disposeOfCards();
+            if(response){
+                deckOfCards.removeTopThreeCards();
+            }
+        }
+        else if(option == "N" || option == "n"){
+            proceed = false;
+        }
+    }
+
+    cout << "Current top 3 cards ------- " << endl;
+    deckOfCards.showTopThreeCards();
+    string option;
+    cout << "Does Player: " << player->getPlayerName() << " wish to buy cards? (Y | N)" << endl;
+    cin >> option;
+    if (option == "Y" || option == "y") {
+        Cards selectedCard;
+        selectedCard = deckOfCards.draw();
+        player->buyCards(selectedCard);
+        cout << player << endl;
+        return;
+    }
+    else return;
+
+}
+
+Map &Game::getGameMap() {
+    return gameMap;
 }
 
 

@@ -35,7 +35,7 @@ bool Map::move(Player* player) {
     //currentPlayer = currentPlayer->getNext();
     do {
         cout << "Which region do you want to move to ?" << endl;
-        showMap();
+        showMapWithOwners();
         cin >> regionNumber;
 
         if (regionNumber < 0){
@@ -99,6 +99,8 @@ bool Map::isManhattanEmpty() {
 }
 
 void Map::initRegionOwners() {
+    Player* nullPlayer = new Player("X");
+    Player* emptyPlayer = new Player("");
 
     for(int i=0; i< gameMap->getVertexCount(); i++) {
         if(gameMap->getVertex(i)->getData() == "outer") {
@@ -189,12 +191,13 @@ void Map::showMap() {
 void Map::showMapWithOwners() {
     for (int i = 0; i < gameMap->getVertexCount(); i++)
     {
-        cout << (i) << ". " << gameMap->getVertex(i)->toString() << " --> {  " << regionOwners[i].first->getPlayerName() << " , " << regionOwners[i].second->getPlayerName() << "  }" << endl;
+        cout << (i) << ". " << gameMap->getVertex(i)->toString() << " --> {" << regionOwners[i].first->getPlayerName() << " , " << regionOwners[i].second->getPlayerName() << "}" << endl;
         // Player can be in all vertices except Manhattan (0) , since it can be in its subvertices
     }
 }
 
 void Map::removeRegionOwner(Player* player) {
+    Player* emptyPlayer = new Player("");
     int currentRegion = player->getZone();
 
     if(currentRegion >0 && currentRegion <7) { // Manhattan

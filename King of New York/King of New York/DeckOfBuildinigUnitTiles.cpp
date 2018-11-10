@@ -21,8 +21,8 @@ DeckOfBuildingUnitTiles::DeckOfBuildingUnitTiles() {
 
 // random shuffle deck of building tiles
 void DeckOfBuildingUnitTiles::shuffle() {
-    srand (static_cast<unsigned int>(time(0)));
-    std::shuffle(deck.begin(), deck.end(), std::mt19937(std::random_device()()));
+    srand((time(0)));
+    std::random_shuffle(deck.begin(), deck.end());
 }
 
 // draw building card/tile and remove it from deck and then return it

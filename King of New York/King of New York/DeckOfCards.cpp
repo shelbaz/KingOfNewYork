@@ -17,7 +17,7 @@ DeckOfCards::DeckOfCards() {
     for(int i=0; i< 66; i++) {
         Cards card;
         vector<int> effect = {1, 1, 1, 1, 1, 1}; // generic effect vector, will sub in random realistic values later
-        card.setCard(to_string(i), "some description" ,effect, 1);
+        card.setCard(to_string(i), "some description", "keep" ,effect, 1);
         deck.push_back(card);
     }
 
@@ -25,8 +25,8 @@ DeckOfCards::DeckOfCards() {
 
 //shuffle card deck with random fcn
 void DeckOfCards::shuffle() {
-    srand (static_cast<unsigned int>(time(0)));
-    std::shuffle(deck.begin(), deck.end(), std::mt19937(std::random_device()()));
+    srand(time(0));
+    std::random_shuffle(deck.begin(), deck.end());
 }
 
 // draw card and remove it from deck and then return it
@@ -42,7 +42,7 @@ unsigned int DeckOfCards::getSize() {
 
 //show current visual state of deck
 void DeckOfCards::currentState() {
-    for (const auto &i : deck) {
+    for (auto i : deck) {
         cout << i << endl;
     }
 }
@@ -82,9 +82,8 @@ vector<Cards> DeckOfCards::topThreeCards() {
 
 // remove top 3 cards
 void DeckOfCards::removeTopThreeCards() {
-    vector <Cards> topCards;
     for(int i=0; i<3; i++) {
-        deck.erase(deck.end());
+        deck.pop_back();
     }
 }
 

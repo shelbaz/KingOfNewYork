@@ -35,8 +35,9 @@ public:
     vector<Player*> getGamePlayersAfter() { return players;}
     DeckOfCards* getGameDeck() {return &deckOfCards;}
     DeckOfGameTokens* getGameTokensDeck() {return &deckOfGameTokens;}
-    DeckOfBuildingUnitTiles* getBuildingUnitTilesDeck() {return &deckOfBuildingUnitTiles;}
+    DeckOfBuildingUnitTiles getBuildingUnitTilesDeck() {return deckOfBuildingUnitTiles;}
 
+    void resolvePlayer(Player* player);
     void removePlayer(Player* player);
     void changePlayerIndexes();
     Graph<string>* loadMap();
@@ -44,6 +45,9 @@ public:
     int getNumberOfPlayers();
     void setStartingLocationOfPlayers();
 
+    void buyCards(Player* player);
+
+    Map &getGameMap();
 
 private:
 

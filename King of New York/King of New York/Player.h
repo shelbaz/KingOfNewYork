@@ -32,8 +32,8 @@ private:
     const vector<string> zoneNames = {"Manhattan", "Manhattan Lower 2-4", "Manhattan Midtown 2-4", "Manhattan Upper 2-4",
                                "Manhattan Lower 5-6", "Manhattan Midtown 5-6""Manhattan Upper 5-6", "Bronx", "Queens",
                                "Staten Island", "Brooklyn", "None"};
-
 public:
+    Dice &getDice();
 
     Player();
     ~Player();
@@ -49,13 +49,12 @@ public:
     void rollDice();
     int rollDiceFirst();
     void resolveDice();
-    void move();
     void attack();
 
     void showStats();
     void buyCards(Cards card);
     void addCard(Cards card);
-    void disposeOfCards();
+    bool disposeOfCards();
     void addGameToken(GameTokens token);
     void addBuildingUnitTiles(BuildingUnitTiles tile);
     void assignMonster(MonsterCards card);

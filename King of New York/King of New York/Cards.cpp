@@ -5,9 +5,10 @@
 #include "Cards.h"
 #include <iostream>
 
-void Cards::setCard(string name, string description, vector<int> playerEffect, int cost) {
+void Cards::setCard(string name, string description, string type, vector<int> playerEffect, int cost) {
     this->name = name;
     this->description = description;
+    this->type = type;
     this->effect = playerEffect;
     this->energyCost = cost;
 }
@@ -16,6 +17,7 @@ ostream & operator<<(ostream & os, const Cards& card){
 
     os << "----------------------------------------" << endl;
     os << "Name :" << card.getName() << endl;
+    os << "Type :" << card.getType() << endl;
     os << "Description :" << card.getDescription() << endl;
     os << "Cost :" << card.getEnergyCost() << endl;
     os << "***************" << endl;
@@ -50,6 +52,10 @@ string Cards::getDescription() const {
 
 vector<int> Cards::getEffect() {
     return effect;
+}
+
+string Cards::getType() const {
+    return type;
 }
 
 

@@ -11,8 +11,10 @@ using namespace std;
 
 class Dice {
 
-    enum DiceOptions{Energy, Attack, Destruction, Heal, Celebrity, Ouch, NumOfOptions};
     const char * DiceNames[6] = { "Energy", "Attack", "Destruction", "Heal", "Celebrity", "Ouch" };
+
+public:
+    enum DiceOptions{Energy, Attack, Destruction, Heal, Celebrity, Ouch, NumOfOptions};
 
 private:
     int playerNumber;
@@ -29,12 +31,14 @@ private:
 
 
 public:
+
     Dice();
 
     void rollDiceSequence();
     void rollDice();
     void rollDice(int amtOfDice);
     void rollDice(bool testing);
+
     int rollDiceDetermineStart();
     void storeDiceResult(map<DiceOptions, int> tempDiceValues);
     void storeResolvedHand(map<DiceOptions, int> resolvedHand);
@@ -51,7 +55,10 @@ public:
     void showResolvedHand();
     void addDiceValuesToResolvedHand();
     void setResolvedHandToDiceValues();
+    void lastDiceHistoricalResolvedValues();
     DiceOptions randomDiceOption();
+
+    map<int,int> getLastResolvedHand();
 
 
 

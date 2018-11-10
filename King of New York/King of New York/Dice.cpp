@@ -285,6 +285,24 @@ void Dice::diceHistoricalResolvedValues()
 
 }
 
+// Print all historical dice values for player
+void Dice::lastDiceHistoricalResolvedValues()
+{
+    cout << "Dice container values for player "<< this->getPlayerNumber() << endl;
+    cout << "-----------------------------------------------------------------" << endl;
+    for (it = historyOfResolvedRolls.end()-1; it != historyOfResolvedRolls.end(); ++it) {
+        cout << "-----------------------------------------------------------------" << endl;
+
+        for (auto mapIt(it->begin()); mapIt != it->end(); ++mapIt) {
+
+            std::cout << DiceNames[mapIt->first] << ", " << mapIt->second << std::endl;
+        }
+        cout << "-----------------------------------------------------------------" << endl;
+
+    }
+
+}
+
 int Dice::addToCount() {
     int count =0;
     count += resolvedHand[DiceOptions::Attack];
@@ -358,4 +376,18 @@ void Dice::showResolvedHand() {
     }
     cout << "----------------------------" << endl;
 
+}
+
+map<int,int> Dice::getLastResolvedHand() {
+    // 0= "Energy", 1="Attack", 2="Destruction", 3="Heal", 4="Celebrity", 5="Ouch"
+    map<int,int> tempVal = {{0, 0}, {1, 0}, {2, 0}, {3, 0} , {4, 0} , {5, 0}};
+
+    tempVal[0] = historyOfResolvedRolls[historyOfResolvedRolls.size()-1][DiceOptions::Energy];
+    tempVal[1] = historyOfResolvedRolls[historyOfResolvedRolls.size()-1][DiceOptions::Attack];
+    tempVal[2] = historyOfResolvedRolls[historyOfResolvedRolls.size()-1][DiceOptions::Destruction];
+    tempVal[3] = historyOfResolvedRolls[historyOfResolvedRolls.size()-1][DiceOptions::Heal];
+    tempVal[4] = historyOfResolvedRolls[historyOfResolvedRolls.size()-1][DiceOptions::Celebrity];
+    tempVal[5] = historyOfResolvedRolls[historyOfResolvedRolls.size()-1][DiceOptions::Ouch];
+
+    return tempVal;
 }

@@ -22,7 +22,6 @@ string MapLoader::getFilePath()
 Graph<string>* MapLoader::loadMap()
 {
   //method to load the map file into a graph object
-  //IMPORTANT!!! The master node, ex: manhattan, must appear first in the file
 
   bool result = false;
 
@@ -135,6 +134,7 @@ bool MapLoader::fileIsValid()
   if(filePath.find(mapExt) == string::npos)
   {
     cerr << "The file requested does not contain a .map extension." << endl;
+    exit(0);
     return false;
   }
 
@@ -151,6 +151,7 @@ bool MapLoader::fileIsValid()
     //therefore close the stream and return false
     input.close();
     cerr << "The file at " << filePath << " could not be opened." << endl;
+    exit(0);
     return false;
   }
 
@@ -177,6 +178,7 @@ bool MapLoader::fileIsValid()
       {
         input.close();
         cout << "Missing opening brace in file " << filePath << " near line " << lineNumber << "." << endl;
+        exit(0);
         return false;
       }
 
@@ -187,6 +189,7 @@ bool MapLoader::fileIsValid()
       {
         input.close();
         cout << "Missing node name field in file " << filePath << " near line " << lineNumber << "." << endl;
+        exit(0);
         return false; //if the next line does not contain a name field then we return false
       }
 
@@ -201,6 +204,7 @@ bool MapLoader::fileIsValid()
       {
         input.close();
         cout << "Missing type field in file " << filePath << " near line " << lineNumber << "." << endl;
+        exit(0);
         return false;
       }
 
@@ -211,6 +215,7 @@ bool MapLoader::fileIsValid()
       {
         input.close();
         cout << "Invalid type field in file " << filePath << " near line " << lineNumber << "." << endl;
+        exit(0);
       }
 
       //now we need to make sure that the node has at least one adjacent node to make sure that the graph will be a connected graph
@@ -229,6 +234,7 @@ bool MapLoader::fileIsValid()
       {
         input.close();
         cout << "No adjacent nodes found in " << filePath << " near line " << lineNumber << "." << endl;
+        exit(0);
         return false;
       }
 
@@ -237,6 +243,7 @@ bool MapLoader::fileIsValid()
       {
         input.close();
         cout << "Missing closing brace in file " << filePath << " near line " << lineNumber << "." << endl;
+        exit(0);
         return false;
       }
 
