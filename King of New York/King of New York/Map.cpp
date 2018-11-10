@@ -30,9 +30,7 @@ bool Map::move(Player* player) {
     bool success = false;
     bool proceed = true;
     int regionNumber = -1;
-    //now we should go through the linked list of players and fill in the array appropriately
-    // node<Player*>* currentPlayer = players->getHead();
-    //currentPlayer = currentPlayer->getNext();
+
     do {
         cout << "Which region do you want to move to ?" << endl;
         showMapWithOwners();
@@ -77,10 +75,6 @@ bool Map::move(Player* player) {
     } while(proceed);
 
     return success;
-
-}
-
-void Map::isMoveValid(int regionNumber) {
 
 }
 
