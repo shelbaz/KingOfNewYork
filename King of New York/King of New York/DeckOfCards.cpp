@@ -25,7 +25,6 @@ DeckOfCards::DeckOfCards() {
     ifstream file(fileName);
     std::string  id, name, lineNum, cost, rewardType, description;
 
-    int count = 0;
     if(file) {
         for(int j=0; j<NUMBER_OF_SPECIAL_CARDS; j++){
             setCardFile(file,specialDeck);
@@ -33,7 +32,6 @@ DeckOfCards::DeckOfCards() {
         while (file.peek()!=EOF)
         {
             setCardFile(file,deck);
-            count++;
         }
         file.close();
     }
@@ -49,6 +47,9 @@ DeckOfCards::~DeckOfCards() {
     delete deck;
     delete discardedDeck;
     delete specialDeck;
+    deck=NULL;
+    discardedDeck=NULL;
+    specialDeck=NULL;
 }
 
 //shuffle card deck with random fcn

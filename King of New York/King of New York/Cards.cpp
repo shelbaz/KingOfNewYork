@@ -7,6 +7,8 @@
 #include "Cards.h"
 #include <iostream>
 
+std::string card_type[4] = { "Empty", "Goal", "Keep", "Discard" };
+
 
 void Cards::setCard(int id, std::string name, int energyCost, CardType type, std::string description) {
     this->id = id;
@@ -21,6 +23,7 @@ ostream & operator<<(ostream & os, const Cards& card){
     os << "----------------------------------------" << endl;
     os << "ID :" << card.getId() << endl;
     os << "Name :" << card.getName() << endl;
+    os << "RewardType: " << card_type[card.getType()] << endl;
     os << "Description :" << card.getDescription() << endl;
     os << "Cost :" << card.getEnergyCost() << endl;
     os << "***************" << endl;

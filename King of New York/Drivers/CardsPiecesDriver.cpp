@@ -27,9 +27,9 @@ int main(int argc, const char * argv[]) {
 
     deckOfBuildingUnitTiles.currentState();
 
-//
-//    deckOfGameTokens.currentState();
-//    deckOfMonsterCards.currentState();
+
+    deckOfGameTokens.currentState();
+    deckOfMonsterCards.currentState();
 
     return 0;
 }

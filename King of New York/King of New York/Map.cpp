@@ -18,7 +18,12 @@ Map::Map(Graph<string> *map) : Map() {
 }
 
 Map::~Map() {
-
+delete gameMap;
+delete nullPlayer;
+delete emptyPlayer;
+gameMap = NULL;
+nullPlayer = NULL;
+emptyPlayer = NULL;
 }
 
 void Map::assignMap(Graph<string> *map) {

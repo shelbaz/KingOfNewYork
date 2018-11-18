@@ -15,7 +15,6 @@ class Cards {
 
 public:
     enum CardType { Empty, Goal, Keep, Discard };
-    std::string card_type[4] = { "Empty", "Goal", "Keep", "Discard" };
 
 private:
     int id;
