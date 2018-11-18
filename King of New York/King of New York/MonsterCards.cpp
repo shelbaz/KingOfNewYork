@@ -4,6 +4,7 @@
 
 #include "MonsterCards.h"
 #include <iostream>
+#include <algorithm>
 
 using namespace std;
 
@@ -35,7 +36,7 @@ void MonsterCards::setMonster(MonsterOptions value){
 DeckOfMonsterCards::DeckOfMonsterCards() {
     deck.reserve(6);
     for(int i=0; i< MonsterCards::EnumEnd; i++) {
-        MonsterCards::MonsterOptions current = (MonsterCards::MonsterOptions) i;
+        auto current = (MonsterCards::MonsterOptions) i;
         MonsterCards singleCard;
         singleCard.setMonster(current);
         deck.push_back(singleCard);

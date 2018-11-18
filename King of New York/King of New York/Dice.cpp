@@ -8,6 +8,8 @@
 #include <vector>
 #include <iostream>
 #include <string>
+#include <algorithm>
+
 using namespace std;
 
 // Dice constructor : init random with seed, maxRolls =3

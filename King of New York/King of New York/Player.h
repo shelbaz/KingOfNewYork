@@ -3,6 +3,12 @@
 //
 
 #pragma once
+
+#include <Observer/Subject.h>
+#include <Observer/Observer.h>
+#include <Observer/GameStatisticsObserver.h>
+#include <Observer/PhaseObserver.h>
+
 #include "Dice.h"
 #include "MonsterCards.h"
 #include "Cards.h"
@@ -11,10 +17,17 @@
 #include "BuildingUnitTiles.h"
 #include "DeckOfCards.h"
 
-
 using namespace std;
 
-class Player {
+class Player: public Subject {
+
+public:
+    enum Phase
+    {
+        Roll,
+        Move,
+        Buy
+    };
 
 private:
     int playerID;
@@ -29,6 +42,7 @@ private:
     int lifePoints;
     int energyCubes;
     int ownedZone;
+    enum Phase phase;
     const vector<string> zoneNames = {"Manhattan", "Manhattan Lower 2-4", "Manhattan Midtown 2-4", "Manhattan Upper 2-4",
                                "Manhattan Lower 5-6", "Manhattan Midtown 5-6""Manhattan Upper 5-6", "Bronx", "Queens",
                                "Staten Island", "Brooklyn", "None"};
@@ -50,6 +64,9 @@ public:
     int rollDiceFirst();
     void resolveDice();
     void attack();
+
+    enum Phase getPhase();
+    void setPhase(enum Phase);
 
     void showStats();
     void buyCards(Cards card);

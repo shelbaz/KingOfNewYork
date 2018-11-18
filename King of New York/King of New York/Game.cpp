@@ -108,6 +108,7 @@ void Game::init_game_loop() {
 
             // if player is in manhattan
             if(player->getZone()>0 && player->getZone()<7){
+                player->setPhase(Player::Phase::Move);
                 string choice;
                 if(player->getZone() == 1) {  // Manhattan Lower 2-4
                     player->setZone(2);
@@ -144,6 +145,7 @@ void Game::init_game_loop() {
             }
             else { // Not in manhattan
                 if(gameMap.isManhattanEmpty()){ // must move to manhattan if empty
+                    player->setPhase(Player::Phase::Move);
                     if (numberOfPlayers < 5){
                         player->setZone(1);
                         gameMap.setRegionOwner(1, player);

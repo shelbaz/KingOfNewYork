@@ -49,10 +49,11 @@ public:
 
     Map &getGameMap();
 
+    static vector<Player*> players;
+
 private:
 
     vector<Player*> playersTemp;
-    vector<Player*> players;
 
     Map gameMap;
     MapLoader mapLoader;

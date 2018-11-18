@@ -59,6 +59,7 @@ bool Map::move(Player* player) {
         if(gameMap->getVertex(regionNumber)->getData() == "master"){
             // if all manhattan is empty
             setRegionOwner(1, player); // Manhattan 2-4
+            player->addVictoryPoints(1); // if move to manhattan, increase victory point of player
             proceed = false;
         }
         // player move to manhattan master object

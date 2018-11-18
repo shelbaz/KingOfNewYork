@@ -18,6 +18,9 @@ Player::Player() {
     vector <Cards> cards; //List of all deck cards assigned to player (purchased)
     vector <GameTokens> gameTokens; // List of all game tokens assigned to player
     vector <BuildingUnitTiles> buildingUnitTiles; // List of all building tiles assigned to player
+
+    attach(new PhaseObserver(this));
+    attach(new GameStatisticsObserver());
 }
 
 Player::Player(string s) {
@@ -43,6 +46,8 @@ int Player::getPlayerID() const {
 
 // Roll dice scenario for all rolls, called by player
 void Player::rollDice() {
+    phase = Roll;
+    notify();
     // Implement keeping certain number of dice, erasing diceHistorical values past 3
     // Then sum the values for the resolveDice step, total 6 dice
     cout << "Rolling first dice for player, Press enter to confirm" << endl;
@@ -54,6 +59,9 @@ void Player::rollDice() {
 
 // roll dice to determine which player starts
 int Player::rollDiceFirst() {
+    phase = Roll;
+    notify();
+
     int result;
     result = this-> dice.rollDiceDetermineStart();
     return result;
@@ -98,6 +106,8 @@ void Player::resolveDice() {
 }
 
 void Player::buyCards(Cards card) {
+    phase = Buy;
+    notify();
 
     if(getEnergyCubes() < card.getEnergyCost()){
         cout << "You do not have enough energy cubes to purchase this card" << endl;
@@ -302,4 +312,11 @@ Dice &Player::getDice() {
     return dice;
 }
 
+void Player::setPhase(Player::Phase p) {
+    this->phase = p;
+}
+
+Player::Phase Player::getPhase() {
+    return phase;
+}
 

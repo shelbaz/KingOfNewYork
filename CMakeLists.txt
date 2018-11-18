@@ -36,5 +36,13 @@ add_executable(KingOfNewYork
         "King of New York/King of New York/Graph/StringFunctions.h"
         "King of New York/King of New York/Map.cpp"
         "King of New York/King of New York/Map.h"
-        "King of New York/Drivers/Assignment2.cpp")
+        "King of New York/Drivers/Assignment2.cpp"
+        "King of New York/King of New York/Observer/Observer.h"
+        "King of New York/King of New York/Observer/Subject.cpp"
+        "King of New York/King of New York/Observer/Subject.h"
+        "King of New York/King of New York/Observer/Observer.cpp"
+        "King of New York/King of New York/Observer/GameStatisticsObserver.cpp"
+        "King of New York/King of New York/Observer/GameStatisticsObserver.h"
+        "King of New York/King of New York/Observer/PhaseObserver.cpp"
+        "King of New York/King of New York/Observer/PhaseObserver.h")
 
