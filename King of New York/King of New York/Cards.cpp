@@ -25,6 +25,12 @@ ostream & operator<<(ostream & os, const Cards& card){
     os << "Cost :" << card.getEnergyCost() << endl;
     os << "***************" << endl;
     os << "Effect : " << endl;
+    os << "Energy = " << card.effect[Cards::Energy];
+    os << ", Attack = " << card.effect[Cards::Attack];
+    os << ", Destruction = " << card.effect[Cards::Destruction];
+    os << ", Heal = " << card.effect[Cards::Heal];
+    os << ", Celebrity = " << card.effect[Cards::Celebrity];
+    os << ", Ouch = " << card.effect[Cards::Ouch] << endl;
     os << "----------------------------------------" << endl;
     return os;
 
@@ -63,7 +69,7 @@ void Cards::setName(const std::string &name) {
     Cards::name = name;
 }
 
-void Cards::setDescription(const std::string &description) {
+void Cards::setDescription(const std::string&description) {
     Cards::description = description;
 }
 
