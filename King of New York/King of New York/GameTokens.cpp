@@ -9,7 +9,7 @@
 
 using namespace std;
 
-string GameTokens::getName() {
+std::string  GameTokens::getName() {
     return tokenTypeName[token];
 }
 

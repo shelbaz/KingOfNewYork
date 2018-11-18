@@ -1,7 +1,4 @@
 //
-// Created by Shawn Elbaz on 2018-11-04.
-//
-//
 //#include "Player.h"
 //#include "DeckOfBuildinigUnitTiles.h"
 //#include "DeckOfCards.h"
@@ -12,9 +9,10 @@
 //
 //using namespace std;
 //
-//void GameDriver() {
+//int main(int argc, const char * argv[]) {
 //    Game game;
 //    game.init_game_dependencies();
 //    game.init_game_loop();
 //    cout << "Game is over. Thanks for playing" << endl;
+//    return 0;
 //}

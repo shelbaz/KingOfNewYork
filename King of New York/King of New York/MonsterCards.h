@@ -9,7 +9,7 @@
 using namespace std;
 
 class MonsterCards {
-    string MonsterNames[6] = { "CaptainFish", "Sheriff", "Kong", "Mantis", "Rob", "Drakonis" };
+    std::string  MonsterNames[6] = { "CaptainFish", "Sheriff", "Kong", "Mantis", "Rob", "Drakonis" };
 
 public:
 
@@ -19,7 +19,7 @@ public:
     MonsterCards(const MonsterCards &p2);
     ~MonsterCards();
 
-    string getName() const;
+    std::string  getName() const;
     void setMonster(MonsterOptions value);
     friend ostream& operator<<(ostream& os, const MonsterCards& card);
     friend bool operator== (const MonsterCards& p1, const MonsterCards& p2) {

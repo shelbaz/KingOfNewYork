@@ -1,6 +1,9 @@
 cmake_minimum_required(VERSION 3.12)
 project(KingOfNewYork)
 
+FIND_PACKAGE( Boost )
+INCLUDE_DIRECTORIES( ${Boost_INCLUDE_DIR} )
+
 set(CMAKE_CXX_STANDARD 14)
 
 include_directories("King of New York/King of New York")
@@ -46,3 +49,4 @@ add_executable(KingOfNewYork
         "King of New York/King of New York/Observer/PhaseObserver.cpp"
         "King of New York/King of New York/Observer/PhaseObserver.h")
 
+TARGET_LINK_LIBRARIES( KingOfNewYork LINK_PUBLIC ${Boost_LIBRARIES} )

@@ -11,6 +11,7 @@ class DeckOfBuildingUnitTiles: public GamePieces {
 
 private:
     vector<BuildingUnitTiles> deck;
+    int currentTile;
 
 public:
     DeckOfBuildingUnitTiles();
@@ -18,5 +19,7 @@ public:
     BuildingUnitTiles draw();
     int getSize();
     void currentState();
+    void flipTile(BuildingUnitTiles *tile);
+    void burnTile(BuildingUnitTiles *tile);
 };
 

@@ -8,15 +8,20 @@
 
 using namespace std;
 
-
 class Cards {
 
     enum CardEffects{Energy=0, Attack, Destruction, Heal, Celebrity, Ouch};
     //64 cards
+
+public:
+    enum CardType { Empty, Goal, Keep, Discard };
+    std::string card_type[4] = { "Empty", "Goal", "Keep", "Discard" };
+
 private:
-    string name;
-    string description;
-    string type;
+    int id;
+    std::string name;
+    std::string description;
+    CardType type;
     int energyCost;
 
     // Effect array values{E,A,D,H,C,O}
@@ -27,18 +32,32 @@ public:
 
     Cards();
 
-    void setCard(string name, string description, string type, vector <int> playerEffect, int energyCost);
+    void setCard(int id, std::string name, int energyCost, CardType type, std::string description);
     friend ostream& operator<<(ostream& os, const Cards& card);
+
+    void setName(const std::string &name);
+
+    void setDescription(const std::string &description);
+
+    void setType(CardType type);
+
+    void setEnergyCost(int energyCost);
+
+    void setEffect(const vector<int> &effect);
 
     int getEnergyCost() const;
 
-    string getName() const;
+    std::string getName() const;
 
-    string getType() const;
+    CardType getType() const;
 
-    string getDescription() const;
+    std::string getDescription() const;
 
     vector<int> getEffect();
+
+    int getId() const;
+
+    void setId(int id);
 
 
 

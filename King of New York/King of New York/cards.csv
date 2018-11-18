@@ -1,0 +1,66 @@
+0, STATUE OF LIBERTY, 0, 1, Take this card when you roll at least 3 OUCH. Gain 3 VICTORY_POINT when you take this card. Lose 3 VICTORY_POINT when you lose this card.
+1, SUPERSTAR, 0, 1, Take this card when you roll at least 3 VICTORY. Gain 1 VICTORY_POINT, +1 VICTORY_POINT per additional VICTORY you rolled. While you have this card, you gain 1 VICTORY_POINT for each VICTORY you roll.
+2, OVERLOAD, 0, 2, Gain 4 ENERGY_POINT when you buy this card. Gain 1 ENERGY_POINT less when you roll any amount of ENERGY.
+3, SUBTERRANEAN CABLE, 0, 3, +4 ENERGY_POINT and take 4 damage.
+4, NATURAL SELECTION, 2, 2, Gain 4 ENERGY_POINT and heal 4 damage when you buy this card. You roll an extra die. If you end your turn with at least 1 VICTORY, you lose this card, and all your HEART_POINT.
+5, CARAPACE, 3, 2, Your HEART_POINT maximum is increased by 2 as long as you have this card. For each OUCH you roll, place a Carapace token on this card. You can discard this card to heal 1 damage for each Carapace token on it.
+6, CHINATOWN REGULAR, 3, 2, Heal 2 damage when you enter MANHATTAN.
+7, CLIMB THE EMPIRE STATE BUILDING, 3, 2, If you roll 1 of each dice type in MANHATTAN, gain 2 VICTORY_POINT and take another turn.
+8, EGO TRIP, 3, 2, Gain 1 ENERGY_POINT when you take Superstar and when you start your turn with it.
+9, FLATIRON BUILDING, 3, 3, Buy this card for 1 ENERGY_POINT less if you are in MANHATTAN. +2 VICTORY_POINT.
+10, LONG NECK, 3, 2, You only need 2 DESTRUCTION to destroy a Jet.
+11, SCAVENGER, 3, 2, You can buy KEEP cards from the discard by spending 1 ENERGY_POINT less than their cost.
+12, VIOLENT STAR, 3, 2, Deal 2 damage to the Monster from whom you take Superstar. Deal 1 damage to the Monster who takes Superstar from you.
+13, ANTIMATTER PELLETS, 4, 2, Monsters you attack must roll a die. Those that roll OUCH take double damage.
+14, ARTIFICIAL HEART, 4, 2, You can change soome or all of your HEART to ENERGY.
+15, BULLETPROOF, 4, 2, Whenever you take damage because of rolling OUCH, take 1 less damage.
+16, CAN OPENER, 4, 2, You only need 3 DESTRUCTION to destroy a Tank.
+17, CHAMELEON, 4, 2, You can discard as many VICTORY as you wish. For each VICTORY discarded, you can change the face of one of the dice you haven't resolved.
+18, CONEY ISLAND, 4, 3, Buy this card for 1 ENERGY_POINT less if you are in BROOKLYN. +3 VICTORY_POINT.
+19, CURSE, 4, 2, When you deal damage to Monsters, give each a Curse token. Each time a Monster wants to reroll OUCH, he must spend 1 ENERGY_POINT for each Curse token he has. A Monster may use a HEART to discard a Curse token instead of using it to heal.
+20, DRAIN, 4, 2, Take 2 ENERGY_POINT from Monsters that attack you.
+21, FIREBALL, 4, 2, Your attacks also deal damage to the other Monsters in your borough.
+22, FURY, 4, 2, Add 1 DESTRUCTION and 1 ENERGY_POINT to your roll if you are in a borough with at least 3 Units.
+23, JINX AURA, 4, 2, Other Monsters must always use all their rerolls. (They still get to choose which dice to reroll.)
+24, NEXT STAGE, 4, 3, Lose all your VICTORY_POINT. Gain 1 ENERGY_POINT or heal 1 damage for each VICTORY_POINT you lost this way.
+25, PHOENIX BLOOD, 4, 2, Gain 1 ENERGY_POINT each time you take damage.
+26, PHOTO OP, 4, 3, Choose a Monster. Gain 1 VICTORY_POINT for each damage you dealt to that Monster this turn.
+27, POWER TAP, 4, 2, Each time a Monster gains at least 3 ENERGY_POINT in a turn, he must pay you 1 ENERGY_POINT.
+28, TERMINAL RAGE, 4, 2, Take another turn when you buy this card. From now on you can no longer reroll ATTACK.
+29, TESLA ANTENNAE, 4, 2, Monsters that have more HEART_POINT than you take 1 extra damage whenever you attack them.
+30, SEISMIC RAY, 4, 2, Spend 1 ENERGY_POINT to use your DESTRUCTION in any borough other than where you are.
+31, SHARP SHOOTER, 4, 2, You can destroy Jets that are not in your borough. Gain 1 VICTORY_POINT each time you destroy a Jet.
+32, STOMP, 4, 2, Add 1 DESTRUCTION to your result.
+33, SUPER SPEED, 4, 2, You can have an extra move before rolling your dice.
+34, BROADWAY STAR, 5, 2, Gain 1 VICTORY_POINT when you take Superstar, and when you start your turn with it.
+35, CENTRAL PARK, 5, 3, Buy this card for 1 ENERGY_POINT less if you are in MANHATTAN. +2 VICTORY_POINT and heal 2 damage.
+36, DIVA, 5, 2, The other monsters need 4 VICTORY to take Superstar from you.
+37, GENERAL ELLIS, 5, 3, You can only buy this card if you destroyed a Tank this turn. +3 VICTORY_POINT and all Monsters take 1 damage.
+38, HAILING CABS, 5, 2, You may add 2 DESTRUCTION to your result. If you do you can destroy only Units.
+39, HUNTER, 5, 2, Heal 1 damage each time you destroy an Infantry.
+40, KING OF QUEENS, 5, 2, Gain 1 ENERGY_POINT and heal 1 damage when you start your turn in Queens.
+41, LEVELER, 5, 2, Gain 1 VICTORY_POINT each turn that you destroy at least one Building.
+42, PAINBOW, 5, 2, If your results are... -- 2 DESTRUCTION, you get an extra ATTACK. -- 4 DESTRUCTION, you get an extra 2 ATTACK. -- 6 DESTRUCTION, you win the game!
+43, PERSONAL SPOTLIGHT, 5, 2, Gain 1 VICTORY_POINT each turn you rolled at least 1 VICTORY.
+44, POWER SUBSTATION, 5, 3, +1 VICTORY_POINT, +8 ENERGY_POINT and take 3 damage.
+45, REGENERATION, 5, 2, Heal 1 damage at the start of your turn.
+46, STINK ATTACK, 5, 2, Whenever you move, you may disperse up to four Units from your destination borough. Each dispersed Unit must move to a separate borough.
+47, THE UNISPHERE, 5, 3, Buy this card for 1 ENERGY_POINT less if you are in QUEENS. +4 VICTORY_POINT.
+48, TESLA CANNON, 5, 3, +2 VICTORY_POINT. All Monsters (including you) must discard one KEEP card.
+49, TRASH THROWER, 5, 2, Monsters you attack lose 1 VICTORY_POINT.
+50, TROPHY HUNTER, 5, 2, Gain 1 VICTORY_POINT each time you destroy a Unit.
+51, AIR FORCE ONE, 6, 3, You can only buy this card if you destroyed a Jet this turn. +4 VICTORY_POINT and all Units attack all Monsters in their boroughs.
+52, BROOKLYN BRIDGE, 6, 3, Buy this card for 1 ENERGY_POINT less if you are in BROOKLYN. +4 VICTORY_POINT.
+53, COLUMBIA UNIVERSITY, 6, 3, Buy this card for 1 ENERGY_POINT less if you are in MANHATTAN. +2 VICTORY_POINT and take the next KEEP card revealed, for free.
+54, NEW YORK MARATHON, 6, 3, While this card is available for purchase, Monsters must pay 2 ENERGY_POINT to move (including fleeing from MANHATTAN), unless the movement is obligatory. +2 VICTORY_POINT, +2 ENERGY_POINT, and heal 2 damage.
+55, OF ANOTHER WORLD, 6, 2, You can use HEART_POINT as ENERGY_POINT and ENERGY_POINT as HEART_POINT.
+56, TOURIST, 6, 2, Place a Souvenir token in your current borough, and in each borough you enter that does not already have a Souvenir token. Gain 1 VICTORY_POINT and 1 ENERGY_POINT each time you place a Souvenir token.
+57, UNIVERSAL SOLDIER, 6, 2, You can change some or all of your HEART to ATTACK, and/or your ATTACK to HEART.
+58, WEBSPINNER, 6, 2, When you deal damage to Monsters, give them a Web token. A Monster has one fewer reroll on his turn for each Web token he has. A Monster can choose to use an ATTACK to discard a Web token instead of using it to attack.
+59, EXTRA HEAD, 7, 2, You get 1 extra die.
+60, HOLLAND TUNNEL, 9, 3, Buy this card for 1 ENERGY_POINT less if you are in MANHATTAN. +6 VICTORY_POINT and all Monsters gain 3 ENERGY_POINT.
+61, YANKEE STADIUM, 9, 3, Buy this card for 1 ENERGY less if you are in the BRONX. +5 VICTORY_POINT and heal 5 damage.
+62, SUBWAY, 10, 3, Heal 2 damage and take another turn. During this extra turn, you can move as often as you like, whenever you like.
+63, TOWERING TITAN, 10, 2, Add 2 ATTACK to your result.
+64, SHADOW DOUBLE, 12, 2, Whenever you attack you deal double damage.
+65, DRINK THE HUDSON, 12, 3, Buy this card for 1 ENERGY_POINT less if you are in MANHATTAN, BROOKLYN, or STATEN ISLAND. +13 ENERGY_POINT, +1 VICTORY_POINT, and heal 2 damage.

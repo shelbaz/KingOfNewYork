@@ -12,7 +12,7 @@ class GameTokens {
 
     // 46 Tokens:  (13 Web, 13 Jinx, 5 Souvenir, 15 Carapace)
 
-    string tokenTypeName[4] = { "Web", "Jinx", "Souvenir", "Carapace" };
+    std::string tokenTypeName[4] = { "Web", "Jinx", "Souvenir", "Carapace" };
 
 public:
     enum TokenTypes{Web=0, Jinx, Souvenir, Carapace, EnumEnd};
@@ -22,7 +22,7 @@ public:
     void setIndex(int index);
     int getIndex();
     ~GameTokens() = default;
-    string getName();
+    std::string getName();
     friend ostream& operator<<(ostream& os, GameTokens& card);
     friend bool operator== (const GameTokens& p1, const GameTokens& p2) {
         return true;

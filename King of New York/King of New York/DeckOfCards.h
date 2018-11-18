@@ -13,14 +13,23 @@ using namespace std;
 
 class DeckOfCards: public GamePieces {
 
+    const static int NUMBER_OF_SPECIAL_CARDS = 2;			// number of special cards
+    const static int NUMBER_OF_CARDS = 64;					// number of cards
+
 private:
-    vector<Cards> deck;
+    vector<Cards>* deck;
+    vector<Cards>* specialDeck;
+    vector<Cards>* discardedDeck;
     int index;
 
 public:
 
-    // guarantee that the singleton will not be destroyed until all your static objects that use the singleton no longer need it.
     DeckOfCards();
+    ~DeckOfCards();
+
+    vector<Cards>* getDeck();
+    vector<Cards>* getDiscardedDeck();
+    vector<Cards>* getSpecialDeck();
 
     void shuffle() override;
     void showTopCard();
@@ -28,10 +37,11 @@ public:
     Cards peekTopCard();
     vector <Cards> topThreeCards();
     void removeTopThreeCards();
-    void insertBackInDeckBottom(Cards card);
     unsigned int getSize();
     void currentState();
     Cards draw();
+    void setCardFile(ifstream& file, vector<Cards>* deck);
+    Cards::CardType stringToType(std::string  h);
 
 
 

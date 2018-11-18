@@ -4,6 +4,7 @@
 
 #include "Game.h"
 #include <iostream>
+#include <boost/predef.h>
 
 vector<Player*> Game::players;
 
@@ -110,7 +111,7 @@ void Game::init_game_loop() {
             // if player is in manhattan
             if(player->getZone()>0 && player->getZone()<7){
                 player->setPhase(Player::Phase::Move);
-                string choice;
+                std::string choice;
                 if(player->getZone() == 1) {  // Manhattan Lower 2-4
                     player->setZone(2);
                     gameMap.setRegionOwner(2, player);
@@ -159,7 +160,7 @@ void Game::init_game_loop() {
                     }
                 }
                 else{ // there is atleast 1 player in manhattan
-                    string choice;
+                    std::string choice;
                     cout << "There is another player in Manhattan" << endl;
                     cout << "Do you want to move (M) or stay (S) in current location : " << player->getZoneName() << "?" << endl;
                     cin >> choice;
@@ -260,7 +261,11 @@ int Game::getNumberOfPlayers() {
 }
 
 Graph<string>* Game::loadMap() {
-    mapLoader.setFilePath("map.map");
+
+    mapLoader.setFilePath("C:\\Users\\Shawn\\Desktop\\Repos\\KingOfNewYork\\King of New York\\King of New York\\map.map");
+    if(BOOST_OS_MACOS){
+        mapLoader.setFilePath("map.map");
+    }
     mapLoader.loadMap();
     return mapLoader.getMap();
 }
@@ -366,7 +371,7 @@ void Game::buyCards(Player* player) {
     while(proceed){
         deckOfCards.showTopThreeCards();
         cout << "Do you wish to throw the top three cards? (Y | N)" << endl;
-        string option;
+        std::string option;
         cin >> option;
         if (option == "Y" || option == "y") {
             bool response;
@@ -382,7 +387,7 @@ void Game::buyCards(Player* player) {
 
     cout << "Current top 3 cards ------- " << endl;
     deckOfCards.showTopThreeCards();
-    string option;
+    std::string option;
     cout << "Does Player: " << player->getPlayerName() << " wish to buy cards? (Y | N)" << endl;
     cin >> option;
     if (option == "Y" || option == "y") {

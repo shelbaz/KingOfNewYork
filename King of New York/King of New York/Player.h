@@ -31,7 +31,7 @@ public:
 
 private:
     int playerID;
-    string playerName;
+    std::string  playerName;
     Dice dice;
     MonsterCards monsterCard;
     BoardFigures boardFigure;
@@ -43,8 +43,8 @@ private:
     int energyCubes;
     int ownedZone;
     enum Phase phase;
-    const vector<string> zoneNames = {"Manhattan", "Manhattan Lower 2-4", "Manhattan Midtown 2-4", "Manhattan Upper 2-4",
-                               "Manhattan Lower 5-6", "Manhattan Midtown 5-6""Manhattan Upper 5-6", "Bronx", "Queens",
+    const vector<std::string > zoneNames = {"Manhattan", "Manhattan Lower 2-4", "Manhattan Midtown 2-4", "Manhattan Upper 2-4",
+                               "Manhattan Lower 5-6", "Manhattan Midtown 5-6","Manhattan Upper 5-6", "Bronx", "Queens",
                                "Staten Island", "Brooklyn", "None"};
 public:
     Dice &getDice();
@@ -53,12 +53,12 @@ public:
     ~Player();
 
     Player(Dice d, int i);
-    explicit Player(string s);
+    explicit Player(std::string  s);
 
     int getPlayerID() const;
     void setPlayerID(int playerId);
-    const string &getPlayerName() const;
-    void setPlayerName(const string &playerName);
+    const std::string  &getPlayerName() const;
+    void setPlayerName(const std::string  &playerName);
 
     void rollDice();
     int rollDiceFirst();
@@ -91,7 +91,7 @@ public:
 
     int getZone();
     void setZone(int zone);
-    string getZoneName();
+    std::string  getZoneName();
 
     friend ostream & operator<<(ostream & os, Player& player);
     friend ostream& operator<<(ostream& os, vector<GameTokens> v);
