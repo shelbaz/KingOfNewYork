@@ -21,7 +21,7 @@ DeckOfCards::DeckOfCards() {
     deck->reserve(64); // 64 regular
     specialDeck->reserve(2); //2 special cards
 
-    std::string  fileName= "C:\\Users\\Shawn\\Desktop\\Repos\\KingOfNewYork\\King of New York\\King of New York\\cards.csv";
+    std::string  fileName= "cards.csv";
     ifstream file(fileName);
     std::string  id, name, lineNum, cost, rewardType, description;
 
@@ -39,7 +39,6 @@ DeckOfCards::DeckOfCards() {
     }
     else{
         cout << "Error: Cards File failed to open " << endl;
-        system("pause");
         exit(1);
     }
     shuffle();

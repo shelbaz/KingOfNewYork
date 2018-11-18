@@ -14,70 +14,80 @@
 DeckOfBuildingUnitTiles::DeckOfBuildingUnitTiles() {
     vector<BuildingUnitTiles> deck;
     for(int i=0; i< 45; i++) {
+        BuildingUnitTiles tile;
         if(i<15) {
-            deck[i].setBuilding(BuildingUnitTiles::Buildings::HighRise);
+            tile.setBuilding(BuildingUnitTiles::Buildings::HighRise);
 
             if(i<5){
-                deck[i].setDurability(1);
-                deck[i].setUnit(BuildingUnitTiles::Units::Infantry);
-                deck[i].setReward(1);
-                deck[i].setZone(0);
+                tile.setDurability(1);
+                tile.setUnit(BuildingUnitTiles::Units::Infantry);
+                tile.setReward(1);
+                tile.setZone(0);
+                deck.push_back(tile);
             }
             else if (i<10){
-                deck[i].setDurability(2);
-                deck[i].setUnit(BuildingUnitTiles::Units::Jet);
-                deck[i].setReward(2);
-                deck[i].setZone(2);
+                tile.setDurability(2);
+                tile.setUnit(BuildingUnitTiles::Units::Jet);
+                tile.setReward(2);
+                tile.setZone(2);
+                deck.push_back(tile);
             }
             else{
-                deck[i].setDurability(3);
-                deck[i].setUnit(BuildingUnitTiles::Units::Tank);
-                deck[i].setReward(3);
-                deck[i].setZone(3);
+                tile.setDurability(3);
+                tile.setUnit(BuildingUnitTiles::Units::Tank);
+                tile.setReward(3);
+                tile.setZone(3);
+                deck.push_back(tile);
             }
         }
         else if(i>14 && i<30){
-            deck[i].setBuilding(BuildingUnitTiles::Buildings::PowerPlant);
+            tile.setBuilding(BuildingUnitTiles::Buildings::PowerPlant);
 
             if(i<20){
-                deck[i].setDurability(1);
-                deck[i].setUnit(BuildingUnitTiles::Units::Infantry);
-                deck[i].setReward(1);
-                deck[i].setZone(8);
+                tile.setDurability(1);
+                tile.setUnit(BuildingUnitTiles::Units::Infantry);
+                tile.setReward(1);
+                tile.setZone(8);
+                deck.push_back(tile);
             }
             else if (i<25){
-                deck[i].setDurability(2);
-                deck[i].setUnit(BuildingUnitTiles::Units::Jet);
-                deck[i].setReward(2);
-                deck[i].setZone(9);
+                tile.setDurability(2);
+                tile.setUnit(BuildingUnitTiles::Units::Jet);
+                tile.setReward(2);
+                tile.setZone(9);
+                deck.push_back(tile);
             }
             else {
-                deck[i].setDurability(3);
-                deck[i].setUnit(BuildingUnitTiles::Units::Tank);
-                deck[i].setReward(3);
-                deck[i].setZone(10);
+                tile.setDurability(3);
+                tile.setUnit(BuildingUnitTiles::Units::Tank);
+                tile.setReward(3);
+                tile.setZone(10);
+                deck.push_back(tile);
             }
         }
         else if(i>29){
-            deck[i].setBuilding(BuildingUnitTiles::Buildings::Hospital);
+            tile.setBuilding(BuildingUnitTiles::Buildings::Hospital);
 
             if(i<35){
-                deck[i].setDurability(1);
-                deck[i].setUnit(BuildingUnitTiles::Units::Infantry);
-                deck[i].setReward(1);
-                deck[i].setZone(7);
+                tile.setDurability(1);
+                tile.setUnit(BuildingUnitTiles::Units::Infantry);
+                tile.setReward(1);
+                tile.setZone(7);
+                deck.push_back(tile);
             }
             else if (i<40){
-                deck[i].setDurability(2);
-                deck[i].setUnit(BuildingUnitTiles::Units::Jet);
-                deck[i].setReward(2);
-                deck[i].setZone(6);
+                tile.setDurability(2);
+                tile.setUnit(BuildingUnitTiles::Units::Jet);
+                tile.setReward(2);
+                tile.setZone(6);
+                deck.push_back(tile);
             }
             else{
-                deck[i].setDurability(3);
-                deck[i].setUnit(BuildingUnitTiles::Units::Tank);
-                deck[i].setReward(3);
-                deck[i].setZone(5);
+                tile.setDurability(3);
+                tile.setUnit(BuildingUnitTiles::Units::Tank);
+                tile.setReward(3);
+                tile.setZone(5);
+                deck.push_back(tile);
             }
 
         }
@@ -106,7 +116,7 @@ int DeckOfBuildingUnitTiles::getSize() {
 
 // Print entire state of deck
 void DeckOfBuildingUnitTiles::currentState() {
-    for (const auto &i : deck) {
+    for (BuildingUnitTiles i : deck) {
         cout << i << endl;
     }
 }

@@ -13,14 +13,13 @@ std::string zoneNames[12] = {"Manhattan", "Manhattan Lower 2-4", "Manhattan Midt
                                   "Staten Island", "Brooklyn", "None"};
 
 BuildingUnitTiles::BuildingUnitTiles() {
-    building = HighRise;
-    unit = Infantry;
-    zone = 0;
-    durability = 1;
-    reward = 1;
-    rewardType = Rewards::Energy;
-    isUnit = false;
-    isDestroyed = false;
+    this->building = Buildings::HighRise;
+    this->unit = Units::Infantry;
+    this->zone = 0;
+    this->durability = 1;
+    this->reward = 1;
+    this->rewardType = Rewards::Energy;
+    this->isUnit = false;
 }
 
 BuildingUnitTiles::BuildingUnitTiles(BuildingUnitTiles::Buildings b, BuildingUnitTiles::Units u, int zone, int durability, int reward,
@@ -69,8 +68,8 @@ BuildingUnitTiles::Buildings BuildingUnitTiles::getBuilding() const {
     return building;
 }
 
-void BuildingUnitTiles::setBuilding(BuildingUnitTiles::Buildings building) {
-    BuildingUnitTiles::building = building;
+void BuildingUnitTiles::setBuilding(Buildings building) {
+    this->building = building;
 }
 
 BuildingUnitTiles::Units BuildingUnitTiles::getUnit() const {
@@ -78,7 +77,7 @@ BuildingUnitTiles::Units BuildingUnitTiles::getUnit() const {
 }
 
 void BuildingUnitTiles::setUnit(BuildingUnitTiles::Units unit) {
-    BuildingUnitTiles::unit = unit;
+    this->unit = unit;
 }
 
 int BuildingUnitTiles::getZone() const {
@@ -86,7 +85,7 @@ int BuildingUnitTiles::getZone() const {
 }
 
 void BuildingUnitTiles::setZone(int zone) {
-    BuildingUnitTiles::zone = zone;
+    this->zone = zone;
 }
 
 int BuildingUnitTiles::getDurability() const {
@@ -94,7 +93,7 @@ int BuildingUnitTiles::getDurability() const {
 }
 
 void BuildingUnitTiles::setDurability(int durability) {
-    BuildingUnitTiles::durability = durability;
+    this->durability = durability;
 }
 
 int BuildingUnitTiles::getReward() const {
@@ -102,31 +101,31 @@ int BuildingUnitTiles::getReward() const {
 }
 
 void BuildingUnitTiles::setReward(int reward) {
-    BuildingUnitTiles::reward = reward;
+    this->reward = reward;
 }
 
 BuildingUnitTiles::Rewards BuildingUnitTiles::getRewardType() const {
     return rewardType;
 }
 
-void BuildingUnitTiles::setRewardType(BuildingUnitTiles::Rewards rewardType) {
-    BuildingUnitTiles::rewardType = rewardType;
+void BuildingUnitTiles::setRewardType(Rewards rewardType) {
+    this->rewardType = rewardType;
 }
 
-bool BuildingUnitTiles::isIsUnit() const {
+bool BuildingUnitTiles::getIsUnit() const {
     return isUnit;
 }
 
 void BuildingUnitTiles::setIsUnit(bool isUnit) {
-    BuildingUnitTiles::isUnit = isUnit;
+    this->isUnit = isUnit;
 }
 
-bool BuildingUnitTiles::isIsDestroyed() const {
+bool BuildingUnitTiles::getIsDestroyed() const {
     return isDestroyed;
 }
 
 void BuildingUnitTiles::setIsDestroyed(bool isDestroyed) {
-    BuildingUnitTiles::isDestroyed = isDestroyed;
+    this->isDestroyed = isDestroyed;
 }
 
 

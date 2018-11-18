@@ -19,17 +19,14 @@ using namespace std;
 int main(int argc, const char * argv[]) {
 
     DeckOfCards deckOfCards;
-//    DeckOfBuildingUnitTiles deckOfBuildingUnitTiles;
-//    DeckOfMonsterCards deckOfMonsterCards;
-//    DeckOfGameTokens deckOfGameTokens;
+    DeckOfBuildingUnitTiles deckOfBuildingUnitTiles;
+    DeckOfMonsterCards deckOfMonsterCards;
+    DeckOfGameTokens deckOfGameTokens;
 
     deckOfCards.currentState();
-    deckOfCards.shuffle();
-    deckOfCards.currentState();
 
-//    deckOfBuildingUnitTiles.currentState();
-//    deckOfBuildingUnitTiles.shuffle();
-//    deckOfBuildingUnitTiles.currentState();
+    deckOfBuildingUnitTiles.currentState();
+
 //
 //    deckOfGameTokens.currentState();
 //    deckOfMonsterCards.currentState();

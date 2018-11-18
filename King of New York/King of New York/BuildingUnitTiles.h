@@ -58,11 +58,11 @@ public:
 
     void setRewardType(Rewards rewardType);
 
-    bool isIsUnit() const;
+    bool getIsUnit() const;
 
     void setIsUnit(bool isUnit);
 
-    bool isIsDestroyed() const;
+    bool getIsDestroyed() const;
 
     void setIsDestroyed(bool isDestroyed);
 };
