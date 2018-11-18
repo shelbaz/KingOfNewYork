@@ -5,9 +5,10 @@
 #include "Game.h"
 #include <iostream>
 
+vector<Player*> Game::players;
+
 Game::Game() {
     vector<Player*> playersTemp;
-    vector<Player*> players;
 
     Map gameMap;
     numberOfPlayers = 0;
@@ -271,7 +272,7 @@ void Game::setStartingLocationOfPlayers() {
         bool selected = true;
         while(selected){
             int selection= -1;
-            cout << "Which region do you want to start at : << " << player->getPlayerName() << "?" << endl;
+            cout << "Which region do you want to start at : " << player->getPlayerName() << "?" << endl;
             gameMap.showMapWithOwners();
             cin >> selection;
 

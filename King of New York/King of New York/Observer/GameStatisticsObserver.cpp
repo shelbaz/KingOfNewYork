@@ -11,22 +11,22 @@ using namespace std;
 
 void GameStatisticsObserver::update() {
 
-    int width = 30;
+    int width = 25;
     cout << "Player" ;
     cout << setw(width) << "Owned Zone";
     cout << setw(width) << "Energy Cubes" ;
     cout << setw(width) << "Victory Points" ;
-    cout << setw(width) << "Life Points";
-    cout << "---------------------------------------------------------------" << endl;
+    cout << setw(width) << "Life Points" << endl;
+    cout << "--------------------------------------------------------------------------------------------------------------" << endl;
 
-//    for(Player* player : Game::players){
-//
-//        cout << right << setfill(' ') << player->getPlayerName();
-//        cout << right << setw(width) << player->getZoneName();
-//        cout << right << setw(width) << player->getEnergyCubes();
-//        cout << right << setw(width) << player->getVictoryPoints();
-//        cout << right << setw(width) << player->getLifePoints() << endl;
-//    }
+    for(Player* player : Game::players){
+
+        cout << right << setfill(' ') << player->getPlayerName();
+        cout << right << setw(width) << player->getZoneName();
+        cout << right << setw(width) << player->getEnergyCubes();
+        cout << right << setw(width) << player->getVictoryPoints();
+        cout << right << setw(width) << player->getLifePoints() << endl;
+    }
     cout << endl;
 }
 

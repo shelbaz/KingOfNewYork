@@ -32,7 +32,7 @@ public:
     Player* checkWinCondition();
 
     vector<Player*> getGamePlayers() { return playersTemp;}
-    vector<Player*> getGamePlayersAfter() { return players;}
+    static vector<Player*> getGamePlayersAfter() { return players;}
     DeckOfCards* getGameDeck() {return &deckOfCards;}
     DeckOfGameTokens* getGameTokensDeck() {return &deckOfGameTokens;}
     DeckOfBuildingUnitTiles getBuildingUnitTilesDeck() {return deckOfBuildingUnitTiles;}
