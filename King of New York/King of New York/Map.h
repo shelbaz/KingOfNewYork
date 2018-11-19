@@ -34,7 +34,7 @@ public:
 
 private:
 
-    Graph<string>* gameMap; //the game map
+    Graph<std::string>* gameMap; //the game map
     vector<pair<Player*, Player*>> regionOwners;
     Player* nullPlayer;
     Player* emptyPlayer;

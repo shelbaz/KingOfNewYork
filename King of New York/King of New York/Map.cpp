@@ -10,11 +10,11 @@ Player* emptyPlayer = new Player("");
 Map::Map() {
     vector<pair<Player*, Player*>> regionOwners;
     regionOwners.reserve(11);
-    Graph<string>* gameMap;
+    this->gameMap = nullptr;
 
 }
 
-Map::Map(Graph<string> *map) : Map() {
+Map::Map(Graph<std::string> *map) : Map() {
     this->gameMap = map;
     initRegionOwners();
 }
@@ -22,8 +22,8 @@ Map::Map(Graph<string> *map) : Map() {
 Map::~Map() {
 }
 
-void Map::assignMap(Graph<string> *map) {
-    gameMap = map;
+void Map::assignMap(Graph<std::string> *map) {
+    this->gameMap = map;
     initRegionOwners();
 }
 

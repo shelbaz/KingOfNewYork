@@ -12,10 +12,11 @@
 
 vector<Player*> Game::players;
 
+
 Game::Game() {
     vector<Player*> playersTemp;
+    Map* newYork = new Map();
 
-    Map gameMap;
     numberOfPlayers = 0;
 }
 
@@ -49,8 +50,10 @@ int Game::init_players() {
 }
 
 void Game::init_map() {
-    gameMap->assignMap(Game::loadMap());
-    gameMap->showMap();
+    mapLoader.setFilePath("C:\\Users\\Shawn\\Desktop\\Repos\\KingOfNewYork\\King of New York\\King of New York\\map.map");
+    Graph<string>* myMap = mapLoader.loadMap();
+    newYork = new Map(myMap);
+    newYork->showMap();
 }
 
 void Game::init_all_decks() {
@@ -188,12 +191,6 @@ int Game::getNumberOfPlayers() {
     return numberOfPlayers;
 }
 
-Graph<string>* Game::loadMap() {
-
-    mapLoader.setFilePath("C:\\Users\\Shawn\\Desktop\\Repos\\KingOfNewYork\\King of New York\\King of New York\\map.map");
-    return mapLoader.loadMap();
-}
-
 void Game::setStartingLocationOfPlayers() {
 
     for (auto player : players) {
@@ -202,7 +199,7 @@ void Game::setStartingLocationOfPlayers() {
         while(selected){
             int selection= -1;
             cout << "Which region do you want to start at : " << player->getPlayerName() << "?" << endl;
-            gameMap->showMapWithOwners();
+            newYork->showMapWithOwners();
             cin >> selection;
 
             if(selection == 0){  // Manhattan
@@ -215,11 +212,11 @@ void Game::setStartingLocationOfPlayers() {
                 cout << "Must select number between 0-10 !" << endl;
             }
             else {
-                if(gameMap->isRegionFull(selection)) {
+                if(newYork->isRegionFull(selection)) {
                     cout << "The location you selected is full : Has 2 players in it already " << endl;
                 }
                 else {
-                    gameMap->setRegionOwner(selection, player);
+                    newYork->setRegionOwner(selection, player);
                     selected = false;
 
                 }
@@ -326,7 +323,7 @@ void Game::buyCards(Player* player) {
 }
 
 Map* Game::getGameMap() {
-    return gameMap;
+    return newYork;
 }
 
 void Game::setPlayerStrategies() {
@@ -343,15 +340,15 @@ void Game::setPlayerStrategies() {
             cin >> selection;
 
             if(selection == 1){  // Manhattan
-                player->setStrategy(new HumanPlayerStrategy);
+                player->setStrategy(new HumanPlayerStrategy());
                 selected = false;
             }
             else if (selection==2){ // Manhattan subregions
-                player->setStrategy(new ModeratePlayerStrategy);
+                player->setStrategy(new ModeratePlayerStrategy());
                 selected = false;
             }
             else if (selection==3){ // Manhattan subregions
-                player->setStrategy(new AggressivePlayerStrategy);
+                player->setStrategy(new AggressivePlayerStrategy());
                 selected = false;
             }
             else {

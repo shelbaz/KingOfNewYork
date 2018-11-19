@@ -16,7 +16,6 @@
 using namespace std;
 class Player;
 class Map;
-class MapLoader;
 
 class Game {
 
@@ -43,7 +42,6 @@ public:
     void resolvePlayer(Player* player);
     void removePlayer(Player* player);
     void changePlayerIndexes();
-    Graph<string>* loadMap();
     void determinePlayerOrder();
     int getNumberOfPlayers();
     void setStartingLocationOfPlayers();
@@ -55,11 +53,12 @@ public:
 
     static vector<Player*> players;
 
+
 private:
+    Map* newYork;
 
     vector<Player*> playersTemp;
 
-    Map* gameMap;
     MapLoader mapLoader;
     DeckOfCards deckOfCards;
     DeckOfGameTokens deckOfGameTokens;

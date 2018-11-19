@@ -20,6 +20,7 @@ class Graph
     GraphVertex<T>* vertexList; //array of vertices
 
   public:
+    Graph();
     Graph(int); //constructor in which we pass the number of vertices
     ~Graph(); //destructor
     GraphVertex<T>* getVertex(int); //get the vertex at the specified index in the array of vertices
@@ -124,4 +125,9 @@ void Graph<T>::addNeighbor(T data, int index)
   node<T>* newNode = new node<T>();
   newNode -> setData(data);
   adjacencyList[index].add(newNode);
+}
+
+template<class T>
+Graph<T>::Graph() {
+
 }
