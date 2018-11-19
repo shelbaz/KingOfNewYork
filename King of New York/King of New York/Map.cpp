@@ -7,6 +7,7 @@
 Map::Map() {
     Graph<string>* gameMap; //the game map
     vector<pair<Player*, Player*>> regionOwners;
+    regionOwners.reserve(11);
     Player* nullPlayer = new Player("X");
     Player* emptyPlayer = new Player("");
 
@@ -18,12 +19,6 @@ Map::Map(Graph<string> *map) : Map() {
 }
 
 Map::~Map() {
-delete gameMap;
-delete nullPlayer;
-delete emptyPlayer;
-gameMap = NULL;
-nullPlayer = NULL;
-emptyPlayer = NULL;
 }
 
 void Map::assignMap(Graph<string> *map) {
@@ -88,11 +83,9 @@ bool Map::move(Player* player) {
 // else manhattan is full = false
 bool Map::isManhattanEmpty() {
     bool check = true;
-    for(int i=0; i< gameMap->getVertexCount(); i++) {
-        if (gameMap->getVertex(i)->getData() == "inner") {
-            if(isRegionFull(i)) {
-                check=false;
-            }
+    for(int j=1; j<7; j++){
+        if(regionOwners[j].first->getPlayerName() != ""){
+            check=false;
         }
     }
     return check;
@@ -174,6 +167,7 @@ bool Map::isRegionFull(int region) {
         return false;
      }
     if(gameMap->getVertex(region)->getData() == "inner" && regionOwners[region].first->getPlayerName() != "") {
+        cout << "Inner manhattan is taken by: "<< regionOwners[region].first->getPlayerName() << endl;
         return true;
     }
     else if(gameMap->getVertex(region)->getData() == "outer")

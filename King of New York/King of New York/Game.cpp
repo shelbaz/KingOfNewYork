@@ -46,7 +46,6 @@ int Game::init_players() {
 
 void Game::init_map() {
     gameMap.assignMap(Game::loadMap());
-    gameMap.initRegionOwners();
     gameMap.showMap();
 }
 
@@ -174,7 +173,6 @@ void Game::init_game_loop() {
 
             // buy cards (optional)
             buyCards(player);
-            player->showStats();
 
             cout << "Player : " << player->getPlayerName() << " turn is over " << endl;
             winner = checkWinCondition();
@@ -221,7 +219,7 @@ void Game::determinePlayerOrder() {
     }
 
     for (int i=0; i< numberOfPlayers; i++){
-        cout << *players[i] << endl;
+        cout << players[i] << endl;
     }
 
 
@@ -263,9 +261,6 @@ int Game::getNumberOfPlayers() {
 Graph<string>* Game::loadMap() {
 
     mapLoader.setFilePath("C:\\Users\\Shawn\\Desktop\\Repos\\KingOfNewYork\\King of New York\\King of New York\\map.map");
-    if(BOOST_OS_MACOS){
-        mapLoader.setFilePath("map.map");
-    }
     mapLoader.loadMap();
     return mapLoader.getMap();
 }

@@ -210,22 +210,22 @@ ostream& operator<<(ostream& os, vector<GameTokens> v)
 }
 
 // Overload print operator for Player object
-ostream & operator<<(ostream & os, Player& player){
+ostream & operator<<(ostream & os, Player* player){
 
     os << "----------------------------------------" << endl;
-    os << "ID :" << player.getPlayerID() << endl;
-    os << "Name :" << player.getPlayerName() << endl;
+    os << "ID :" << player->getPlayerID() << endl;
+    os << "Name :" << player->getPlayerName() << endl;
     os << "***************" << endl;
-    os << "Monster Card: " << player.getMonsterCard().getName() << endl;
+    os << "Monster Card: " << player->getMonsterCard().getName() << endl;
     os << "***************" << endl;
-    os << "Owned Zone: "  << player.getZoneName() << endl;
+    os << "Owned Zone: "  << player->getZoneName() << endl;
     os << "***************" << endl;
-    os << "Victory Points: " << player.getVictoryPoints() << endl;
-    os << "Life Points: " << player.getLifePoints() << endl;
-    os << "Energy Cubes: " << player.getEnergyCubes() << endl;
+    os << "Victory Points: " << player->getVictoryPoints() << endl;
+    os << "Life Points: " << player->getLifePoints() << endl;
+    os << "Energy Cubes: " << player->getEnergyCubes() << endl;
     os << "***************" << endl;
-    os << "Game Tokens: \n"  << player.getGameTokens();
-    os << "Game Cards: \n"  << player.getCards();
+    os << "Game Tokens: \n"  << player->getGameTokens();
+    os << "Game Cards: \n"  << player->getCards();
     os << "----------------------------------------" << endl;
     return os;
 

@@ -93,7 +93,7 @@ public:
     void setZone(int zone);
     std::string  getZoneName();
 
-    friend ostream & operator<<(ostream & os, Player& player);
+    friend ostream& operator<<(ostream & os, Player* player);
     friend ostream& operator<<(ostream& os, vector<GameTokens> v);
     friend ostream& operator<<(ostream& os, vector<Cards> v);
 
