@@ -8,6 +8,7 @@
 #include <Observer/Observer.h>
 #include <Observer/GameStatisticsObserver.h>
 #include <Observer/PhaseObserver.h>
+#include <Strategy/Strategy.h>
 
 #include "Dice.h"
 #include "MonsterCards.h"
@@ -43,6 +44,7 @@ private:
     int energyCubes;
     int ownedZone;
     enum Phase phase;
+    Strategy *strategy;
     const vector<std::string > zoneNames = {"Manhattan", "Manhattan Lower 2-4", "Manhattan Midtown 2-4", "Manhattan Upper 2-4",
                                "Manhattan Lower 5-6", "Manhattan Midtown 5-6","Manhattan Upper 5-6", "Bronx", "Queens",
                                "Staten Island", "Brooklyn", "None"};
@@ -106,5 +108,8 @@ public:
     const vector<GameTokens> &getGameTokens() const;
 
     void getGameTokensState();
+
+    void executeStrategy(Player*, DeckOfCards*);
+    void setStrategy(Strategy*);
 
 };

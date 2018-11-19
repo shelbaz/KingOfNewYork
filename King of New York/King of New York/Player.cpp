@@ -320,3 +320,10 @@ Player::Phase Player::getPhase() {
     return phase;
 }
 
+void Player::setStrategy(Strategy *strat) {
+    this->strategy = strat;
+}
+
+void Player::executeStrategy(Player* player, DeckOfCards* deck) {
+    return this->strategy->execute(player, deck);
+}

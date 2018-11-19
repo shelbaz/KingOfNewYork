@@ -5,6 +5,7 @@
 #pragma once
 
 #include <iostream>
+#include "Game.h"
 #include "Player.h"
 #include "DeckOfCards.h"
 
@@ -12,7 +13,7 @@ using namespace std;
 
 class Strategy {
 public:
-    virtual void execute(Player* player, DeckOfCards* deck) = 0;
+    virtual void execute(Game *game, Player *player) = 0;
 };
 
 

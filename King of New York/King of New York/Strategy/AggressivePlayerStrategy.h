@@ -11,7 +11,7 @@
 
 class AggressivePlayerStrategy: public Strategy {
 public:
-    void execute(Player* player, DeckOfCards deck);
+    void execute(Game* game, Player* player) override;
 };
 
 
