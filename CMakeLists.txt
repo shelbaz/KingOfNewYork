@@ -47,6 +47,6 @@ add_executable(KingOfNewYork
         "King of New York/King of New York/Observer/GameStatisticsObserver.cpp"
         "King of New York/King of New York/Observer/GameStatisticsObserver.h"
         "King of New York/King of New York/Observer/PhaseObserver.cpp"
-        "King of New York/King of New York/Observer/PhaseObserver.h")
+        "King of New York/King of New York/Observer/PhaseObserver.h" "King of New York/King of New York/Strategy/Strategy.h" "King of New York/King of New York/Strategy/AggressivePlayerStrategy.cpp" "King of New York/King of New York/Strategy/AggressivePlayerStrategy.h" "King of New York/King of New York/Strategy/ModeratePlayerStrategy.cpp" "King of New York/King of New York/Strategy/ModeratePlayerStrategy.h" "King of New York/King of New York/Strategy/HumanPlayerStrategy.cpp" "King of New York/King of New York/Strategy/HumanPlayerStrategy.h")
 
 TARGET_LINK_LIBRARIES( KingOfNewYork LINK_PUBLIC ${Boost_LIBRARIES} )
