@@ -4,12 +4,13 @@
 
 #include "Map.h"
 
+Player* nullPlayer = new Player("X");
+Player* emptyPlayer = new Player("");
+
 Map::Map() {
-    Graph<string>* gameMap; //the game map
     vector<pair<Player*, Player*>> regionOwners;
     regionOwners.reserve(11);
-    Player* nullPlayer = new Player("X");
-    Player* emptyPlayer = new Player("");
+    Graph<string>* gameMap;
 
 }
 
@@ -22,7 +23,7 @@ Map::~Map() {
 }
 
 void Map::assignMap(Graph<string> *map) {
-    this->gameMap = map;
+    gameMap = map;
     initRegionOwners();
 }
 

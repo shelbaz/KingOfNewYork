@@ -280,6 +280,5 @@ MapLoader::MapLoader() {
 }
 
 MapLoader::~MapLoader() {
-delete map;
-map=NULL;
+
 }

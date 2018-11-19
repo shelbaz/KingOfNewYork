@@ -11,6 +11,7 @@
 #include "Player.h"
 
 using namespace std;
+class Player;
 
 class Map {
 
@@ -22,7 +23,6 @@ public:
 
     void assignMap(Graph<string>* map);
     bool move(Player* player);
-    void isMoveValid(int regionNumber);
     bool isManhattanEmpty();
     void setRegionOwner(int region, Player* player);
     void removeRegionOwner(Player* player);

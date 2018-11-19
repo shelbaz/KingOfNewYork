@@ -17,8 +17,11 @@
 #include "BoardFigures.h"
 #include "BuildingUnitTiles.h"
 #include "DeckOfCards.h"
+#include "Game.h"
 
 using namespace std;
+class Game;
+class Strategy;
 
 class Player: public Subject {
 

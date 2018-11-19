@@ -14,6 +14,9 @@
 #include "Map.h"
 
 using namespace std;
+class Player;
+class Map;
+class MapLoader;
 
 class Game {
 
@@ -47,7 +50,7 @@ public:
 
     void buyCards(Player* player);
 
-    Map &getGameMap();
+    Map* getGameMap();
     void setPlayerStrategies();
 
     static vector<Player*> players;
@@ -56,7 +59,7 @@ private:
 
     vector<Player*> playersTemp;
 
-    Map gameMap;
+    Map* gameMap;
     MapLoader mapLoader;
     DeckOfCards deckOfCards;
     DeckOfGameTokens deckOfGameTokens;

@@ -9,6 +9,9 @@
 #include "Player.h"
 #include "DeckOfCards.h"
 
+class Player;
+class Game;
+
 using namespace std;
 
 class Strategy {

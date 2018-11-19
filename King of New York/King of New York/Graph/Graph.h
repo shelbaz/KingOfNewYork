@@ -51,8 +51,6 @@ Graph<T>::~Graph()
 {
   //destructor
   //when destroying the graph we need to delete the vertex list and the adjacency lists
-  delete[] adjacencyList;
-  delete[] vertexList;
 }
 
 template <class T>

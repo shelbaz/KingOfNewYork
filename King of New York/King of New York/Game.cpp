@@ -1,7 +1,7 @@
 //
 // Created by Shawn Elbaz on 2018-11-04.
 //
-
+#include "Player.h"
 #include "Game.h"
 #include <iostream>
 #include <boost/predef.h>
@@ -49,8 +49,8 @@ int Game::init_players() {
 }
 
 void Game::init_map() {
-    gameMap.assignMap(Game::loadMap());
-    gameMap.showMap();
+    gameMap->assignMap(Game::loadMap());
+    gameMap->showMap();
 }
 
 void Game::init_all_decks() {
@@ -102,7 +102,7 @@ void Game::init_game_loop() {
             cout << "It is Player: " << player->getPlayerName() << "'s Turn .... " << endl;
 
             // roll the dice (up to 3 times)
-            player->executeStrategy(player, this);
+            player->executeStrategy(this, player);
 
             cout << "Player : " << player->getPlayerName() << " turn is over " << endl;
             winner = checkWinCondition();
@@ -191,8 +191,7 @@ int Game::getNumberOfPlayers() {
 Graph<string>* Game::loadMap() {
 
     mapLoader.setFilePath("C:\\Users\\Shawn\\Desktop\\Repos\\KingOfNewYork\\King of New York\\King of New York\\map.map");
-    mapLoader.loadMap();
-    return mapLoader.getMap();
+    return mapLoader.loadMap();
 }
 
 void Game::setStartingLocationOfPlayers() {
@@ -203,7 +202,7 @@ void Game::setStartingLocationOfPlayers() {
         while(selected){
             int selection= -1;
             cout << "Which region do you want to start at : " << player->getPlayerName() << "?" << endl;
-            gameMap.showMapWithOwners();
+            gameMap->showMapWithOwners();
             cin >> selection;
 
             if(selection == 0){  // Manhattan
@@ -216,11 +215,11 @@ void Game::setStartingLocationOfPlayers() {
                 cout << "Must select number between 0-10 !" << endl;
             }
             else {
-                if(gameMap.isRegionFull(selection)) {
+                if(gameMap->isRegionFull(selection)) {
                     cout << "The location you selected is full : Has 2 players in it already " << endl;
                 }
                 else {
-                    gameMap.setRegionOwner(selection, player);
+                    gameMap->setRegionOwner(selection, player);
                     selected = false;
 
                 }
@@ -326,7 +325,7 @@ void Game::buyCards(Player* player) {
 
 }
 
-Map &Game::getGameMap() {
+Map* Game::getGameMap() {
     return gameMap;
 }
 
