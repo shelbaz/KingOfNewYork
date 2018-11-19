@@ -48,6 +48,7 @@ public:
     void buyCards(Player* player);
 
     Map &getGameMap();
+    void setPlayerStrategies();
 
     static vector<Player*> players;
 

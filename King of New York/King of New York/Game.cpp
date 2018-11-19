@@ -5,6 +5,10 @@
 #include "Game.h"
 #include <iostream>
 #include <boost/predef.h>
+#include "Strategy/ModeratePlayerStrategy.h"
+#include "Strategy/AggressivePlayerStrategy.h"
+#include "Strategy/HumanPlayerStrategy.h"
+
 
 vector<Player*> Game::players;
 
@@ -84,6 +88,7 @@ int Game::init_game_dependencies() {
     determinePlayerOrder();
 
     setStartingLocationOfPlayers();
+    setPlayerStrategies();
     return numb;
 }
 
@@ -97,7 +102,7 @@ void Game::init_game_loop() {
             cout << "It is Player: " << player->getPlayerName() << "'s Turn .... " << endl;
 
             // roll the dice (up to 3 times)
-            player->executeStrategy(player, deckOfCards);
+            player->executeStrategy(player, this);
 
             cout << "Player : " << player->getPlayerName() << " turn is over " << endl;
             winner = checkWinCondition();
@@ -323,6 +328,40 @@ void Game::buyCards(Player* player) {
 
 Map &Game::getGameMap() {
     return gameMap;
+}
+
+void Game::setPlayerStrategies() {
+
+    for (auto player : players) {
+
+        bool selected = true;
+        while(selected){
+            int selection= -1;
+            cout << "Which strategy do you want for : " << player->getPlayerName() << "?" << endl;
+            cout << "1) Human Strategy" << endl;
+            cout << "2) Moderate Computer" << endl;
+            cout << "3) Aggressive Computer" << endl;
+            cin >> selection;
+
+            if(selection == 1){  // Manhattan
+                player->setStrategy(new HumanPlayerStrategy);
+                selected = false;
+            }
+            else if (selection==2){ // Manhattan subregions
+                player->setStrategy(new ModeratePlayerStrategy);
+                selected = false;
+            }
+            else if (selection==3){ // Manhattan subregions
+                player->setStrategy(new AggressivePlayerStrategy);
+                selected = false;
+            }
+            else {
+                cout << "That is not a valid option" << endl;
+            }
+
+        }
+    }
+
 }
 
 

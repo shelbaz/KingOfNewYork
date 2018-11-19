@@ -109,7 +109,7 @@ public:
 
     void getGameTokensState();
 
-    void executeStrategy(Player*, DeckOfCards*);
+    void executeStrategy(Game*, Player*);
     void setStrategy(Strategy*);
 
 };
