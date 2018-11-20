@@ -27,12 +27,11 @@ Game::~Game() {
 int Game::init_players() {
 
     cout << "Enter number of players (2-6 players)" << endl;
-
     int number_of_players = 0;
-    cin >> number_of_players;
-    while (number_of_players < 2 || number_of_players > 6) {
+    while(!(cin>> number_of_players && number_of_players > 1 && number_of_players < 7)){
+        cin.clear();
+        cin.ignore(INT_MAX, '\n');
         cout << "Please re-enter a valid number of players (2-6 players)" << endl;
-        cin >> number_of_players;
     }
 
     numberOfPlayers = number_of_players;
@@ -50,7 +49,7 @@ int Game::init_players() {
 }
 
 void Game::init_map() {
-    mapLoader.setFilePath("C:\\Users\\Shawn\\Desktop\\Repos\\KingOfNewYork\\King of New York\\King of New York\\map.map");
+    mapLoader.setFilePath("map.map");
     Graph<string>* myMap = mapLoader.loadMap();
     newYork = new Map(myMap);
     newYork->showMap();
@@ -232,57 +231,67 @@ void Game::setStartingLocationOfPlayers() {
 
 void Game::resolvePlayer(Player *player) {
 
-     int order[5];
+    vector<string> order;
     // 0= "Energy", 1="Attack", 2="Destruction", 3="Heal", 4="Celebrity", 5="Ouch"
-    map<int, int> currentHand = {{0, 0}, {1, 0}, {2, 0}, {3, 0} , {4, 0} , {5, 0}};
-    currentHand = player->getDice().getLastResolvedHand();
     cout << "Your hand was the following ---------------- " << endl;
     player->getDice().lastDiceHistoricalResolvedValues();
-//  cout << "What is the order you wish to resolve ?" << endl;
-//  cin >> order[0] >> order[1] >> order[2] >> order[3] >> order[4];
 
-
-    if(currentHand[0] > 0){ // Energy option
-        player->addEnergyCubes(currentHand[0]);
-        cout << "Player: "<< player->getPlayerName() << " added " << currentHand[0] << " energy points" << endl;
+    map<int, int> currentHand = {{0, 0}, {1, 0}, {2, 0}, {3, 0} , {4, 0} , {5, 0}};
+    currentHand = player->getDice().getLastResolvedHand();
+    cout << "What is the order you wish to resolve ? Choose first letter of character (Ex: Attack--> A)" << endl;
+    for(int i=0; i<6; i++){
+        if(currentHand[i] <= 0) {continue;}
+        string val="";
+        cin >> val;
+        transform(val.begin(), val.end(), val.begin(), ::toupper);
+        order.push_back(val);
     }
 
-    if(currentHand[1] > 0){ // Attack option
-        if(player->getZone()>0 && player->getZone() < 7) { // In Manhattan
-            for(auto tempPlayer : players){
-                if(tempPlayer->getZone() > 6){ // All players outside manhattan get -1 health
-                    tempPlayer->removeLifePoints(currentHand[1]);
-                    cout << "Player: "<< tempPlayer->getPlayerName() << " removed " << currentHand[1] << " energy points since he is outside manhattan" << endl;
+    for(int i=0; i< order.size(); i++){
+        if(order[i] == "E" && currentHand[0] > 0){ // Energy option
+            player->addEnergyCubes(currentHand[0]);
+            cout << "Player: "<< player->getPlayerName() << " added " << currentHand[0] << " energy points" << endl;
+        }
+
+        if(order[i] == "A" && currentHand[1] > 0){ // Attack option
+            if(player->getZone()>0 && player->getZone() < 7) { // In Manhattan
+                for(auto tempPlayer : players){
+                    if(tempPlayer->getZone() > 6){ // All players outside manhattan get -1 health
+                        tempPlayer->removeLifePoints(currentHand[1]);
+                        cout << "Player: "<< tempPlayer->getPlayerName() << " removed " << currentHand[1] << " energy points since he is outside manhattan" << endl;
+                    }
+                }
+            }
+            else if(player->getZone() > 6){ // Outside manhattan
+                for(auto tempPlayer : players){
+                    if(tempPlayer->getZone() > 0 && tempPlayer->getZone() < 7){ // All players inside manhattan get -1 health
+                        tempPlayer->removeLifePoints(currentHand[1]);
+                        cout << "Player: "<< tempPlayer->getPlayerName() << " removed " << currentHand[1] << " energy points since he is inside manhattan" << endl;
+                    }
                 }
             }
         }
-        else if(player->getZone() > 6){ // Outside manhattan
-            for(auto tempPlayer : players){
-                if(tempPlayer->getZone() > 0 && tempPlayer->getZone() < 7){ // All players inside manhattan get -1 health
-                    tempPlayer->removeLifePoints(currentHand[1]);
-                    cout << "Player: "<< tempPlayer->getPlayerName() << " removed " << currentHand[1] << " energy points since he is inside manhattan" << endl;
-                }
-            }
+
+        if(order[i] == "D" && currentHand[2] > 0) { // Destruction option
+
+        }
+
+        if(order[i] == "H" && currentHand[3] > 0 && player->getZone() >6) { // Heal Option
+            player->addLifePoints(static_cast<unsigned int>(currentHand[3]));
+            cout << "Player: "<< player->getPlayerName() << " added " << currentHand[3] << " health points" << endl;
+
+        }
+
+        if(order[i] == "C" && currentHand[4] > 0) { // Celebrity Option
+
+        }
+
+        if(order[i] == "O" && currentHand[5] > 0) { // Ouch Option
+
         }
     }
 
-    if(currentHand[2] > 0) { // Destruction option
 
-    }
-
-    if(currentHand[3] > 0 && player->getZone() >6) { // Heal Option
-        player->addLifePoints(static_cast<unsigned int>(currentHand[3]));
-        cout << "Player: "<< player->getPlayerName() << " added " << currentHand[3] << " health points" << endl;
-
-    }
-
-    if(currentHand[4] > 0) { // Celebrity Option
-
-    }
-
-    if(currentHand[5] > 0) { // Ouch Option
-
-    }
 
 
 }

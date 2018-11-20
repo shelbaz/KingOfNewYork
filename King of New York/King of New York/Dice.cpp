@@ -73,6 +73,13 @@ void Dice::resolveDuringHand() {
         if (answer == "Y" || answer == "Yes" || answer == "y") {
             resetResolvedHand();
         }
+        else if (addToCount()==6 && (answer == "N" || answer == "n" || answer == "NO" || answer == "No" || answer == "no")){
+            return;
+        }
+    }
+
+    if(getNumbOfRollsRemaining() == 1 && addToCount()==6) {
+        next = "N";
     }
 
     if(getNumbOfRollsRemaining() == 1) {
@@ -93,20 +100,16 @@ void Dice::resolveDuringHand() {
         }
         cin >> keep;
         transform(keep.begin(), keep.end(), keep.begin(), ::toupper);
-        if(keep== "All" || keep == "ALL") {
-            if(getNumbOfRollsRemaining() == 2 && addToCount() != 0) {
+        if(keep == "All" || keep == "ALL") {
+            if(getNumbOfRollsRemaining() > 1 ) {
                 addDiceValuesToResolvedHand();
+                break;
             }
             else{
                 resetResolvedHand();
                 setResolvedHandToDiceValues();
+                break;
             }
-
-            if(getNumbOfRollsRemaining() == 3 || getNumbOfRollsRemaining() == 2){
-                numberOfRolls -= (getNumbOfRollsRemaining() +1);
-            }
-
-            break;
         }
 
         if(keep == "NONE" || keep == "None") {
@@ -320,6 +323,8 @@ void Dice::rollDiceSequence() {
     resetDiceRolls();
 
     cout << "Rolling first hand of dice for player" << this->getPlayerNumber() << "\n";
+    cout << "Press enter to continue" << endl;
+    cin.ignore();
     this->rollDice(6);
     numberOfRolls--;
 

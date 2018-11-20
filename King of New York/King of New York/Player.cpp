@@ -68,21 +68,29 @@ int Player::rollDiceFirst() {
 }
 
 void Player::resolveDice() {
-    int order[5];
+    string order[5];
     // 0= "Energy", 1="Attack", 2="Destruction", 3="Heal", 4="Celebrity", 5="Ouch"
-    map<int, int> currentHand = {{0, 0}, {1, 0}, {2, 0}, {3, 0} , {4, 0} , {5, 0}};
-    currentHand = dice.getLastResolvedHand();
     cout << "Your hand was the following ---------------- " << endl;
     dice.lastDiceHistoricalResolvedValues();
-//    cout << "What is the order you wish to resolve ?" << endl;
-//    cin >> order[0] >> order[1] >> order[2] >> order[3] >> order[4];
 
+    map<int, int> currentHand = {{0, 0}, {1, 0}, {2, 0}, {3, 0} , {4, 0} , {5, 0}};
+    currentHand = dice.getLastResolvedHand();
+    cout << "What is the order you wish to resolve ? Choose first letter of character (Ex: Attack--> A)" << endl;
+    int index=0;
+    for(auto o : order){
+        if(!(currentHand[index] > 0)) {index++; continue;}
+        cin>> o;
+        transform(o.begin(), o.end(), o.begin(), ::toupper);
+        index++;
+    }
 
-        if(currentHand[0] > 0){
+    for(auto hand: order){
+
+        if(hand == "E" && currentHand[0] > 0){
             addEnergyCubes(currentHand[0]);
         }
 
-        if(currentHand[1] > 0){
+        if(hand == "A" && currentHand[1] > 0){
             if(getZone()>0 && getZone() < 7) { // In Manhattan
 
             }
@@ -91,16 +99,25 @@ void Player::resolveDice() {
             }
         }
 
-        if(currentHand[2] > 0) {
+        if(hand == "D" && currentHand[2] > 0) {
 
         }
 
-        if(currentHand[3] > 0 && getZone() >6) {
+        if(hand == "H" && currentHand[3] > 0 && getZone() >6) {
             addLifePoints(static_cast<unsigned int>(currentHand[3]));
         }
 
+        if(hand == "C" && currentHand[4] > 0){
+
+        }
+
+        if(hand == "O" && currentHand[5] > 0){
+
+        }
 
 
+
+    }
 
 
 }
