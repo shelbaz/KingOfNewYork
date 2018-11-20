@@ -83,9 +83,9 @@ public:
     void assignBoardFigure(BoardFigures figure);
     void assignDiceObject(Dice dice);
 
-    int getLifePoints() const;
-    int getVictoryPoints() const;
-    int getEnergyCubes() const;
+    int getLifePoints();
+    int getVictoryPoints();
+    int getEnergyCubes();
     int getNumberOfCards();
     void addLifePoints(unsigned int pts);
     void addVictoryPoints(unsigned int pts);

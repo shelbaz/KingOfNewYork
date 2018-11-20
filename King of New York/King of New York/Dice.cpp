@@ -89,10 +89,15 @@ void Dice::resolveDuringHand() {
 
     while (next == "YES" || next == "Y") {
         if(getNumbOfRollsRemaining() != 1) {
-            cout << "Which dice do you want to keep?" << endl;
-            cout << "All - Type: All , this will discard roll 2 & 3" << endl;
-            cout << "None - Type: None or N, this will force the next roll" << endl;
-            cout << "Some - Type first letter of type (Dice Type: Char) Ex= A for Attacks..." << endl;
+            cout << endl;
+            cout << "------------------------------------------------------------------" << endl;
+            cout << left << "| " << "Which dice do you want to keep?" << endl;
+            cout << "------------------------------------------------------------------" << endl;
+            cout << left << "| " << "All - Type: All , this will discard roll 2 & 3" << endl;
+            cout << left << "| " << "None - Type: None or N, this will force the next roll" << endl;
+            cout << left << "| " << "Some - Type first letter of type (Dice Type: Char) Ex= A for Attacks..." << endl;
+            cout << "------------------------------------------------------------------" << endl;
+
         }
 
         if(getNumbOfRollsRemaining() == 1) {
@@ -257,12 +262,12 @@ void Dice::diceHistoricalValues()
     cout << "Dice container values for player "<< this->getPlayerNumber() << endl;
     cout << "-----------------------------------------------------------------" << endl;
     for (it = historyOfRolls.begin(); it != historyOfRolls.end(); ++it) {
-        cout << "Dice Roll # "<< it - historyOfRolls.begin() +1 << endl;
+        cout << "| Dice Roll # "<< it - historyOfRolls.begin() +1 << endl;
         cout << "-----------------------------------------------------------------" << endl;
 
         for (auto mapIt(it->begin()); mapIt != it->end(); ++mapIt) {
 
-            std::cout << "(" << DiceNames[mapIt->first][0] << ") --- " << DiceNames[mapIt->first] << ", " << mapIt->second << std::endl;
+            std::cout << left << "| " << "(" << DiceNames[mapIt->first][0] << ") --- " << DiceNames[mapIt->first] << ", " << mapIt->second << std::endl;
         }
         cout << "-----------------------------------------------------------------" << endl;
 

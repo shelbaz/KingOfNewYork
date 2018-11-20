@@ -114,15 +114,15 @@ int Player::getNumberOfCards() {
     return int(cards.size());
 }
 
-int Player::getLifePoints() const {
+int Player::getLifePoints() {
     return lifePoints;
 }
 
-int Player::getVictoryPoints() const {
+int Player::getVictoryPoints() {
     return victoryPoints;
 }
 
-int Player::getEnergyCubes() const {
+int Player::getEnergyCubes() {
     return energyCubes;
 }
 

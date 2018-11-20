@@ -19,21 +19,21 @@ void PhaseObserver::update() {
 
     if (currentPhase == Player::Phase::Move) {
         cout << endl;
-        cout << "-------------------------------------------------------------------------------------" << endl;
-        cout << "PHASE: " <<dynamic_cast<Player*>(concreteSubject)->getPlayerName() << " is moving." << endl;
-        cout << "-------------------------------------------------------------------------------------" << endl;
+        cout << "---------------------------------------------------------------------------------------" << endl;
+        cout << "| PHASE: " << dynamic_cast<Player*>(concreteSubject)->getPlayerName() << " is rolling. |" << endl;
+        cout << "---------------------------------------------------------------------------------------" << endl;
         cout << endl;
     } else if (currentPhase == Player::Phase::Buy) {
         cout << endl;
-        cout << "-------------------------------------------------------------------------------------" << endl;
-        cout << "PHASE: " <<dynamic_cast<Player*>(concreteSubject)->getPlayerName() << " is buying cards." << endl;
-        cout << "-------------------------------------------------------------------------------------" << endl;
+        cout << "--------------------------------------------------------------------------------------------" << endl;
+        cout << "| PHASE: " << dynamic_cast<Player*>(concreteSubject)->getPlayerName() << " is buying cards. |" << endl;
+        cout << "--------------------------------------------------------------------------------------------" << endl;
         cout << endl;
     } else if (currentPhase == Player::Phase::Roll){
         cout << endl;
-        cout << "-------------------------------------------------------------------------------------" << endl;
-        cout << "PHASE: " << dynamic_cast<Player*>(concreteSubject)->getPlayerName() << " is rolling." << endl;
-        cout << "-------------------------------------------------------------------------------------" << endl;
+        cout << "-----------------------------------" << endl;
+        cout << "| PHASE: " << dynamic_cast<Player*>(concreteSubject)->getPlayerName() << " is rolling. |" << endl;
+        cout << "-----------------------------------" << endl;
         cout << endl;
 
 

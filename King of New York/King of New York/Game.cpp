@@ -318,7 +318,8 @@ void Game::buyCards(Player* player) {
     cout << "Current top 3 cards ------- " << endl;
     deckOfCards.showTopThreeCards();
     std::string option;
-    cout << "Does Player: " << player->getPlayerName() << " wish to buy cards? (Y | N)" << endl;
+    cout << "Player: "<< player->getPlayerName() << "has " << player->getEnergyCubes() << endl;
+    cout << "Does Player: " << player->getPlayerName() << " wish to buy cards? (Y | N) ?" << endl;
     cin >> option;
     if (option == "Y" || option == "y") {
         Cards selectedCard;
