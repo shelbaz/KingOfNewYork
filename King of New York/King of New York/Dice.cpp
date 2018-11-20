@@ -352,6 +352,54 @@ void Dice::rollDiceSequence() {
 
 }
 
+void Dice::rollAggressiveComputer(){
+
+    DiceOptions value;
+    for(int i=0; i<6; i++)
+    {
+        value = randomDiceOption();
+        this->DiceValues[value] ++;
+    }
+
+    this->resolvedHand[Attack] += this->DiceValues[Attack];
+    this->resolvedHand[Destruction] += this->DiceValues[Destruction];
+
+    clearAggressive();
+
+    if(addToCount() <6){
+        DiceOptions value2;
+        for(int i=0; i<addToCount(); i++)
+        {
+            value2 = randomDiceOption();
+            this->DiceValues[value2] ++;
+        }
+
+        this->resolvedHand[Attack] += this->DiceValues[Attack];
+        this->resolvedHand[Destruction] += this->DiceValues[Destruction];
+        clearAggressive();
+    }
+
+    if(addToCount() < 6){
+        DiceOptions value2;
+        for(int i=0; i<addToCount(); i++)
+        {
+            value2 = randomDiceOption();
+            this->DiceValues[value2] ++;
+        }
+    }
+
+    addDiceValuesToResolvedHand();
+    resetDiceValuesMap();
+
+}
+
+void Dice::clearAggressive(){
+    DiceValues[DiceOptions::Heal] = 0;
+    DiceValues[DiceOptions::Celebrity] = 0;
+    DiceValues[DiceOptions::Energy] = 0;
+    DiceValues[DiceOptions::Ouch] = 0;
+}
+
 //Second and third roll of player, input amount
 void Dice::rollDice(int amtOfDice) {
 

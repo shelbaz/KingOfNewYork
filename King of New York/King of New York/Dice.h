@@ -38,6 +38,9 @@ public:
     void rollDice();
     void rollDice(int amtOfDice);
     void rollDice(bool testing);
+    void rollAggressiveComputer();
+
+    void clearAggressive();
 
     int rollDiceDetermineStart();
     void storeDiceResult(map<DiceOptions, int> tempDiceValues);

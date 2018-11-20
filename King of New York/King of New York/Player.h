@@ -67,7 +67,7 @@ public:
 
     void rollDice();
     int rollDiceFirst();
-    void resolveDice();
+    void rollAggressive();
     void attack();
 
     enum Phase getPhase();
