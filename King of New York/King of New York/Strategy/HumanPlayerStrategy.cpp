@@ -8,8 +8,8 @@ void HumanPlayerStrategy::execute(Game *game, Player *player)
 {
 
     player->rollDice();
-    // resolve the dice (mandatory)
-    game->resolvePlayer(player);
+    // resolve the dice (mandatory) ordered
+    game->resolvePlayer(player, true);
 
     if(player->getLifePoints() == 0) {
         cout << "Player : " << player->getPlayerName() << " died while resolving dice" << endl;

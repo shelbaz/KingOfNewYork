@@ -229,25 +229,32 @@ void Game::setStartingLocationOfPlayers() {
 
 }
 
-void Game::resolvePlayer(Player *player) {
+void Game::resolvePlayer(Player *player, bool ordered) {
 
-    vector<string> order;
+    vector<string> order = {"E", "A", "D", "H", "C", "O"};
     // 0= "Energy", 1="Attack", 2="Destruction", 3="Heal", 4="Celebrity", 5="Ouch"
     cout << "Your hand was the following ---------------- " << endl;
     player->getDice().lastDiceHistoricalResolvedValues();
-
-    map<int, int> currentHand = {{0, 0}, {1, 0}, {2, 0}, {3, 0} , {4, 0} , {5, 0}};
+    map<int, int> currentHand = {{0, 0},
+                                 {1, 0},
+                                 {2, 0},
+                                 {3, 0},
+                                 {4, 0},
+                                 {5, 0}};
     currentHand = player->getDice().getLastResolvedHand();
-    cout << "What is the order you wish to resolve ? Choose first letter of character (Ex: Attack--> A)" << endl;
-    for(int i=0; i<6; i++){
-        if(currentHand[i] <= 0) {continue;}
-        string val="";
-        cin >> val;
-        transform(val.begin(), val.end(), val.begin(), ::toupper);
-        order.push_back(val);
+    if(ordered) {
+        order.clear();
+        cout << "What is the order you wish to resolve ? Choose first letter of character (Ex: Attack--> A)" << endl;
+        for(int i=0; i<6; i++){
+            if(currentHand[i] <= 0) {continue;}
+            string val="";
+            cin >> val;
+            transform(val.begin(), val.end(), val.begin(), ::toupper);
+            order.push_back(val);
+        }
     }
-
     for(int i=0; i< order.size(); i++){
+
         if(order[i] == "E" && currentHand[0] > 0){ // Energy option
             player->addEnergyCubes(currentHand[0]);
             cout << "Player: "<< player->getPlayerName() << " added " << currentHand[0] << " energy points" << endl;

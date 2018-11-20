@@ -36,17 +36,19 @@ public:
 
     void rollDiceSequence();
     void rollDice();
-    void rollDice(int amtOfDice);
+    void rollDice(int numbOfDice);
     void rollDice(bool testing);
     void rollAggressiveComputer();
+    void rollModerateComputer();
 
     void clearAggressive();
+    void clearModerate();
 
     int rollDiceDetermineStart();
     void storeDiceResult(map<DiceOptions, int> tempDiceValues);
     void storeResolvedHand(map<DiceOptions, int> resolvedHand);
     int getPlayerNumber();
-    void setPlayerNumber(int numb);
+    void setPlayerNumber(int);
     void resetDiceValuesMap();
     void resetResolvedHand();
     void resolveDuringHand();

@@ -39,14 +39,14 @@ public:
     DeckOfGameTokens* getGameTokensDeck() {return &deckOfGameTokens;}
     DeckOfBuildingUnitTiles getBuildingUnitTilesDeck() {return deckOfBuildingUnitTiles;}
 
-    void resolvePlayer(Player* player);
-    void removePlayer(Player* player);
+    void resolvePlayer(Player*, bool);
+    void removePlayer(Player*);
     void changePlayerIndexes();
     void determinePlayerOrder();
     int getNumberOfPlayers();
     void setStartingLocationOfPlayers();
 
-    void buyCards(Player* player);
+    void buyCards(Player*);
 
     Map* getGameMap();
     void setPlayerStrategies();

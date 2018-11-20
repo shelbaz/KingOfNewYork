@@ -23,6 +23,7 @@ public:
 
     void assignMap(Graph<string>* map);
     bool move(Player* player);
+    bool moveComputer(Player* player, string type);
     bool isManhattanEmpty();
     void setRegionOwner(int region, Player* player);
     void removeRegionOwner(Player* player);

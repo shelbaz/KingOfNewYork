@@ -8,7 +8,7 @@ void ModeratePlayerStrategy::execute(Game *game, Player *player)
 {
 
     /*
-           The aggressive player strategy will have this player profile:
+           The moderate player strategy will have this player profile:
                - During dice rolls : Will reroll anything that is not Health or Energy.
                - Resolve dices : Will just resolve in whatever order the dices are returned.
                - Move : Will always try to move to manhattan whenever he has the occasion.
@@ -17,9 +17,9 @@ void ModeratePlayerStrategy::execute(Game *game, Player *player)
 
     //TODO: Implement moderate logic
 
-    player->rollDice();
-    // resolve the dice (mandatory)
-    game->resolvePlayer(player);
+    player->rollModerate();
+    // resolve the dice (mandatory) unordered
+    game->resolvePlayer(player, false);
 
     if(player->getLifePoints() == 0) {
         cout << "Player : " << player->getPlayerName() << " died while resolving dice" << endl;

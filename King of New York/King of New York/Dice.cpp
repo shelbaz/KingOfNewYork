@@ -398,10 +398,58 @@ void Dice::rollAggressiveComputer(){
 
 }
 
+void Dice::rollModerateComputer(){
+
+    DiceOptions value;
+    for(int i=0; i<6; i++)
+    {
+        value = randomDiceOption();
+        this->DiceValues[value] ++;
+    }
+
+    this->resolvedHand[Heal] += this->DiceValues[Heal];
+    this->resolvedHand[Energy] += this->DiceValues[Energy];
+
+    clearModerate();
+
+    if(addToCount() <6){
+        DiceOptions value2;
+        for(int i=0; i<addToCount(); i++)
+        {
+            value2 = randomDiceOption();
+            this->DiceValues[value2] ++;
+        }
+
+        this->resolvedHand[Attack] += this->DiceValues[Attack];
+        this->resolvedHand[Destruction] += this->DiceValues[Destruction];
+        clearModerate();
+    }
+
+    if(addToCount() < 6){
+        DiceOptions value2;
+        for(int i=0; i<addToCount(); i++)
+        {
+            value2 = randomDiceOption();
+            this->DiceValues[value2] ++;
+        }
+    }
+
+    addDiceValuesToResolvedHand();
+    resetDiceValuesMap();
+
+}
+
 void Dice::clearAggressive(){
     DiceValues[DiceOptions::Heal] = 0;
     DiceValues[DiceOptions::Celebrity] = 0;
     DiceValues[DiceOptions::Energy] = 0;
+    DiceValues[DiceOptions::Ouch] = 0;
+}
+
+void Dice::clearModerate(){
+    DiceValues[DiceOptions::Attack] = 0;
+    DiceValues[DiceOptions::Destruction] = 0;
+    DiceValues[DiceOptions::Celebrity] = 0;
     DiceValues[DiceOptions::Ouch] = 0;
 }
 

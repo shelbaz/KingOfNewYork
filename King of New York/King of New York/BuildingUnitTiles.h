@@ -36,33 +36,33 @@ public:
 
     Buildings getBuilding() const;
 
-    void setBuilding(Buildings building);
+    void setBuilding(Buildings);
 
     Units getUnit() const;
 
-    void setUnit(Units unit);
+    void setUnit(Units);
 
     int getZone() const;
 
-    void setZone(int zone);
+    void setZone(int);
 
     int getDurability() const;
 
-    void setDurability(int durability);
+    void setDurability(int);
 
     int getReward() const;
 
-    void setReward(int reward);
+    void setReward(int);
 
     Rewards getRewardType() const;
 
-    void setRewardType(Rewards rewardType);
+    void setRewardType(Rewards);
 
     bool getIsUnit() const;
 
-    void setIsUnit(bool isUnit);
+    void setIsUnit(bool);
 
     bool getIsDestroyed() const;
 
-    void setIsDestroyed(bool isDestroyed);
+    void setIsDestroyed(bool);
 };

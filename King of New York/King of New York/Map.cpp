@@ -27,6 +27,19 @@ void Map::assignMap(Graph<std::string> *map) {
     initRegionOwners();
 }
 
+bool Map::moveComputer(Player* player, string type){
+    bool success= false;
+    if(type == "aggressive") {
+        for(int i=1; (i>0 && i<11); i++){
+            if(!isRegionFull(i)){
+                setRegionOwner(i, player);
+                success=true;
+            }
+        }
+    }
+    return success;
+}
+
 bool Map::move(Player* player) {
     bool success = false;
     bool proceed = true;

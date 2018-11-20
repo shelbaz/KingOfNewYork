@@ -40,7 +40,7 @@ public:
 
     void setType(CardType type);
 
-    void setEnergyCost(int energyCost);
+    void setEnergyCost(int);
 
     void setEffect(const vector<int> &effect);
 
@@ -56,7 +56,7 @@ public:
 
     int getId() const;
 
-    void setId(int id);
+    void setId(int);
 
 
 

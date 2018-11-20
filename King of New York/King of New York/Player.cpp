@@ -61,7 +61,12 @@ void Player::rollAggressive() {
     phase = Roll;
     notify();
     this->dice.rollAggressiveComputer();
-    cout << "Player turn is over" << endl;
+}
+
+void Player::rollModerate() {
+    phase = Roll;
+    notify();
+    this->dice.rollModerateComputer();
 }
 
 // roll dice to determine which player starts
