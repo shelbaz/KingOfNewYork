@@ -76,6 +76,6 @@ void AggressivePlayerStrategy::execute(Game *game, Player *player) {
     }
 
     // buy cards (optional)
-    game->buyCards(player);
+    game->buyCardsComputer(player);
 
 }

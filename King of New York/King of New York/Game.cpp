@@ -253,6 +253,7 @@ void Game::resolvePlayer(Player *player, bool ordered) {
             order.push_back(val);
         }
     }
+
     for(int i=0; i< order.size(); i++){
 
         if(order[i] == "E" && currentHand[0] > 0){ // Energy option
@@ -325,7 +326,8 @@ void Game::buyCards(Player* player) {
     cout << "Current top 3 cards ------- " << endl;
     deckOfCards.showTopThreeCards();
     std::string option;
-    cout << "Player: "<< player->getPlayerName() << "has " << player->getEnergyCubes() << endl;
+    cout << "------------------------------------" << endl;
+    cout << "Player: "<< player->getPlayerName() << " has " << player->getEnergyCubes() << " energy cubes" << endl;
     cout << "Does Player: " << player->getPlayerName() << " wish to buy cards? (Y | N) ?" << endl;
     cin >> option;
     if (option == "Y" || option == "y") {
@@ -338,6 +340,21 @@ void Game::buyCards(Player* player) {
     else return;
 
 }
+
+void Game::buyCardsComputer(Player* player) {
+    for(Cards card: deckOfCards.topThreeCards()) {
+        if(card.getEnergyCost() < player->getEnergyCubes()){
+            deckOfCards.draw(card);
+            player->buyCards(card);
+            return;
+        }
+        else{
+            cout << "Cannot afford any cards" << endl;
+            return;
+        }
+    }
+}
+
 
 Map* Game::getGameMap() {
     return newYork;

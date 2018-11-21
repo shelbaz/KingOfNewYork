@@ -295,7 +295,9 @@ void Dice::diceHistoricalResolvedValues()
 
 }
 
-// Print all historical dice values for player
+
+
+// Print last historical dice values for player
 void Dice::lastDiceHistoricalResolvedValues()
 {
     cout << "Dice container values for player "<< this->getPlayerNumber() << endl;
@@ -394,6 +396,9 @@ void Dice::rollAggressiveComputer(){
     }
 
     addDiceValuesToResolvedHand();
+    storeResolvedHand(resolvedHand);
+
+    resetResolvedHand();
     resetDiceValuesMap();
 
 }

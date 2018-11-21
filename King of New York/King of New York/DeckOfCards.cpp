@@ -18,6 +18,7 @@ DeckOfCards::DeckOfCards() {
     deck = new vector<Cards>();
     discardedDeck = new vector<Cards>();
     specialDeck = new vector<Cards>();
+    vector<Cards>::iterator it;
     deck->reserve(64); // 64 regular
     specialDeck->reserve(2); //2 special cards
 
@@ -62,8 +63,21 @@ void DeckOfCards::shuffle() {
 Cards DeckOfCards::draw() {
     Cards pickedCard = deck->back();
     deck->erase(deck->end()-1);
-    specialDeck->push_back(pickedCard);
+    discardedDeck->push_back(pickedCard);
     return pickedCard;
+}
+
+Cards DeckOfCards::draw(Cards pickedCard) {
+    it = std::find(deck->begin(), deck->end(), pickedCard);
+//    if(it != deck->end()){
+//        auto size = distance(deck->begin(), it);
+//        deck->erase(deck->end()-size);
+//        discardedDeck->push_back(pickedCard);
+//        return pickedCard;
+//    }
+//    else {
+//        cout << "Not in deck" << endl;
+//    }
 }
 
 unsigned int DeckOfCards::getSize() {

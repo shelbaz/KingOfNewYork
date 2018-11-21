@@ -20,6 +20,8 @@ private:
     vector<Cards>* deck;
     vector<Cards>* specialDeck;
     vector<Cards>* discardedDeck;
+    vector<Cards>::iterator it;
+
     int index;
 
 public:
@@ -40,6 +42,7 @@ public:
     unsigned int getSize();
     void currentState();
     Cards draw();
+    Cards draw(Cards const);
     void setCardFile(ifstream& file, vector<Cards>* deck);
     Cards::CardType stringToType(std::string  h);
 

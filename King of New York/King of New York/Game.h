@@ -47,6 +47,7 @@ public:
     void setStartingLocationOfPlayers();
 
     void buyCards(Player*);
+    void buyCardsComputer(Player*);
 
     Map* getGameMap();
     void setPlayerStrategies();
