@@ -41,9 +41,6 @@ public:
     void rollAggressiveComputer();
     void rollModerateComputer();
 
-    void clearAggressive();
-    void clearModerate();
-
     int rollDiceDetermineStart();
     void storeDiceResult(map<DiceOptions, int> tempDiceValues);
     void storeResolvedHand(map<DiceOptions, int> resolvedHand);

@@ -37,6 +37,15 @@ bool Map::moveComputer(Player* player, string type){
             }
         }
     }
+    else if(type == "moderate"){
+        for(int i=1; (i>0 && i<11); i++){
+            if(!isRegionFull(i)){
+                setRegionOwner(i, player);
+                success=true;
+            }
+        }
+    }
+
     return success;
 }
 

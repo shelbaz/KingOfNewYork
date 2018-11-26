@@ -68,16 +68,17 @@ Cards DeckOfCards::draw() {
 }
 
 Cards DeckOfCards::draw(Cards pickedCard) {
-    it = std::find(deck->begin(), deck->end(), pickedCard);
-//    if(it != deck->end()){
-//        auto size = distance(deck->begin(), it);
-//        deck->erase(deck->end()-size);
-//        discardedDeck->push_back(pickedCard);
-//        return pickedCard;
-//    }
-//    else {
-//        cout << "Not in deck" << endl;
-//    }
+    int index=0;
+    for(Cards card : *deck){
+        if(card == pickedCard){
+        deck->erase(deck->end() - 1 - index);
+        discardedDeck->push_back(pickedCard);
+        return pickedCard;
+        }
+        else {
+            index++;
+        }
+    }
 }
 
 unsigned int DeckOfCards::getSize() {
@@ -116,9 +117,10 @@ void DeckOfCards::showTopThreeCards() {
 // return top 3 cards, does not remove it
 vector<Cards> DeckOfCards::topThreeCards() {
     vector <Cards> topCards;
-    topCards.reserve(3);
+
     for(int i=0; i<3; i++) {
-        topCards.push_back(deck->at(deck->size()-(i-1)));
+        Cards card = deck->at(deck->size()-1 -i);
+        topCards.push_back(card);
     }
 
     return topCards;
@@ -128,8 +130,9 @@ vector<Cards> DeckOfCards::topThreeCards() {
 void DeckOfCards::removeTopThreeCards() {
     for(int i=0; i<3; i++) {
         Cards pickedCard = deck->back();
+        discardedDeck->push_back(pickedCard);
         deck->pop_back();
-        specialDeck->push_back(pickedCard);
+
     }
 }
 

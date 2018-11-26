@@ -96,6 +96,12 @@ void Cards::setId(int id) {
     Cards::id = id;
 }
 
+bool Cards::operator==(const Cards &other) {
+        return id == other.id;
+}
+
+
+
 
 
 

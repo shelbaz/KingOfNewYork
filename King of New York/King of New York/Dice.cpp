@@ -371,27 +371,27 @@ void Dice::rollAggressiveComputer(){
     this->resolvedHand[Attack] += this->DiceValues[Attack];
     this->resolvedHand[Destruction] += this->DiceValues[Destruction];
 
-    clearAggressive();
+    resetDiceValuesMap();
 
     if(addToCount() <6){
-        DiceOptions value2;
-        for(int i=0; i<addToCount(); i++)
+        DiceOptions value;
+        for(int i=0; i<6-addToCount(); i++)
         {
-            value2 = randomDiceOption();
-            this->DiceValues[value2] ++;
+            value = randomDiceOption();
+            this->DiceValues[value] ++;
         }
 
         this->resolvedHand[Attack] += this->DiceValues[Attack];
         this->resolvedHand[Destruction] += this->DiceValues[Destruction];
-        clearAggressive();
+        resetDiceValuesMap();
     }
 
     if(addToCount() < 6){
-        DiceOptions value2;
-        for(int i=0; i<addToCount(); i++)
+        DiceOptions value;
+        for(int i=0; i<6-addToCount(); i++)
         {
-            value2 = randomDiceOption();
-            this->DiceValues[value2] ++;
+            value = randomDiceOption();
+            this->DiceValues[value] ++;
         }
     }
 
@@ -415,47 +415,36 @@ void Dice::rollModerateComputer(){
     this->resolvedHand[Heal] += this->DiceValues[Heal];
     this->resolvedHand[Energy] += this->DiceValues[Energy];
 
-    clearModerate();
+    resetDiceValuesMap();
 
     if(addToCount() <6){
-        DiceOptions value2;
-        for(int i=0; i<addToCount(); i++)
+        DiceOptions value;
+        for(int i=0; i<6-addToCount(); i++)
         {
-            value2 = randomDiceOption();
-            this->DiceValues[value2] ++;
+            value = randomDiceOption();
+            this->DiceValues[value] ++;
         }
 
-        this->resolvedHand[Attack] += this->DiceValues[Attack];
-        this->resolvedHand[Destruction] += this->DiceValues[Destruction];
-        clearModerate();
+        this->resolvedHand[Heal] += this->DiceValues[Heal];
+        this->resolvedHand[Energy] += this->DiceValues[Energy];
+        resetDiceValuesMap();
     }
 
     if(addToCount() < 6){
-        DiceOptions value2;
-        for(int i=0; i<addToCount(); i++)
+        DiceOptions value;
+        for(int i=0; i<6-addToCount(); i++)
         {
-            value2 = randomDiceOption();
-            this->DiceValues[value2] ++;
+            value = randomDiceOption();
+            this->DiceValues[value] ++;
         }
     }
 
     addDiceValuesToResolvedHand();
+    storeResolvedHand(resolvedHand);
+
+    resetResolvedHand();
     resetDiceValuesMap();
 
-}
-
-void Dice::clearAggressive(){
-    DiceValues[DiceOptions::Heal] = 0;
-    DiceValues[DiceOptions::Celebrity] = 0;
-    DiceValues[DiceOptions::Energy] = 0;
-    DiceValues[DiceOptions::Ouch] = 0;
-}
-
-void Dice::clearModerate(){
-    DiceValues[DiceOptions::Attack] = 0;
-    DiceValues[DiceOptions::Destruction] = 0;
-    DiceValues[DiceOptions::Celebrity] = 0;
-    DiceValues[DiceOptions::Ouch] = 0;
 }
 
 //Second and third roll of player, input amount
