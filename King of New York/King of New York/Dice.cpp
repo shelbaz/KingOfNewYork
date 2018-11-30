@@ -21,7 +21,15 @@ Dice::Dice() {
     vector< map < DiceOptions, int> > historyOfRolls;
 
     vector< map < DiceOptions, int> > ::iterator it;
+
+    attach(new DiceEffectsObserver(this));
+
 }
+
+Dice::~Dice() {
+
+}
+
 
 // Pick random option from DiceOptions Enum
 Dice::DiceOptions Dice::randomDiceOption() {
@@ -52,7 +60,6 @@ void Dice::rollDice(){
 }
 
 void Dice::resolveDuringHand() {
-    diceHistoricalValues();
     string keep;
     int keepNumber;
     string next = "Y";
@@ -464,6 +471,8 @@ void Dice::rollDice(int amtOfDice) {
 
         storeDiceResult(DiceValues);
 
+        notify();
+
         resolveDuringHand();
         resetDiceValuesMap();
 
@@ -493,3 +502,6 @@ map<int,int> Dice::getLastResolvedHand() {
 
     return tempVal;
 }
+
+
+

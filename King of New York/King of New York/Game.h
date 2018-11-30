@@ -33,6 +33,7 @@ public:
     void init_game_loop();
     Player* checkWinCondition();
 
+    static Player* getPlayerByID(int playerId);
     vector<Player*> getGamePlayers() { return playersTemp;}
     static vector<Player*> getGamePlayersAfter() { return players;}
     DeckOfCards* getGameDeck() {return &deckOfCards;}

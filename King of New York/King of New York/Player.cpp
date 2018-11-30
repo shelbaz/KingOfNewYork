@@ -31,13 +31,12 @@ Player::~Player() {
 
 }
 
-Player::Player(Dice d, int i): Player() {
-    this ->dice = std::move(d) ;
+Player::Player(Dice* d, int i): Player() {
+    this ->dice = d ;
     this ->playerID = i;
-    this ->dice.setPlayerNumber(i);
+    this ->dice->setPlayerNumber(i);
     this ->setPlayerName(std::string("Random ") += to_string(i));
     this ->setZone(10); // Nothing
-
 }
 
 int Player::getPlayerID() const {
@@ -53,20 +52,20 @@ void Player::rollDice() {
     cout << "Rolling first dice for player, Press enter to confirm" << endl;
     cin.ignore();
     //Roll first dice
-    this->dice.rollDiceSequence();
+    this->dice->rollDiceSequence();
     cout << "Player turn is over" << endl;
 }
 
 void Player::rollAggressive() {
     phase = Roll;
     notify();
-    this->dice.rollAggressiveComputer();
+    this->dice->rollAggressiveComputer();
 }
 
 void Player::rollModerate() {
     phase = Roll;
     notify();
-    this->dice.rollModerateComputer();
+    this->dice->rollModerateComputer();
 }
 
 // roll dice to determine which player starts
@@ -75,7 +74,7 @@ int Player::rollDiceFirst() {
     notify();
 
     int result;
-    result = this-> dice.rollDiceDetermineStart();
+    result = this-> dice->rollDiceDetermineStart();
     return result;
 }
 
@@ -231,8 +230,8 @@ void Player::assignBoardFigure(BoardFigures figure) {
     this->boardFigure = std::move(figure);
 }
 
-void Player::assignDiceObject(Dice dice) {
-    this->dice = std::move(dice);
+void Player::assignDiceObject(Dice* dice) {
+    this->dice = dice;
 }
 
 const MonsterCards &Player::getMonsterCard() const {
@@ -282,7 +281,7 @@ void Player::setPlayerName(const string &playerName) {
     Player::playerName = playerName;
 }
 
-Dice &Player::getDice() {
+Dice* Player::getDice() {
     return dice;
 }
 

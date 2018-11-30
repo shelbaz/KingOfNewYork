@@ -37,11 +37,9 @@ int Game::init_players() {
     numberOfPlayers = number_of_players;
 
     for (int i = 0; i < number_of_players; i++) {
-        Dice dice;
-        Player* player = new Player(dice, i);
+        Player* player = new Player(new Dice(), i);
         player->assignMonster(deckOfMonsterCards.draw());
         playersTemp.push_back(player);
-
     }
 
     return numberOfPlayers;
@@ -234,14 +232,14 @@ void Game::resolvePlayer(Player *player, bool ordered) {
     vector<string> order = {"E", "A", "D", "H", "C", "O"};
     // 0= "Energy", 1="Attack", 2="Destruction", 3="Heal", 4="Celebrity", 5="Ouch"
     cout << "Your hand was the following ---------------- " << endl;
-    player->getDice().lastDiceHistoricalResolvedValues();
+    player->getDice()->lastDiceHistoricalResolvedValues();
     map<int, int> currentHand = {{0, 0},
                                  {1, 0},
                                  {2, 0},
                                  {3, 0},
                                  {4, 0},
                                  {5, 0}};
-    currentHand = player->getDice().getLastResolvedHand();
+    currentHand = player->getDice()->getLastResolvedHand();
     if(ordered) {
         order.clear();
         cout << "What is the order you wish to resolve ? Choose first letter of character (Ex: Attack--> A)" << endl;
@@ -392,6 +390,14 @@ void Game::setPlayerStrategies() {
         }
     }
 
+}
+
+Player *Game::getPlayerByID(int playerId) {
+    for(auto player: players){
+        if(player->getPlayerID() == playerId){
+            return player;
+        }
+    }
 }
 
 

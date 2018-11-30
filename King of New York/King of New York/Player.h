@@ -36,7 +36,7 @@ public:
 private:
     int playerID;
     std::string  playerName;
-    Dice dice;
+    Dice* dice;
     MonsterCards monsterCard;
     BoardFigures boardFigure;
     vector <Cards> cards;
@@ -52,12 +52,12 @@ private:
                                "Manhattan Lower 5-6", "Manhattan Midtown 5-6","Manhattan Upper 5-6", "Bronx", "Queens",
                                "Staten Island", "Brooklyn", "None"};
 public:
-    Dice &getDice();
+    Dice *getDice();
 
     Player();
     ~Player();
 
-    Player(Dice d, int i);
+    Player(Dice* d, int i);
     explicit Player(std::string  s);
 
     int getPlayerID() const;
@@ -82,7 +82,7 @@ public:
     void addBuildingUnitTiles(BuildingUnitTiles tile);
     void assignMonster(MonsterCards card);
     void assignBoardFigure(BoardFigures figure);
-    void assignDiceObject(Dice dice);
+    void assignDiceObject(Dice* dice);
 
     int getLifePoints();
     int getVictoryPoints();
