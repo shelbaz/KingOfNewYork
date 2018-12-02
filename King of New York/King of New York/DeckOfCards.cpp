@@ -19,8 +19,8 @@ DeckOfCards::DeckOfCards() {
     discardedDeck = new vector<Cards>();
     specialDeck = new vector<Cards>();
     vector<Cards>::iterator it;
-    deck->reserve(64); // 64 regular
-    specialDeck->reserve(2); //2 special cards
+    deck->reserve(NUMBER_OF_CARDS); // 64 regular
+    specialDeck->reserve(NUMBER_OF_SPECIAL_CARDS); //2 special cards
 
     std::string  fileName= "cards.csv";
     ifstream file(fileName);

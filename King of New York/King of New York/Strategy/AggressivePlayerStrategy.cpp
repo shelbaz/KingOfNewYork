@@ -13,7 +13,6 @@ void AggressivePlayerStrategy::execute(Game *game, Player *player) {
 			- Move : Will always try to get out off manhattan whenever he has the occasion, if not in manhattan will stay same position.
 			- Buy cards: Will always try to buy a card.
 	*/
-    //TODO: Implement aggressive logic
 
     player->rollAggressive();
     // resolve the dice (mandatory) unordered

@@ -15,8 +15,6 @@ void ModeratePlayerStrategy::execute(Game *game, Player *player)
                - Buy cards: Will try to buy a card.
        */
 
-    //TODO: Implement moderate logic
-
     player->rollModerate();
     // resolve the dice (mandatory) unordered
     game->resolvePlayer(player, false);
