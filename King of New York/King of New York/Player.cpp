@@ -224,6 +224,7 @@ void Player::addBuildingUnitTiles(BuildingUnitTiles tile) {
 
 void Player::assignMonster(MonsterCards card) {
     this->monsterCard = card;
+    this->monsterCard.assigned = true;
 }
 
 void Player::assignBoardFigure(BoardFigures figure) {

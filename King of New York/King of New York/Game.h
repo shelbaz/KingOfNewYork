@@ -52,6 +52,7 @@ public:
 
     Map* getGameMap();
     void setPlayerStrategies();
+    void assignMonsters();
 
     static vector<Player*> players;
 

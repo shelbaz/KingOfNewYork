@@ -1,0 +1,31 @@
+0, STATUE OF LIBERTY, 0, 1, {E:A:D:H:C:O), Take this card when you roll at least 3 OUCH. Gain 3 VICTORY_POINT when you take this card. Lose 3 VICTORY_POINT when you lose this card.
+1, SUPERSTAR, 0, 1, {E:A:D:H:C:O), Take this card when you roll at least 3 VICTORY. Gain 1 VICTORY_POINT, +1 VICTORY_POINT per additional VICTORY you rolled. While you have this card, you gain 1 VICTORY_POINT for each VICTORY you roll.
+2, OVERLOAD, 0, 2, {E:A:D:H:C:O), Gain 4 ENERGY_POINT when you buy this card. Gain 1 ENERGY_POINT less when you roll any amount of ENERGY.
+3, SUBTERRANEAN CABLE, 0, 3, {E:A:D:H:C:O), +4 ENERGY_POINT and take 4 damage.
+4, NATURAL SELECTION, 2, 2, {E:A:D:H:C:O), Gain 4 ENERGY_POINT and heal 4 damage when you buy this card. You roll an extra die. If you end your turn with at least 1 VICTORY, you lose this card, and all your HEART_POINT.
+5, CARAPACE, 3, 2, {E:A:D:H:C:O), Your HEART_POINT maximum is increased by 2 as long as you have this card. For each OUCH you roll, place a Carapace token on this card. You can discard this card to heal 1 damage for each Carapace token on it.
+6, CHINATOWN REGULAR, 3, 2, {E:A:D:H:C:O), Heal 2 damage when you enter MANHATTAN.
+7, CLIMB THE EMPIRE STATE BUILDING, 3, 2, {E:A:D:H:C:O), If you roll 1 of each dice type in MANHATTAN, gain 2 VICTORY_POINT and take another turn.
+8, EGO TRIP, 3, 2, {E:A:D:H:C:O), Gain 1 ENERGY_POINT when you take Superstar and when you start your turn with it.
+9, FLATIRON BUILDING, 3, 3, {E:A:D:H:C:O), Buy this card for 1 ENERGY_POINT less if you are in MANHATTAN. +2 VICTORY_POINT.
+10, LONG NECK, 3, 2, {E:A:D:H:C:O), You only need 2 DESTRUCTION to destroy a Jet.
+11, SCAVENGER, 3, 2, {E:A:D:H:C:O), You can buy KEEP cards from the discard by spending 1 ENERGY_POINT less than their cost.
+12, VIOLENT STAR, 3, 2, {E:A:D:H:C:O), Deal 2 damage to the Monster from whom you take Superstar. Deal 1 damage to the Monster who takes Superstar from you.
+13, ANTIMATTER PELLETS, 4, 2, {E:A:D:H:C:O), Monsters you attack must roll a die. Those that roll OUCH take double damage.
+14, ARTIFICIAL HEART, 4, 2, {E:A:D:H:C:O), You can change some or all of your HEART to ENERGY.
+15, BULLETPROOF, 4, 2, {E:A:D:H:C:O), Whenever you take damage because of rolling OUCH, take 1 less damage.
+16, CAN OPENER, 4, 2, {E:A:D:H:C:O), You only need 3 DESTRUCTION to destroy a Tank.
+17, CHAMELEON, 4, 2, {E:A:D:H:C:O), You can discard as many VICTORY as you wish. For each VICTORY discarded, you can change the face of one of the dice you haven't resolved.
+18, CONEY ISLAND, 4, 3, {E:A:D:H:C:O), Buy this card for 1 ENERGY_POINT less if you are in BROOKLYN. +3 VICTORY_POINT.
+19, CURSE, 4, 2, {E:A:D:H:C:O), When you deal damage to Monsters, give each a Curse token. Each time a Monster wants to reroll OUCH, he must spend 1 ENERGY_POINT for each Curse token he has. A Monster may use a HEART to discard a Curse token instead of using it to heal.
+20, DRAIN, 4, 2, {E:A:D:H:C:O), Take 2 ENERGY_POINT from Monsters that attack you.
+21, FIREBALL, 4, 2, {E:A:D:H:C:O), Your attacks also deal damage to the other Monsters in your borough.
+22, FURY, 4, 2, {E:A:D:H:C:O) , Add 1 DESTRUCTION and 1 ENERGY_POINT to your roll if you are in a borough with at least 3 Units.
+23, JINX AURA, 4, 2, {E:A:D:H:C:O), Other Monsters must always use all their rerolls. (They still get to choose which dice to reroll.)
+24, NEXT STAGE, 4, 3, {E:A:D:H:C:O),  Lose all your VICTORY_POINT. Gain 1 ENERGY_POINT or heal 1 damage for each VICTORY_POINT you lost this way.
+25, PHOENIX BLOOD, 4, 2,{E:A:D:H:C:O) , Gain 1 ENERGY_POINT each time you take damage.
+26, PHOTO OP, 4, 3, {E:A:D:H:C:O), Choose a Monster. Gain 1 VICTORY_POINT for each damage you dealt to that Monster this turn.
+27, POWER TAP, 4, 2, {E:A:D:H:C:O), Each time a Monster gains at least 3 ENERGY_POINT in a turn, he must pay you 1 ENERGY_POINT.
+28, TERMINAL RAGE, 4, 2, {E:A:D:H:C:O), Take another turn when you buy this card. From now on you can no longer reroll ATTACK.
+29, TESLA ANTENNAE, 4, 2, {E:A:D:H:C:O), Monsters that have more HEART_POINT than you take 1 extra damage whenever you attack them.
+30, SEISMIC RAY, 4, 2, {E:A:D:H:C:O), Spend 1 ENERGY_POINT to use your DESTRUCTION in any borough other than where you are.

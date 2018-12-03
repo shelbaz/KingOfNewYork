@@ -10,6 +10,7 @@ using namespace std;
 
 MonsterCards::MonsterCards(MonsterOptions card): MonsterCards() {
     this->card =card;
+    assigned = false;
 }
 
 MonsterCards::MonsterCards() {
@@ -30,6 +31,7 @@ string MonsterCards::getName() const{
 
 void MonsterCards::setMonster(MonsterOptions value){
     this->card = value;
+    assigned = false;
 }
 
 // Init constructor of deck of monster cards, from first to last enum set 1 of each monster
@@ -86,6 +88,18 @@ const vector<MonsterCards> &DeckOfMonsterCards::getDeck() const {
 ostream& operator<<(ostream& os, const MonsterCards& card){
     os << "----------------------------------------" << endl;
     os << "Name :" << card.getName() << endl;
+    os << "----------------------------------------" << endl;
+    return os;
+}
+
+ostream& operator<<(ostream& os, const DeckOfMonsterCards& deck){
+    int index=0;
+    os << "----------------------------------------" << endl;
+
+    for(auto card: deck.getDeck()){
+        os << index << ") Name :" << card.getName() << endl;
+        index++;
+    }
     os << "----------------------------------------" << endl;
     return os;
 }

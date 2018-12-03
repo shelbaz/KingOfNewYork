@@ -38,7 +38,6 @@ int Game::init_players() {
 
     for (int i = 0; i < number_of_players; i++) {
         Player* player = new Player(new Dice(), i);
-        player->assignMonster(deckOfMonsterCards.draw());
         playersTemp.push_back(player);
     }
 
@@ -86,7 +85,7 @@ int Game::init_game_dependencies() {
     numb = init_players();
     cout << "Determining player order .........." << endl;
     determinePlayerOrder();
-
+    assignMonsters();
     setStartingLocationOfPlayers();
     setPlayerStrategies();
     return numb;
@@ -148,13 +147,23 @@ void Game::determinePlayerOrder() {
         players.push_back(playersTemp[j]);
     }
 
+}
+
+void Game::assignMonsters(){
+    for(auto player : players){
+        int option = -1;
+        cout << endl;
+        cout<< "Player :" << player->getPlayerName() << " , please select an unassigned Monster card (index)" << endl;
+        cout << deckOfMonsterCards << endl;
+        cin >> option;
+        if(option>-1){
+            player->assignMonster(deckOfMonsterCards.getDeck()[option]);
+        }
+    }
+
     for (int i=0; i< numberOfPlayers; i++){
         cout << players[i] << endl;
     }
-
-
-
-
 }
 
 Player *Game::checkWinCondition() {

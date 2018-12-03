@@ -19,12 +19,11 @@ DeckOfCards::DeckOfCards() {
     discardedDeck = new vector<Cards>();
     specialDeck = new vector<Cards>();
     vector<Cards>::iterator it;
-    deck->reserve(NUMBER_OF_CARDS); // 64 regular
+    deck->reserve(8); // 64 regular
     specialDeck->reserve(NUMBER_OF_SPECIAL_CARDS); //2 special cards
 
-    std::string  fileName= "cards.csv";
+    std::string  fileName= "cards2.csv";
     ifstream file(fileName);
-    std::string  id, name, lineNum, cost, rewardType, description;
 
     if(file) {
         for(int j=0; j<NUMBER_OF_SPECIAL_CARDS; j++){
@@ -149,13 +148,15 @@ vector<Cards> *DeckOfCards::getSpecialDeck() {
 }
 
 void DeckOfCards::setCardFile(ifstream& file, vector<Cards>* deck) {
-    std::string  name, lineNum, cost, rewardType, description;
+    std::string  name, lineNum, cost, rewardType, description, effect;
     Cards card;
     getline(file, lineNum, ',');
     getline(file, name, ',');
     getline(file, cost, ',');
     getline(file, rewardType, ',');
+    getline(file, effect, ',');
     getline(file, description);
+    cout << effect;
     card.setCard(stoi(lineNum), name, stoi(cost), stringToType(rewardType), description);
     deck->push_back(card);
 }

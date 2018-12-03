@@ -12,6 +12,7 @@ class MonsterCards {
     std::string  MonsterNames[6] = { "CaptainFish", "Sheriff", "Kong", "Mantis", "Rob", "Drakonis" };
 
 public:
+    bool assigned;
 
     enum MonsterOptions{CaptainFish=0, Sheriff, Kong, Mantis, Rob, Drakonis, EnumEnd};
     MonsterCards();
@@ -19,7 +20,7 @@ public:
     MonsterCards(const MonsterCards &p2);
     ~MonsterCards();
 
-    std::string  getName() const;
+    std::string getName() const;
     void setMonster(MonsterOptions value);
     friend ostream& operator<<(ostream& os, const MonsterCards& card);
     friend bool operator== (const MonsterCards& p1, const MonsterCards& p2) {
@@ -29,7 +30,6 @@ public:
 
 private:
     MonsterOptions card;
-
 };
 
 class DeckOfMonsterCards {
@@ -45,6 +45,7 @@ public:
     MonsterCards draw(MonsterCards card);
     int getCardIndex(MonsterCards card);
     const vector<MonsterCards> &getDeck() const;
+    friend ostream& operator<<(ostream& os, const DeckOfMonsterCards& deck);
     void removeTop();
 
 };
