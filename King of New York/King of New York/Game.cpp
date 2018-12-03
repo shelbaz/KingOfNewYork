@@ -104,6 +104,8 @@ void Game::init_game_loop() {
             cout << "It is Player: " << player->getPlayerName() << "'s Turn .... " << endl;
             if(player->getLifePoints() <= 0) {
                 cout << "Player : " << player->getPlayerName() << " died !" << endl;
+                newYork->removeRegionOwner(player);
+                player->setPlayerName("");
                 removePlayer(player);
                 continue;
             }

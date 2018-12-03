@@ -112,11 +112,18 @@ void DeckOfCards::showTopThreeCards() {
 // return top 3 cards, does not remove it
 vector<Cards> DeckOfCards::topThreeCards() {
     vector <Cards> topCards;
-
-    for(int i=0; i<3; i++) {
-        Cards card = deck->at(deck->size()-1 -i);
-        topCards.push_back(card);
+    if(deck->size()<4){
+        for(int i=0; i<deck->size(); i++) {
+            Cards card = deck->at(deck->size() -i);
+            topCards.push_back(card);
+        }
+    }else{
+        for(int i=0; i<3; i++) {
+            Cards card = deck->at(deck->size()-1 -i);
+            topCards.push_back(card);
+        }
     }
+
 
     return topCards;
 }

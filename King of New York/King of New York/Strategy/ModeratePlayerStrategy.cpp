@@ -38,7 +38,7 @@ void ModeratePlayerStrategy::execute(Game *game, Player *player)
             game->getGameMap()->setRegionOwner(3, player);
         }
         else if(player->getZone() == 3) {  // Manhattan Upper 2-4
-            game->getGameMap()->move(player);
+            game->getGameMap()->moveComputer(player, "outmanhattan");
         }
         else if(player->getZone() == 4) {  // Manhattan Lower 5-6
             player->setZone(5);
