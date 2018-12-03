@@ -22,6 +22,10 @@ void DiceEffectsObserver::update() {
 
     map<Dice::DiceOptions, int> unresolvedHand = currentPlayer->getDice()->DiceValues;
 
+    cout << "\n****************************************************************************" << endl;
+
+    cout << "-------------------- CARD EFFECT OBSERVER ----------------------------------"
+
     cout << "****************************************************************************" << endl;
     cout << "The potential effect of your roll is  : " << endl;
 

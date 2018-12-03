@@ -4,8 +4,8 @@
 
 #pragma once
 
-#import "GamePieces.h"
-#import <string>
+#include "GamePieces.h"
+#include <string>
 using namespace std;
 
 class BuildingUnitTiles {

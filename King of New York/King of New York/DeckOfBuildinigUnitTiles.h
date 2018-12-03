@@ -4,8 +4,8 @@
 
 #pragma once
 
-#import <vector>
-#import "BuildingUnitTiles.h"
+#include <vector>
+#include "BuildingUnitTiles.h"
 
 class DeckOfBuildingUnitTiles: public GamePieces {
 

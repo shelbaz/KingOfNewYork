@@ -124,7 +124,7 @@ void Dice::resolveDuringHand() {
             }
         }
 
-        if(keep == "NONE" || keep == "None") {
+        if(keep == "NONE" || keep == "None" || keep == "N") {
             next = "N";
             break;
         }

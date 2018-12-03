@@ -19,7 +19,7 @@ void ModeratePlayerStrategy::execute(Game *game, Player *player)
     // resolve the dice (mandatory) unordered
     game->resolvePlayer(player, false);
 
-    if(player->getLifePoints() == 0) {
+    if(player->getLifePoints() <= 0) {
         cout << "Player : " << player->getPlayerName() << " died while resolving dice" << endl;
         return;
     }

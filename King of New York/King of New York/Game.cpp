@@ -8,6 +8,9 @@
 #include "Strategy/ModeratePlayerStrategy.h"
 #include "Strategy/AggressivePlayerStrategy.h"
 #include "Strategy/HumanPlayerStrategy.h"
+#include <algorithm>
+#include <vector>
+#include <climits>
 
 
 vector<Player*> Game::players;
@@ -99,12 +102,17 @@ void Game::init_game_loop() {
         for(Player* player : players){
 
             cout << "It is Player: " << player->getPlayerName() << "'s Turn .... " << endl;
-
+            if(player->getLifePoints() <= 0) {
+                cout << "Player : " << player->getPlayerName() << " died !" << endl;
+                removePlayer(player);
+                return;
+            }
             // roll the dice (up to 3 times)
             player->executeStrategy(this, player);
 
             cout << "Player : " << player->getPlayerName() << " turn is over " << endl;
             winner = checkWinCondition();
+
             // end turn
         }
 
@@ -151,14 +159,18 @@ void Game::determinePlayerOrder() {
 
 void Game::assignMonsters(){
     for(auto player : players){
+        vector<int> assigned;
         int option = -1;
         cout << endl;
-        cout<< "Player :" << player->getPlayerName() << " , please select an unassigned Monster card (index)" << endl;
-        cout << deckOfMonsterCards << endl;
-        cin >> option;
-        if(option>-1){
-            player->assignMonster(deckOfMonsterCards.getDeck()[option]);
+
+        while(option < 0 || option >5 || find(assigned.begin(), assigned.end(),option)!=assigned.end()){
+            option = -1;
+            cout<< "Player :" << player->getPlayerName() << " , please select an UNASSIGNED Monster card (index)" << endl;
+            cout << deckOfMonsterCards << endl;
+            cin >> option;
         }
+        assigned.push_back(option);
+        player->assignMonster(deckOfMonsterCards.getDeck()[option]);
     }
 
     for (int i=0; i< numberOfPlayers; i++){
@@ -179,8 +191,7 @@ Player *Game::checkWinCondition() {
 
 void Game::removePlayer(Player *player) {
     // use find , do not rely on index
-    int index = player->getPlayerID();
-    players.erase(players.begin() + index);
+    players.erase(std::remove( players.begin(), players.end(), player ), players.end());
     changePlayerIndexes();
 
 }
@@ -250,14 +261,22 @@ void Game::resolvePlayer(Player *player, bool ordered) {
                                  {5, 0}};
     currentHand = player->getDice()->getLastResolvedHand();
     if(ordered) {
-        order.clear();
-        cout << "What is the order you wish to resolve ? Choose first letter of character (Ex: Attack--> A)" << endl;
+
+
+        cout << "\nWhat is the order you wish to resolve ? " << endl;
+        cout << "Choose first letter of character (Any order--> X) OR (Ex: Attack--> A)" << endl;
         for(int i=0; i<6; i++){
             if(currentHand[i] <= 0) {continue;}
             string val="";
             cin >> val;
             transform(val.begin(), val.end(), val.begin(), ::toupper);
-            order.push_back(val);
+            if (val == "X"){
+                break;
+            }
+            else{
+                order.clear();
+                order.push_back(val);
+            }
         }
     }
 
@@ -279,6 +298,9 @@ void Game::resolvePlayer(Player *player, bool ordered) {
             }
             else if(player->getZone() > 6){ // Outside manhattan
                 for(auto tempPlayer : players){
+                    if(player->getPlayerName() == tempPlayer->getPlayerName()){
+                        continue; // skip yourself if you are in manhattan
+                    }
                     if(tempPlayer->getZone() > 0 && tempPlayer->getZone() < 7){ // All players inside manhattan get -1 health
                         tempPlayer->removeLifePoints(currentHand[1]);
                         cout << "Player: "<< tempPlayer->getPlayerName() << " removed " << currentHand[1] << " energy points since he is inside manhattan" << endl;
@@ -314,6 +336,7 @@ void Game::resolvePlayer(Player *player, bool ordered) {
 void Game::buyCards(Player* player) {
     bool proceed = true;
     while(proceed){
+        cout << "\n Player: " << player->getPlayerName() << " has " << player->getEnergyCubes() << " energy cubes" <<endl;
         deckOfCards.showTopThreeCards();
         cout << "Do you wish to throw the top three cards? (Y | N)" << endl;
         std::string option;
