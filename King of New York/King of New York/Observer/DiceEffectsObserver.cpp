@@ -24,10 +24,10 @@ void DiceEffectsObserver::update() {
 
     cout << "\n****************************************************************************" << endl;
 
-    cout << "-------------------- CARD EFFECT OBSERVER ----------------------------------" << endl;
+    cout << "-------------------- DICE EFFECT OBSERVER ----------------------------------" << endl;
 
     cout << "****************************************************************************" << endl;
-    cout << "           The potential effect of your roll is  : " << endl;
+    cout << "*************  The potential effect of your roll is : **********************" << endl;
 
     if(unresolvedHand[Dice::Energy] > 0){ // Energy option
         cout << "Player: "<< currentPlayer->getPlayerName() << " added " << unresolvedHand[Dice::Energy] << " energy points" << endl;

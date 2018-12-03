@@ -8,11 +8,14 @@
 #include <vector>
 #include <string>
 #include "./Graph/StringFunctions.h"
+#include "Observer/Subject.h"
+#include "Observer/CardEffectsObserver.h"
+
 
 
 using namespace std;
 
-class StringFunctions;
+class CardEffectsObserver;
 
 class DeckOfCards: public GamePieces {
 
@@ -48,6 +51,7 @@ public:
     Cards draw(Cards const);
     void setCardFile(ifstream& file, vector<Cards>* deck);
     Cards::CardType stringToType(std::string h);
+    void displayCardEffect();
 
 
 

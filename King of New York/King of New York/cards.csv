@@ -1,12 +1,12 @@
 0, STATUE OF LIBERTY, 0, 1, {1:5:6:7:9:7}, Take this card when you roll at least 3 OUCH. Gain 3 VICTORY_POINT when you take this card. Lose 3 VICTORY_POINT when you lose this card.
 1, SUPERSTAR, 0, 1, {1:5:6:7:9:7}, Take this card when you roll at least 3 VICTORY. Gain 1 VICTORY_POINT, +1 VICTORY_POINT per additional VICTORY you rolled. While you have this card, you gain 1 VICTORY_POINT for each VICTORY you roll.
-2, OVERLOAD, 0, 2, {1:5:6:7:9:7}, Gain 4 ENERGY_POINT when you buy this card. Gain 1 ENERGY_POINT less when you roll any amount of ENERGY.
-3, SUBTERRANEAN CABLE, 0, 3, {1:5:6:7:9:7}, +4 ENERGY_POINT and take 4 damage.
-4, NATURAL SELECTION, 2, 2, {1:5:6:7:9:7}, Gain 4 ENERGY_POINT and heal 4 damage when you buy this card. You roll an extra die. If you end your turn with at least 1 VICTORY, you lose this card, and all your HEART_POINT.
-5, CARAPACE, 3, 2, {1:5:6:7:9:7}, Your HEART_POINT maximum is increased by 2 as long as you have this card. For each OUCH you roll, place a Carapace token on this card. You can discard this card to heal 1 damage for each Carapace token on it.
-6, CHINATOWN REGULAR, 3, 2, {1:5:6:7:9:7}, Heal 2 damage when you enter MANHATTAN.
-7, CLIMB THE EMPIRE STATE BUILDING, 3, 2, {1:5:6:7:9:7}, If you roll 1 of each dice type in MANHATTAN, gain 2 VICTORY_POINT and take another turn.
-8, EGO TRIP, 3, 2, {1:5:6:7:9:7}, Gain 1 ENERGY_POINT when you take Superstar and when you start your turn with it.
+2, OVERLOAD, 0, 2, {4:0:0:0:0:0}, Gain 4 ENERGY_POINT when you buy this card. Gain 1 ENERGY_POINT less when you roll any amount of ENERGY.
+3, SUBTERRANEAN CABLE, 0, 3, {4:0:0:0:0:0}, +4 ENERGY_POINT and take 4 damage.
+4, NATURAL SELECTION, 2, 2, {4:0:0:4:0:0}, Gain 4 ENERGY_POINT and heal 4 damage when you buy this card. You roll an extra die. If you end your turn with at least 1 VICTORY, you lose this card, and all your HEART_POINT.
+5, CARAPACE, 3, 2, {0:0:0:0:0:0}, Your HEART_POINT maximum is increased by 2 as long as you have this card. For each OUCH you roll, place a Carapace token on this card. You can discard this card to heal 1 damage for each Carapace token on it.
+6, CHINATOWN REGULAR, 3, 2, {0:0:0:2:0:0}, Heal 2 damage when you enter MANHATTAN.
+7, CLIMB THE EMPIRE STATE BUILDING, 3, 2, {0:0:0:0:0:0}, If you roll 1 of each dice type in MANHATTAN, gain 2 VICTORY_POINT and take another turn.
+8, EGO TRIP, 3, 2, {1:0:0:0:0:0}, Gain 1 ENERGY_POINT when you take Superstar and when you start your turn with it.
 9, FLATIRON BUILDING, 3, 3, Buy this card for 1 ENERGY_POINT less if you are in MANHATTAN. +2 VICTORY_POINT.
 10, LONG NECK, 3, 2, You only need 2 DESTRUCTION to destroy a Jet.
 11, SCAVENGER, 3, 2, You can buy KEEP cards from the discard by spending 1 ENERGY_POINT less than their cost.

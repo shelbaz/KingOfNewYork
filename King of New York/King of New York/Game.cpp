@@ -91,6 +91,7 @@ int Game::init_game_dependencies() {
     assignMonsters();
     setStartingLocationOfPlayers();
     setPlayerStrategies();
+    attach(new CardEffectsObserver(this));
     return numb;
 }
 
@@ -332,17 +333,14 @@ void Game::resolvePlayer(Player *player, bool ordered) {
 
         }
     }
-
-
-
-
 }
 
 void Game::buyCards(Player* player) {
     bool proceed = true;
     while(proceed){
         cout << "\n Player: " << player->getPlayerName() << " has " << player->getEnergyCubes() << " energy cubes" <<endl;
-        deckOfCards.showTopThreeCards();
+        notify();
+//        deckOfCards.showTopThreeCards();
         cout << "Do you wish to throw the top three cards? (Y | N)" << endl;
         std::string option;
         cin >> option;
@@ -359,7 +357,8 @@ void Game::buyCards(Player* player) {
     }
 
     cout << "Current top 3 cards ------- " << endl;
-    deckOfCards.showTopThreeCards();
+    notify();
+//    deckOfCards.showTopThreeCards();
     std::string option;
     cout << "------------------------------------" << endl;
     cout << "Player: "<< player->getPlayerName() << " has " << player->getEnergyCubes() << " energy cubes" << endl;
@@ -435,6 +434,73 @@ Player *Game::getPlayerByID(int playerId) {
             return player;
         }
     }
+}
+
+void Game::cardRules(Player* player, int cardInt) {
+    // 0= "Energy", 1="Attack", 2="Destruction", 3="Heal", 4="Celebrity", 5="Ouch"
+
+    switch(cardInt){
+        case 0:
+            if(player->getDice()->getLastResolvedHand()[5]> 2){
+                player->addVictoryPoints(3);
+                cout << "Player : " << player->getPlayerName() << " added 3 victory points" << endl;
+
+            }
+            else{
+                cout << "Cannot take this card, must roll atleast 3 Ouch!" << endl;
+            }
+            break;
+        case 1:
+
+            break;
+        case 2:
+            if(player->getDice()->getLastResolvedHand()[0]>0){
+                player->removeEnergyCubes(1);
+                cout << "Player : " << player->getPlayerName() << " removed 1 energy cube" << endl;
+
+            }
+            break;
+        case 3:
+            player->removeLifePoints(4);
+            cout << "Player : " << player->getPlayerName() << " took 4 damage" << endl;
+            break;
+        case 4:
+
+            break;
+        case 5:
+
+            break;
+        case 6:
+
+            break;
+        case 7:
+
+            break;
+        case 8:
+
+            break;
+        case 9:
+            if(player->getZone() > 0 && player->getZone() < 7){
+                player->addEnergyCubes(1);
+                cout << "Player : " << player->getPlayerName() << " added 1 energy cube because he is in Manhattan" << endl;
+            }
+            player->addVictoryPoints(2);
+            cout << "Player : " << player->getPlayerName() << " added 2 victory pts" << endl;
+            break;
+        case 18:
+            if(player->getZone() ==10) {
+                player->addEnergyCubes(1);
+                cout << "Player : " << player->getPlayerName() << " added 1 energy cube because he is in Brooklyn" << endl;
+
+            }
+            player->addVictoryPoints(3);
+            cout << "Player : " << player->getPlayerName() << " added 3 victory pts" << endl;
+            break;
+        default:
+            break;
+    }
+
+
 }
 
 

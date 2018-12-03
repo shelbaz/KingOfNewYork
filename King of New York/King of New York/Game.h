@@ -12,12 +12,13 @@
 #include "Dice.h"
 #include "MapLoader.h"
 #include "Map.h"
+#include "Observer/Subject.h"
 
 using namespace std;
 class Player;
 class Map;
 
-class Game {
+class Game: public Subject {
 
 public:
 
@@ -54,10 +55,13 @@ public:
     void setPlayerStrategies();
     void assignMonsters();
 
+    void cardRules(Player*, int);
+
+
     static vector<Player*> players;
 
 
-private:
+protected:
     Map* newYork;
 
     vector<Player*> playersTemp;

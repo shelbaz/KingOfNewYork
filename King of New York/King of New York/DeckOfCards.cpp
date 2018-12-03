@@ -37,6 +37,7 @@ DeckOfCards::DeckOfCards() {
     }
     shuffle();
     shuffle();
+
 }
 
 DeckOfCards::~DeckOfCards() {
@@ -101,12 +102,7 @@ void DeckOfCards::showTopCard() {
 
 // print out top 3 cards, does not remove them
 void DeckOfCards::showTopThreeCards() {
-    Cards one = deck->back();
-    Cards two = deck->at(deck->size() -2);
-    Cards three = deck->at(deck->size() -3);
-    cout << "Card 1 : " << one << endl;
-    cout << "Card 2 : " << two << endl;
-    cout << "Card 3 : " << three << endl;
+//    notify();
 }
 
 // return top 3 cards, does not remove it
@@ -184,9 +180,3 @@ Cards::CardType DeckOfCards::stringToType(std::string  h) {
         default: return Cards::Discard;
     }
 }
-
-
-
-
-
-
