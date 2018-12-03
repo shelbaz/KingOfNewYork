@@ -36,7 +36,7 @@ void CardEffectsObserver::update() {
         cout << "****************************************************************************" << endl;
         switch(card.getId()){
             case 0:
-                cout << "Player will add 3 victory points if he rolls more than 2 Ouches" << endl;
+                cout << "Player will add 3 victory points IF he rolls more than 2 Ouches" << endl;
                 break;
             case 1:
 
@@ -63,11 +63,11 @@ void CardEffectsObserver::update() {
 
                 break;
             case 9:
-                cout << "Player will add 1 energy cube because if he is in Manhattan" << endl;
+                cout << "Player will add 1 energy cube IF he is in Manhattan" << endl;
                 cout << "Player will add 2 victory pts" << endl;
                 break;
             case 18:
-                cout << "Player will add 1 energy cube if he is in Brooklyn" << endl;
+                cout << "Player will add 1 energy cube IF he is in Brooklyn" << endl;
                 cout << "Player will add 3 victory pts" << endl;
                 break;
         }

@@ -55,8 +55,7 @@ public:
     void setPlayerStrategies();
     void assignMonsters();
 
-    void cardRules(Player*, int);
-
+    static void cardRules(Player*, int);
 
     static vector<Player*> players;
 

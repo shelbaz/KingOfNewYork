@@ -18,6 +18,7 @@ DeckOfCards::DeckOfCards() {
     deck->reserve(8); // 64 regular
     specialDeck->reserve(NUMBER_OF_SPECIAL_CARDS); //2 special cards
 
+    // cards2 has full logic implementation of 5 cards, and full details of 30 cards
     std::string  fileName= "cards2.csv";
     ifstream file(fileName);
 

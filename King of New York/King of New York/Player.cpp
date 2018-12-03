@@ -88,6 +88,7 @@ void Player::buyCards(Cards card) {
     }
     else{
         this->removeEnergyCubes(card.getEnergyCost());
+        Game::cardRules(this, card.getId());
         this->addCard(card);
     }
 

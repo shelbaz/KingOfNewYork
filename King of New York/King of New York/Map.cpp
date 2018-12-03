@@ -32,6 +32,7 @@ bool Map::moveComputer(Player* player, string type){
     if(type == "aggressive") {
         for(int i=1; (i>0 && i<11); i++){
             if(!isRegionFull(i)){
+                removeRegionOwner(player);
                 setRegionOwner(i, player);
                 success=true;
             }
@@ -40,6 +41,7 @@ bool Map::moveComputer(Player* player, string type){
     else if(type == "moderate"){
         for(int i=1; (i>0 && i<11); i++){
             if(!isRegionFull(i)){
+                removeRegionOwner(player);
                 setRegionOwner(i, player);
                 success=true;
             }
@@ -48,6 +50,7 @@ bool Map::moveComputer(Player* player, string type){
     else if (type == "outmanhattan"){
         for(int i=6; (i>6 && i<11); i++){
             if(!isRegionFull(i)){
+                removeRegionOwner(player);
                 setRegionOwner(i, player);
                 success=true;
             }

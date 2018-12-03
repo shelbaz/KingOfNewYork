@@ -31,10 +31,12 @@ void ModeratePlayerStrategy::execute(Game *game, Player *player)
         std::string choice;
         if(player->getZone() == 1) {  // Manhattan Lower 2-4
             player->setZone(2);
+            game->getGameMap()->removeRegionOwner(player);
             game->getGameMap()->setRegionOwner(2, player);
         }
         else if(player->getZone() == 2) {  // Manhattan Midtown 2-4
             player->setZone(3);
+            game->getGameMap()->removeRegionOwner(player);
             game->getGameMap()->setRegionOwner(3, player);
         }
         else if(player->getZone() == 3) {  // Manhattan Upper 2-4
@@ -42,10 +44,12 @@ void ModeratePlayerStrategy::execute(Game *game, Player *player)
         }
         else if(player->getZone() == 4) {  // Manhattan Lower 5-6
             player->setZone(5);
+            game->getGameMap()->removeRegionOwner(player);
             game->getGameMap()->setRegionOwner(5, player);
         }
         else if(player->getZone() == 5) {  // Manhattan Midtown 5-6
             player->setZone(6);
+            game->getGameMap()->removeRegionOwner(player);
             game->getGameMap()->setRegionOwner(6, player);
         }
         else if(player->getZone() == 6) {  // Manhattan Upper 5-6
@@ -60,11 +64,13 @@ void ModeratePlayerStrategy::execute(Game *game, Player *player)
             player->setPhase(Player::Phase::Move);
             if (game->getNumberOfPlayers() < 5){
                 player->setZone(1);
+                game->getGameMap()->removeRegionOwner(player);
                 game->getGameMap()->setRegionOwner(1, player);
                 cout << "Player : " << player->getPlayerName() << " is in : " << player->getZoneName() << endl;
             }
             else{
                 player->setZone(4);
+                game->getGameMap()->removeRegionOwner(player);
                 game->getGameMap()->setRegionOwner(4, player);
                 cout << "Player : " << player->getPlayerName() << " is in : " << player->getZoneName() << endl;
             }

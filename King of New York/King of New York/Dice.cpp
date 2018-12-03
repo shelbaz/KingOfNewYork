@@ -22,6 +22,7 @@ Dice::Dice() {
 
     vector< map < DiceOptions, int> > ::iterator it;
 
+    // Attach the observer
     attach(new DiceEffectsObserver(this));
 
 }
@@ -471,6 +472,7 @@ void Dice::rollDice(int amtOfDice) {
 
         storeDiceResult(DiceValues);
 
+        // Dice Observer
         notify();
 
         resolveDuringHand();
