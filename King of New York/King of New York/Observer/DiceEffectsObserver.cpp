@@ -24,10 +24,10 @@ void DiceEffectsObserver::update() {
 
     cout << "\n****************************************************************************" << endl;
 
-    cout << "-------------------- CARD EFFECT OBSERVER ----------------------------------"
+    cout << "-------------------- CARD EFFECT OBSERVER ----------------------------------" << endl;
 
     cout << "****************************************************************************" << endl;
-    cout << "The potential effect of your roll is  : " << endl;
+    cout << "           The potential effect of your roll is  : " << endl;
 
     if(unresolvedHand[Dice::Energy] > 0){ // Energy option
         cout << "Player: "<< currentPlayer->getPlayerName() << " added " << unresolvedHand[Dice::Energy] << " energy points" << endl;
@@ -37,14 +37,17 @@ void DiceEffectsObserver::update() {
         if(currentPlayer->getZone()>0 && currentPlayer->getZone() < 7) { // In Manhattan
             for(auto tempPlayer : Game::players){
                 if(tempPlayer->getZone() > 6){ // All players outside manhattan get -1 health
-                    cout << "Player: "<< tempPlayer->getPlayerName() << " removed " << unresolvedHand[Dice::Attack] << " energy points since he is outside manhattan" << endl;
+                    cout << "Player: "<< tempPlayer->getPlayerName() << " removed " << unresolvedHand[Dice::Attack] << " life points since he is outside manhattan" << endl;
                 }
             }
         }
         else if(currentPlayer->getZone() > 6){ // Outside manhattan
             for(auto tempPlayer : Game::players){
+                if(tempPlayer->getPlayerName() == currentPlayer->getPlayerName()){
+                    continue;
+                }
                 if(tempPlayer->getZone() > 0 && tempPlayer->getZone() < 7){ // All players inside manhattan get -1 health
-                    cout << "Player: "<< tempPlayer->getPlayerName() << " removed " << unresolvedHand[Dice::Attack] << " energy points since he is inside manhattan" << endl;
+                    cout << "Player: "<< tempPlayer->getPlayerName() << " removed " << unresolvedHand[Dice::Attack] << " life points since he is inside manhattan" << endl;
                 }
             }
         }

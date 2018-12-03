@@ -105,7 +105,7 @@ void Game::init_game_loop() {
             if(player->getLifePoints() <= 0) {
                 cout << "Player : " << player->getPlayerName() << " died !" << endl;
                 removePlayer(player);
-                return;
+                continue;
             }
             // roll the dice (up to 3 times)
             player->executeStrategy(this, player);

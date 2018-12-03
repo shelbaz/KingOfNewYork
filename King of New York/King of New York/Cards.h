@@ -31,7 +31,7 @@ public:
 
     Cards();
 
-    void setCard(int id, std::string name, int energyCost, CardType type, std::string description);
+    void setCard(int id, std::string name, int energyCost, CardType type, std::string description, vector<int>);
     friend ostream& operator<<(ostream& os, const Cards& card);
     bool operator==(const Cards& other);
 

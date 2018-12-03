@@ -7,9 +7,12 @@
 #include "GamePieces.h"
 #include <vector>
 #include <string>
+#include "./Graph/StringFunctions.h"
 
 
 using namespace std;
+
+class StringFunctions;
 
 class DeckOfCards: public GamePieces {
 
@@ -44,7 +47,7 @@ public:
     Cards draw();
     Cards draw(Cards const);
     void setCardFile(ifstream& file, vector<Cards>* deck);
-    Cards::CardType stringToType(std::string  h);
+    Cards::CardType stringToType(std::string h);
 
 
 

@@ -10,12 +10,13 @@
 std::string card_type[4] = { "Empty", "Goal", "Keep", "Discard" };
 
 
-void Cards::setCard(int id, std::string name, int energyCost, CardType type, std::string description) {
+void Cards::setCard(int id, std::string name, int energyCost, CardType type, std::string description, vector<int> effect) {
     this->id = id;
     this->name = std::move(name);
     this->description = std::move(description);
     this->type = type;
     this->energyCost = energyCost;
+    this->effect = effect;
 }
 
 ostream & operator<<(ostream & os, const Cards& card){

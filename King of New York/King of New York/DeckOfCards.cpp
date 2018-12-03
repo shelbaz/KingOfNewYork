@@ -1,9 +1,4 @@
 #include <random>
-
-//
-// Created by Shawn Elbaz on 2018-10-12.
-//
-
 #include "DeckOfCards.h"
 #include "Cards.h"
 #include <string>
@@ -11,6 +6,7 @@
 #include <vector>
 #include <iostream>
 #include <fstream>
+#include "Graph/StringFunctions.h"
 
 // Init properties later with a CSV File ****
 // Push 66 cards onto the deck
@@ -149,6 +145,9 @@ vector<Cards> *DeckOfCards::getSpecialDeck() {
 
 void DeckOfCards::setCardFile(ifstream& file, vector<Cards>* deck) {
     std::string  name, lineNum, cost, rewardType, description, effect;
+    vector<int>effectArr = {0,0,0,0,0,0};
+    vector<std::string> effectStringArr;
+
     Cards card;
     getline(file, lineNum, ',');
     getline(file, name, ',');
@@ -156,8 +155,16 @@ void DeckOfCards::setCardFile(ifstream& file, vector<Cards>* deck) {
     getline(file, rewardType, ',');
     getline(file, effect, ',');
     getline(file, description);
-    cout << effect;
-    card.setCard(stoi(lineNum), name, stoi(cost), stringToType(rewardType), description);
+    std::replace( effect.begin(), effect.end(), '{', ' ');
+    std::replace( effect.begin(), effect.end(), '}', ' ');
+    effectStringArr = libString::stringtoArray(effect);
+    int index=0;
+    for(auto element : effectStringArr){
+        int value = libString::ofToInt(element);
+        effectArr[index] = value;
+        index++;
+    }
+    card.setCard(stoi(lineNum), name, stoi(cost), stringToType(rewardType), description, effectArr);
     deck->push_back(card);
 }
 
