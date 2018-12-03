@@ -8,6 +8,7 @@
 #include <algorithm>
 #include <vector>
 #include <iostream>
+#include <time.h>
 
 
 // Push 45 unit tiles to Deck (vector): generic name, value, index
